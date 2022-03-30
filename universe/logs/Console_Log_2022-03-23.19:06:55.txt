@@ -1,0 +1,25 @@
+main'd
+loading configuration...
+loaded configuration: DNE: DNE
+loaded configuration: db_addr: localhost
+loaded configuration: db_name: rztech
+loaded configuration: db_user: root
+loaded configuration: db_pass: admin
+loaded configuration: DNE: DNE
+config loaded.
+[Console] Initialized!
+[DatabaseManager] Attempting database connection to jdbc:mysql://localhost:3306/rztech?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Chicago
+[DatabaseManager] Error connecting to database.
+java.sql.SQLSyntaxErrorException: Unknown database 'rztech'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:197)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.db.DatabaseManager.connect(DatabaseManager.java:268)
+	at com.db.DatabaseManager.run(DatabaseManager.java:62)
+	at java.base/java.lang.Thread.run(Thread.java:831)
