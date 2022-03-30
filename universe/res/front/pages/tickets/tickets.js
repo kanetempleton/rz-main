@@ -129,8 +129,8 @@ $.ajax({
             if (result == 'retry') {
                 tryemployeequery();
             }
-            else if (result == 'success') { // TODO
-                document.getElementById("employeeStatusCode").innerHTML = "Ticket #"+ticketID+" successfully created!";
+            else if (result.startsWith('success')) { // TODO
+                document.getElementById("employeeStatusCode").innerHTML = "Ticket #"+result.split(":")[1]+" successfully created!";
 //                document.getElementById("output").innerHTML = "ticket.id<br>ticket.title<br>ticket.customer<br>ticket.status<br>ticket.info";
             }
             else if (result == 'inprogress') { //TODO
