@@ -1,10 +1,14 @@
 package com.tickets;
 
+import com.server.entity.*;
+import com.db.*;
+
 
 public class Ticket {
 
     private int id;
     private String title,custName,custEmail,custPhone,info,due,status;
+    private TicketProcessing manager;
     public Ticket(int id, String title, String customerName, String customerEmail, String customerPhone, String info, String due) {
         this.id=id;
         this.title = title;
