@@ -1,1 +1,11 @@
-./.idea/*
+.DS_Store
+.DS_Store?
+*.DS_Store*
+._*
+.iml
+.idea
+/.idea
+*.idea
+*/logs/Console*.txt
+*/out/com
+*.gitignore
