@@ -71,6 +71,40 @@ $.ajax({
 }
 
 
+function tryshowquery() {
+console.log("tryshowquery()");
+
+const URL='fuzz'
+
+	const sendme={
+	    packet:502,
+		end:0
+	}
+	document.getElementById("employeeStatusCode").innerHTML = "Retrieving information...";
+$.ajax({
+        url: URL,
+        type: 'POST',
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        data: sendme,
+        success: function(result) {
+            // Do something with the result
+            console.log(result)
+
+            if (result == 'retry') {
+                tryshowquery();
+            }
+            else if (result.startsWith('alltickets')) { // TODO
+                document.getElementById("employeeStatusCode").innerHTML = "Tickets have been retrieved! Check below for data.";
+                document.getElementById("output").innerHTML = result.split(";;;")[1];
+            }
+            else {
+                document.getElementById("employeeStatusCode").innerHTML = "Unrecognized server response.";
+            }
+        }
+    });
+}
+
+
 function tryemployeequery() {
 console.log("tryemployeequery()");
 
@@ -155,6 +189,10 @@ submitButton.addEventListener ("click", function() {
 var employeeAddButton = document.getElementById("newTicketButton");
 employeeAddButton.addEventListener ("click", function() {
     tryemployeequery();
+});
+var showAllTicketsButton = document.getElementById("showAllTicketsButton");
+showAllTicketsButton.addEventListener ("click", function() {
+    tryshowquery();
 });
 
 

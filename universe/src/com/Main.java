@@ -22,16 +22,14 @@ public class Main {
         launcher.addDatabaseManager();
         launcher.addLoginHandler();
         launcher.addCareTaker(18000000);
-        Server http = new Server(new HTTP("res/front/",6969) {
-            public void processCustomMessage(ServerConnection c, String m) {
-                //System.out.println("BALLSBALLSBALLSBALLS: "+m);
-            }
-        });
+        HTTP http_protocol = new HTTP("res/front/",6969);
+     //   http_protocol.addRoute("/employee","/pages/portal/portal.html");
+     //   http_protocol.addRoute("/tickets","/pages/tickets/tickets.html");
+        Server http = new Server(http_protocol);
+
         TicketProcessing ticketManager = new TicketProcessing();
         WebPackets wp = new WebPackets() {
             public void processPOST(ServerConnection c, String uri, int packetID, String[] fields, String[] values) {
-
-                System.out.println("[from the app] Custom POST processing for uri="+uri+", packetID="+packetID);
 
                 if (packetID >= 500 && packetID <= 600) {
                     ticketManager.processPOST(c,uri,packetID,fields,values);

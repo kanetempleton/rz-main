@@ -28,6 +28,11 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
 
     public static final int QUERYTYPE_NEWTICKET = 1000;
     public static final int QUERYTYPE_GENERATE_TICKET_ID = 1001;
+    public static final int QUERYTYPE_SEARCH_TICKETS = 1002;
+
+    public static final int PACKETTYPE_CUSTOMER_VIEW_TICKET = 500;
+    public static final int PACKETTYPE_EMPLOYEE_NEW_TICKET = 501;
+    public static final int PACKETTYPE_EMPLOYEE_VIEW_ALL_TICKETS = 502;
 
 
     // CUSTOMER RESPONSE CODES
@@ -36,6 +41,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     private static final String RESPONSE_IN_PROGRESS = "inprogress";
     private static final String RESPONSE_SUCCESS = "success";
     private static final String RESPONSE_FAILURE = "failure";
+    private static final String RESPONSE_SHOW_TICKETS = "alltickets";
 
     private void reply(ServerConnection c, String code) {
         c.sendMessage(HTTP.HTTP_OK+"\r\n"+code);
@@ -48,50 +54,79 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         System.out.println("[TicketProcessing] Processing ticket query...");
 
         switch (packetID) {
-            case 500: //customer looks up their info
+            case PACKETTYPE_CUSTOMER_VIEW_TICKET: //customer looks up their info
                 reply(c, RESPONSE_NO_TICKET);
                 break;
-            case 501: //employee enters a ticket
-                System.out.println("[TicketProcessing] Create new ticket");
-                int[] ticketid = {0};
-                generateNewTicketID(ticketid);
-                while (ticketid[0] == 0) {
-
-                }
-                String title, name, email, phone, info, due, status;
-                title = name = email = phone = info = due = status = "";
-                for (int i = 0; i < fields.length; i++) {
-                    System.out.println("fields[i]=" + fields[i] + ", values[i]=" + values[i]);
-                    if (fields[i].equals("customerName"))
-                        name = values[i];
-                    if (fields[i].equals("customerPhone"))
-                        phone = values[i];
-                    if (fields[i].equals("customerEmail"))
-                        email = values[i];
-                    if (fields[i].equals("title"))
-                        title = values[i];
-                    if (fields[i].equals("info"))
-                        info = values[i];
-                    if (fields[i].equals("due"))
-                        due = values[i];
-                }
-                Ticket T = new Ticket(ticketid[0], title, name, email, phone, info, due);
-                System.out.println("ticket created!");
-                storeTicket(T,c,QUERYTYPE_NEWTICKET);
-              /*  new ServerQuery(this,c,QUERYTYPE_NEWTICKET,"insert into tickets(ticket_id,title,customerName,customerPhone,customerEmail,info,status,dueDate) VALUES("+ticketid[0]+","+title+","+name+","+) {
-                    public void done() {
-                        System.out.println("selected all tickets! response = ");
-                        for (String r: this.getResponses()) {
-                            System.out.println(r);
-                        }
-                    }
-                };*/
-                //    public Ticket(int id, String title, String customerName, String customerEmail, String customerPhone, String info, String due) {
-
-                //reply(c, RESPONSE_IN_PROGRESS);
+            case PACKETTYPE_EMPLOYEE_NEW_TICKET: //employee enters a ticket
+                enterNewTicket(c,fields,values);
+                break;
+            case PACKETTYPE_EMPLOYEE_VIEW_ALL_TICKETS:
+                queryAllTickets(c);
                 break;
         }
 
+    }
+
+    private void enterNewTicket(ServerConnection c, String[] fields, String[] values) {
+        System.out.println("[TicketProcessing] Create new ticket");
+        int[] ticketid = {0};
+        generateNewTicketID(ticketid);
+        while (ticketid[0] == 0) {
+
+        }
+        String title, name, email, phone, info, due, status;
+        title = name = email = phone = info = due = status = "";
+        for (int i = 0; i < fields.length; i++) {
+            System.out.println("fields[i]=" + fields[i] + ", values[i]=" + values[i]);
+            if (fields[i].equals("customerName"))
+                name = values[i];
+            if (fields[i].equals("customerPhone"))
+                phone = values[i];
+            if (fields[i].equals("customerEmail"))
+                email = values[i];
+            if (fields[i].equals("title"))
+                title = values[i];
+            if (fields[i].equals("info"))
+                info = values[i];
+            if (fields[i].equals("due"))
+                due = values[i];
+        }
+        Ticket T = new Ticket(ticketid[0], title, name, email, phone, info, due);
+        storeTicket(T,c,QUERYTYPE_NEWTICKET);
+    }
+
+    private void queryAllTickets(ServerConnection c) {
+        new ServerQuery(this,c,QUERYTYPE_SEARCH_TICKETS,"select ticket_id,title,customerName,status,dueDate from tickets;") {
+            String buildHTML = "<pre>[Ticket ID]\t\t\t[Title]\t\t\t[Customer Name]\t\t\t[Status]\t\t\t[Due Date]</pre><br>";
+
+            public void done() {
+              //  buildHTML += "<pre>69420\t\tbroken phone\t\tbob\t\tawaiting diagnosis\t\t4/20/2022</pre><br>";
+                for (int i=0; i<this.getResponses().size(); i++) {
+                    String r = this.getResponses().get(i);
+                    String[][] fv = this.responseParams(i);
+                    buildHTML += "<pre><a href=\"viewticket.html\">"+this.responseParamValue(i,"ticket_id")+"</a>\t\t\t";
+                    buildHTML += ""+this.responseParamValue(i,"title")+"\t\t\t";
+                    buildHTML += ""+this.responseParamValue(i,"customerName")+"\t\t\t";
+                    buildHTML += ""+this.responseParamValue(i,"status")+"\t\t\t";
+                    buildHTML += ""+this.responseParamValue(i,"due")+"</pre><br>";
+                  //  buildHTML+="Data for Ticket #"+this.responseParamValue(i,"ticket_id")+"<br>- - - - - - - - - - - - - - -<br>";
+                 /*   for (int j=0; j<fv[0].length; j++) {
+                        String field = fv[0][j];
+                        String value = fv[1][j];
+
+                        buildHTML+= field+": "+value+"<br>";
+
+                    }*/
+                //    buildHTML+="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>";
+                }
+               /* for (String x: this.getResponses()) {
+                    buildHTML+= "{"+x+"}<br>";
+                }
+                */
+
+                reply(c,RESPONSE_SHOW_TICKETS+";;;"+buildHTML);
+            }
+        };
     }
 
     private void generateNewTicketID(int[] buf) {
