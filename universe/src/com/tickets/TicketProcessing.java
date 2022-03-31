@@ -29,6 +29,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     public static final int QUERYTYPE_NEWTICKET = 1000;
     public static final int QUERYTYPE_GENERATE_TICKET_ID = 1001;
     public static final int QUERYTYPE_SEARCH_TICKETS = 1002;
+    public static final int QUERYTYPE_VIEW_TICKET = 1003;
 
     public static final int PACKETTYPE_CUSTOMER_VIEW_TICKET = 500;
     public static final int PACKETTYPE_EMPLOYEE_NEW_TICKET = 501;
@@ -65,6 +66,31 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                 break;
         }
 
+    }
+
+    public byte[] processGET(HTTP http, ServerConnection c, String uri, String[] fields, String[] values) {
+        boolean properFormat = false;
+        String ticketid = "";
+        for (int i=0; i<fields.length; i++) {
+            if (fields[i].equals("id")) {
+                properFormat=true;
+                ticketid = values[i];
+            }
+        }
+        if (!properFormat)
+            return null;
+
+        c.setNeedsReply(true);
+        new ServerQuery(this,c,QUERYTYPE_VIEW_TICKET, "select * from tickets where ticket_id='"+ticketid+"'") {
+            public void done() {
+                //reply();
+                String r = http.multiHTMLResponse_noTags(http.HTTP_OK,new String[]{http.fileHTML_noTags(uri),this.getResponse()});
+               // reply(c,r);
+                c.sendMessage(r);
+                c.disconnect();
+            }
+        };
+        return http.WAIT_FOR_RESPONSE.getBytes();
     }
 
     private void enterNewTicket(ServerConnection c, String[] fields, String[] values) {
@@ -104,7 +130,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                 for (int i=0; i<this.getResponses().size(); i++) {
                     String r = this.getResponses().get(i);
                     String[][] fv = this.responseParams(i);
-                    buildHTML += "<pre><a href=\"viewticket.html\">"+this.responseParamValue(i,"ticket_id")+"</a>\t\t\t";
+                    buildHTML += "<pre><a href=\"tickets.html?id="+this.responseParamValue(i,"ticket_id")+"\">"+this.responseParamValue(i,"ticket_id")+"</a>\t\t\t";
                     buildHTML += ""+this.responseParamValue(i,"title")+"\t\t\t";
                     buildHTML += ""+this.responseParamValue(i,"customerName")+"\t\t\t";
                     buildHTML += ""+this.responseParamValue(i,"status")+"\t\t\t";

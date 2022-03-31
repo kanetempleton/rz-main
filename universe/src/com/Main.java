@@ -22,12 +22,26 @@ public class Main {
         launcher.addDatabaseManager();
         launcher.addLoginHandler();
         launcher.addCareTaker(18000000);
-        HTTP http_protocol = new HTTP("res/front/",6969);
+        TicketProcessing ticketManager = new TicketProcessing();
+
+        HTTP http_protocol = new HTTP("res/front/",6969) {
+            public byte[] processGET(ServerConnection c, String uri, String[] fields, String[] values) {
+                if (uri.endsWith("/tickets.html") && fields.length>0) {
+                    return ticketManager.processGET(this,c,uri,fields,values);
+                    //c.setNeedsReply(true);
+                    //return WAIT_FOR_RESPONSE;
+                    //return multiHTMLResponse_noTags(HTTP_OK,new String[]{fileHTML_noTags(uri),"<h1>FREE DATA!!!</h1>"}).getBytes();
+                    //return multiHTMLResponse_noTags(HTTP_OK,new String[]{"<h1> RZ BASED </h1>",fileHTML_noTags(uri)}).getBytes();
+                    //return multiHTMLResponse(HTTP_OK,new String[]{"<h1> RZ BASED </h1>",fileHTML(uri)}).getBytes();//fileResponse(HTTP_OK,uri).getBytes();
+                }
+                return null;
+            }
+        };
      //   http_protocol.addRoute("/employee","/pages/portal/portal.html");
      //   http_protocol.addRoute("/tickets","/pages/tickets/tickets.html");
         Server http = new Server(http_protocol);
 
-        TicketProcessing ticketManager = new TicketProcessing();
+
         WebPackets wp = new WebPackets() {
             public void processPOST(ServerConnection c, String uri, int packetID, String[] fields, String[] values) {
 

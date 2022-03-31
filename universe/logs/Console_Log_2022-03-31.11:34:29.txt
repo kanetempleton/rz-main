@@ -1,0 +1,70 @@
+main'd
+loading configuration...
+loaded configuration: DNE: DNE
+loaded configuration: db_addr: localhost
+loaded configuration: db_name: rztech
+loaded configuration: db_user: root
+loaded configuration: db_pass: admin
+loaded configuration: DNE: DNE
+config loaded.
+[Console] Initialized!
+[DatabaseManager] Attempting database connection to jdbc:mysql://localhost:3306/rztech?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Chicago
+[DatabaseManager] Connection opened successfully!
+[LoginHandler] Login handler launched successfully!
+[DatabaseManager] Attempting query: create table if not exists maps(mapcode INTEGER, data TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists users(id INTEGER PRIMARY KEY AUTO_INCREMENT, username TEXT, password TEXT, email TEXT, privileges INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists players(username TEXT, x INTEGER, y INTEGER, z INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists settings(name TEXT, value TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists bans(name TEXT, ip TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select name from bans where name!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select ip from bans where ip!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[CareTaker] Server caretaker started successfully!
+[HTTP] Attempting to start server on port 6969...
+[HTTP] Started successfully!
+[TCP] Attempting to start server on port 43594...
+[TCP] Started successfully!
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62254,localport=6969]
+nextCon,numCon,MAXCON:0,1,100
+Registered new connectionID=0 to Socket[addr=/127.0.0.1,port=62254,localport=6969]
+GET params found: type = 5
+[HTTP] [Request] GET res/front/pages/tickets/tickets.html from [Connection: id=0 port=62254 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+checking route: /pages/tickets/tickets.html
+custom get was success
+printing fields and values:
+type = 5
+sending reply to [Connection: id=0 port=62254 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29986 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2432
+[Server] [DEBUG] b1 array size = 2432; capacity = 2432; limit = 2432 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62254,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62255,localport=6969]
+nextCon,numCon,MAXCON:1,1,100
+Registered new connectionID=1 to Socket[addr=/127.0.0.1,port=62255,localport=6969]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=1 port=62255 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+checking route: /style/rzstyle.css
+sending reply to [Connection: id=1 port=62255 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62255,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62256,localport=6969]
+nextCon,numCon,MAXCON:2,1,100
+Registered new connectionID=2 to Socket[addr=/127.0.0.1,port=62256,localport=6969]
+[HTTP] [Request] GET res/front/pages/tickets/tickets.js from [Connection: id=2 port=62256 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking route: /pages/tickets/tickets.js
+sending reply to [Connection: id=2 port=62256 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62256,localport=6969]
