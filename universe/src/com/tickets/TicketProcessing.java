@@ -7,12 +7,13 @@ import com.db.*;
 
 public class TicketProcessing extends DatabaseUtility implements Runnable {
 
+    private String tableName;
     public TicketProcessing() {
-
+        tableName="tickets";
     }
 
     public void run() {
-
+       // initTable();
     }
 
     public void serverAction(ServerQuery q) {
@@ -180,6 +181,20 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                 reply(c,RESPONSE_SUCCESS+":"+T.getId());
                // c.sendMessage(HTTP.HTTP_OK+"\r\n"+RESPONSE_SUCCESS);
                // c.disconnect();
+            }
+        };
+    }
+
+    public void initTable() {
+        new ServerQuery(this,"SHOW TABLES LIKE \""+tableName+"\"") {
+            public void done() {
+                if (this.responseSize()==0) {
+                    new ServerQuery(this.util(),"CREATE TABLE "+tableName+"(ticket_id TEXT, title TEXT, customerName TEXT, customerPhone TEXT, customerEmail TEXT, info TEXT, status TEXT, dueDate TEXT)") {
+                        public void done() {
+                            System.out.println("Successfully initialized database table: tickets");
+                        }
+                    };
+                }
             }
         };
     }

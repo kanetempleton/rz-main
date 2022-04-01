@@ -24,6 +24,7 @@ public class Main {
         launcher.addCareTaker(18000000);
 
         TicketProcessing ticketManager = new TicketProcessing();
+        //launcher.loadThread(ticketManager);
 
         HTTP http_protocol = new HTTP("res/front/",80) {
             public byte[] processGET(ServerConnection c, String uri, String[] fields, String[] values) {
@@ -60,6 +61,7 @@ public class Main {
         tcp.setWebPacketHandler(wp);
         launcher.loadThread(http);
         launcher.loadThread(tcp);
+        launcher.loadThread(ticketManager);
        // launcher.addHTTPServer(6969);
        // launcher.addTCPServer(43594);
         //launcher.addWebSocketServer(42069);
