@@ -25,7 +25,7 @@ public class Main {
 
         TicketProcessing ticketManager = new TicketProcessing();
 
-        HTTP http_protocol = new HTTP("res/front/",6969) {
+        HTTP http_protocol = new HTTP("res/front/",80) {
             public byte[] processGET(ServerConnection c, String uri, String[] fields, String[] values) {
                 if (uri.endsWith("/tickets.html") && fields.length>0) {
                     return ticketManager.processGET(this,c,uri,fields,values);
@@ -42,9 +42,9 @@ public class Main {
      //   http_protocol.addRoute("/tickets","/pages/tickets/tickets.html");
         Server http = new Server(http_protocol);
 
-        HTTP http2 = new HTTP("res/front/index/",80);
-        Server http_redir = new Server(http2);
-        launcher.loadThread(http_redir);
+        //HTTP http2 = new HTTP("res/front/index/",80);
+        //Server http_redir = new Server(http2);
+        //launcher.loadThread(http_redir);
 
 
         WebPackets wp = new WebPackets() {
