@@ -22,6 +22,7 @@ public class Main {
         launcher.addDatabaseManager();
         launcher.addLoginHandler();
         launcher.addCareTaker(18000000);
+
         TicketProcessing ticketManager = new TicketProcessing();
 
         HTTP http_protocol = new HTTP("res/front/",6969) {
@@ -40,6 +41,10 @@ public class Main {
      //   http_protocol.addRoute("/employee","/pages/portal/portal.html");
      //   http_protocol.addRoute("/tickets","/pages/tickets/tickets.html");
         Server http = new Server(http_protocol);
+
+        HTTP http2 = new HTTP("res/front/index/",80);
+        Server http_redir = new Server(http2);
+        launcher.loadThread(http_redir);
 
 
         WebPackets wp = new WebPackets() {
