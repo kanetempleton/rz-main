@@ -3,4 +3,7 @@
 */env.cfg
 ./universe/out/*
 */*.class
+*/*.DS_Store
+*.DS_Store
+*/.DS-Store
 

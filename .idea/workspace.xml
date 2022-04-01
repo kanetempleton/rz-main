@@ -2,18 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="176ce6e1-0fc6-4078-9b03-7f89ccd1f02c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/env.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/universe/env.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/out/com/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/universe/out/com/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/out/com/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/universe/out/com/Main$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/out/com/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/universe/out/com/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/out/com/tickets/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/universe/out/com/tickets/Ticket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/out/com/tickets/TicketProcessing$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/universe/out/com/tickets/TicketProcessing$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/out/com/tickets/TicketProcessing$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/universe/out/com/tickets/TicketProcessing$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/out/com/tickets/TicketProcessing$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/universe/out/com/tickets/TicketProcessing$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/out/com/tickets/TicketProcessing$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/universe/out/com/tickets/TicketProcessing$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/out/com/tickets/TicketProcessing.class" beforeDir="false" afterPath="$PROJECT_DIR$/universe/out/com/tickets/TicketProcessing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/src/com/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/universe/src/com/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/universe/src/com/tickets/TicketProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/universe/src/com/tickets/TicketProcessing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

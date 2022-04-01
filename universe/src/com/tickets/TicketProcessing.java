@@ -13,7 +13,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     }
 
     public void run() {
-       // initTable();
+        initTable();
     }
 
     public void serverAction(ServerQuery q) {
