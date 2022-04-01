@@ -1,0 +1,152 @@
+main'd
+loading configuration...
+loaded configuration: DNE: DNE
+loaded configuration: db_addr: localhost
+loaded configuration: db_name: rztech
+loaded configuration: db_user: zezima
+loaded configuration: db_pass: doormcburger
+loaded configuration: DNE: DNE
+config loaded.
+[Console] Initialized!
+[DatabaseManager] Attempting database connection to jdbc:mysql://localhost:3306/rztech?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Chicago
+[DatabaseManager] Connection opened successfully!
+[LoginHandler] Login handler launched successfully!
+[DatabaseManager] Attempting query: create table if not exists maps(mapcode INTEGER, data TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists users(id INTEGER PRIMARY KEY AUTO_INCREMENT, username TEXT, password TEXT, email TEXT, privileges INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists players(username TEXT, x INTEGER, y INTEGER, z INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists settings(name TEXT, value TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists bans(name TEXT, ip TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select name from bans where name!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select ip from bans where ip!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[CareTaker] Server caretaker started successfully!
+[HTTP] Attempting to start server on port 6969...
+[HTTP] Started successfully!
+[TCP] Attempting to start server on port 43594...
+[TCP] Started successfully!
+[HTTP] Attempting to register connection for Socket[addr=/192.168.2.1,port=56263,localport=6969]
+nextCon,numCon,MAXCON:0,1,100
+Registered new connectionID=0 to Socket[addr=/192.168.2.1,port=56263,localport=6969]
+[HTTP] [Request] GET res/front/ from [Connection: id=0 port=56263 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=29987 
+sending reply to [Connection: id=0 port=56263 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=29963 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1038
+[Server] [DEBUG] b1 array size = 1038; capacity = 1038; limit = 1038 readOnly = false
+Disconnecting Socket[addr=/192.168.2.1,port=56263,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/192.168.2.1,port=56266,localport=6969]
+nextCon,numCon,MAXCON:1,1,100
+Registered new connectionID=1 to Socket[addr=/192.168.2.1,port=56266,localport=6969]
+[HTTP] [Request] GET res/front/ from [Connection: id=1 port=56266 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=1 port=56266 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1038
+[Server] [DEBUG] b1 array size = 1038; capacity = 1038; limit = 1038 readOnly = false
+Disconnecting Socket[addr=/192.168.2.1,port=56266,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/192.168.2.1,port=56267,localport=6969]
+nextCon,numCon,MAXCON:2,1,100
+Registered new connectionID=2 to Socket[addr=/192.168.2.1,port=56267,localport=6969]
+[HTTP] [Request] GET res/front/pages/login/login.html from [Connection: id=2 port=56267 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=29999 
+checking route: /pages/login/login.html
+sending reply to [Connection: id=2 port=56267 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1230
+[Server] [DEBUG] b1 array size = 1230; capacity = 1230; limit = 1230 readOnly = false
+Disconnecting Socket[addr=/192.168.2.1,port=56267,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/192.168.2.1,port=56269,localport=6969]
+nextCon,numCon,MAXCON:3,1,100
+Registered new connectionID=3 to Socket[addr=/192.168.2.1,port=56269,localport=6969]
+[HTTP] [Request] GET res/front/pages/login/login.js from [Connection: id=3 port=56269 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+checking route: /pages/login/login.js
+sending reply to [Connection: id=3 port=56269 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 6553
+[Server] [DEBUG] b1 array size = 6553; capacity = 6553; limit = 6553 readOnly = false
+Disconnecting Socket[addr=/192.168.2.1,port=56269,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/192.168.2.1,port=56268,localport=6969]
+nextCon,numCon,MAXCON:4,1,100
+Registered new connectionID=4 to Socket[addr=/192.168.2.1,port=56268,localport=6969]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=4 port=56268 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+checking route: /style/rzstyle.css
+sending reply to [Connection: id=4 port=56268 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/192.168.2.1,port=56268,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/192.168.2.1,port=56270,localport=6969]
+nextCon,numCon,MAXCON:5,1,100
+Registered new connectionID=5 to Socket[addr=/192.168.2.1,port=56270,localport=6969]
+[HTTP] [Request] GET res/front/pages/portal/portal.html from [Connection: id=5 port=56270 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+checking route: /pages/portal/portal.html
+sending reply to [Connection: id=5 port=56270 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 927
+[Server] [DEBUG] b1 array size = 927; capacity = 927; limit = 927 readOnly = false
+Disconnecting Socket[addr=/192.168.2.1,port=56270,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/192.168.2.1,port=56271,localport=6969]
+nextCon,numCon,MAXCON:6,1,100
+Registered new connectionID=6 to Socket[addr=/192.168.2.1,port=56271,localport=6969]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=6 port=56271 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+checking route: /style/rzstyle.css
+sending reply to [Connection: id=6 port=56271 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/192.168.2.1,port=56271,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/192.168.2.1,port=56272,localport=6969]
+nextCon,numCon,MAXCON:7,1,100
+Registered new connectionID=7 to Socket[addr=/192.168.2.1,port=56272,localport=6969]
+[HTTP] [Request] GET res/front/pages/portal/portal.js from [Connection: id=7 port=56272 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+checking route: /pages/portal/portal.js
+sending reply to [Connection: id=7 port=56272 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1819
+[Server] [DEBUG] b1 array size = 1819; capacity = 1819; limit = 1819 readOnly = false
+Disconnecting Socket[addr=/192.168.2.1,port=56272,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/192.168.2.1,port=56273,localport=6969]
+nextCon,numCon,MAXCON:8,1,100
+Registered new connectionID=8 to Socket[addr=/192.168.2.1,port=56273,localport=6969]
+[HTTP] [Request] GET res/front/pages/tickets/tickets.html from [Connection: id=8 port=56273 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+checking route: /pages/tickets/tickets.html
+sending reply to [Connection: id=8 port=56273 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2413
+[Server] [DEBUG] b1 array size = 2413; capacity = 2413; limit = 2413 readOnly = false
+Disconnecting Socket[addr=/192.168.2.1,port=56273,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/192.168.2.1,port=56274,localport=6969]
+nextCon,numCon,MAXCON:9,1,100
+Registered new connectionID=9 to Socket[addr=/192.168.2.1,port=56274,localport=6969]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=9 port=56274 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+checking route: /style/rzstyle.css
+sending reply to [Connection: id=9 port=56274 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/192.168.2.1,port=56274,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/192.168.2.1,port=56275,localport=6969]
+nextCon,numCon,MAXCON:10,1,100
+Registered new connectionID=10 to Socket[addr=/192.168.2.1,port=56275,localport=6969]
+[HTTP] [Request] GET res/front/pages/tickets/tickets.js from [Connection: id=10 port=56275 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+checking route: /pages/tickets/tickets.js
+sending reply to [Connection: id=10 port=56275 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/192.168.2.1,port=56275,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/192.168.2.1,port=57220,localport=6969]
+nextCon,numCon,MAXCON:11,1,100
+Registered new connectionID=11 to Socket[addr=/192.168.2.1,port=57220,localport=6969]
+[HTTP] [Request] GET res/front/ from [Connection: id=11 port=57220 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=11 port=57220 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1038
+[Server] [DEBUG] b1 array size = 1038; capacity = 1038; limit = 1038 readOnly = false
+Disconnecting Socket[addr=/192.168.2.1,port=57220,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/192.168.2.1,port=57221,localport=6969]
+nextCon,numCon,MAXCON:12,1,100
+Registered new connectionID=12 to Socket[addr=/192.168.2.1,port=57221,localport=6969]
+[HTTP] [Request] GET res/front/favicon.ico from [Connection: id=12 port=57221 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=12 port=57221 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 50
+[Server] [DEBUG] b1 array size = 50; capacity = 50; limit = 50 readOnly = false
+Disconnecting Socket[addr=/192.168.2.1,port=57221,localport=6969]

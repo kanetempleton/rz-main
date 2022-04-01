@@ -1,0 +1,57 @@
+main'd
+loading configuration...
+loaded configuration: DNE: DNE
+loaded configuration: db_addr: localhost
+loaded configuration: db_name: rztech
+loaded configuration: db_user: zezima
+loaded configuration: db_pass: doormcburger
+loaded configuration: DNE: DNE
+config loaded.
+[Console] Initialized!
+[DatabaseManager] Attempting database connection to jdbc:mysql://localhost:3306/rztech?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Chicago
+[DatabaseManager] Connection opened successfully!
+[LoginHandler] Login handler launched successfully!
+[DatabaseManager] Attempting query: create table if not exists maps(mapcode INTEGER, data TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists users(id INTEGER PRIMARY KEY AUTO_INCREMENT, username TEXT, password TEXT, email TEXT, privileges INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists players(username TEXT, x INTEGER, y INTEGER, z INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists settings(name TEXT, value TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists bans(name TEXT, ip TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select name from bans where name!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select ip from bans where ip!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[CareTaker] Server caretaker started successfully!
+[HTTP] Attempting to start server on port 80...
+[HTTP] Started successfully!
+[HTTP] Attempting to start server on port 6969...
+[HTTP] Started successfully!
+[TCP] Attempting to start server on port 43594...
+[TCP] Started successfully!
+[HTTP] Attempting to register connection for Socket[addr=/192.168.2.1,port=59244,localport=6969]
+nextCon,numCon,MAXCON:0,1,100
+Registered new connectionID=0 to Socket[addr=/192.168.2.1,port=59244,localport=6969]
+[HTTP] [Request] GET res/front/ from [Connection: id=0 port=59244 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=29988 
+sending reply to [Connection: id=0 port=59244 ip=/192.168.2.1 ping=false pong= ttr=0 nextPing=29964 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1038
+[Server] [DEBUG] b1 array size = 1038; capacity = 1038; limit = 1038 readOnly = false
+Disconnecting Socket[addr=/192.168.2.1,port=59244,localport=6969]
+[HTTP] Attempting to register connection for Socket[addr=/172.70.130.84,port=20700,localport=80]
+nextCon,numCon,MAXCON:0,1,100
+Registered new connectionID=0 to Socket[addr=/172.70.130.84,port=20700,localport=80]
+[HTTP] [Request] GET res/front/index/ from [Connection: id=0 port=20700 ip=/172.70.130.84 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=0 port=20700 ip=/172.70.130.84 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 367
+[Server] [DEBUG] b1 array size = 367; capacity = 367; limit = 367 readOnly = false
+Disconnecting Socket[addr=/172.70.130.84,port=20700,localport=80]
