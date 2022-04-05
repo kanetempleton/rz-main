@@ -1,0 +1,175 @@
+main'd
+loading configuration...
+loaded configuration: DNE: DNE
+loaded configuration: db_addr: localhost
+loaded configuration: db_name: rztech
+loaded configuration: db_user: root
+loaded configuration: db_pass: admin
+loaded configuration: DNE: DNE
+config loaded.
+[Console] Initialized!
+[DatabaseManager] Attempting database connection to jdbc:mysql://localhost:3306/rztech?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Chicago
+[DatabaseManager] Connection opened successfully!
+[LoginHandler] Login handler launched successfully!
+[DatabaseManager] Attempting query: create table if not exists maps(mapcode INTEGER, data TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists users(id INTEGER PRIMARY KEY AUTO_INCREMENT, username TEXT, password TEXT, email TEXT, privileges INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists players(username TEXT, x INTEGER, y INTEGER, z INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists settings(name TEXT, value TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists bans(name TEXT, ip TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select name from bans where name!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select ip from bans where ip!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[CareTaker] Server caretaker started successfully!
+[HTTP] Attempting to start server on port 80...
+[HTTP] Started successfully!
+[TCP] Attempting to start server on port 43594...
+[TCP] Started successfully!
+[DatabaseManager] Attempting query: SHOW TABLES LIKE "tickets"
+[DatabaseManager] Row: [Tables_in_rztech (tickets)=tickets] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62051,localport=80]
+nextCon,numCon,MAXCON:0,1,100
+Registered new connectionID=0 to Socket[addr=/127.0.0.1,port=62051,localport=80]
+[HTTP] [Request] GET res/front/tickets from [Connection: id=0 port=62051 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@1303e95f
+sending reply to [Connection: id=0 port=62051 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29983 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2413
+[Server] [DEBUG] b1 array size = 2413; capacity = 2413; limit = 2413 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62051,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62052,localport=80]
+nextCon,numCon,MAXCON:1,1,100
+Registered new connectionID=1 to Socket[addr=/127.0.0.1,port=62052,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=1 port=62052 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@17da1681
+sending reply to [Connection: id=1 port=62052 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62052,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62053,localport=80]
+nextCon,numCon,MAXCON:2,1,100
+Registered new connectionID=2 to Socket[addr=/127.0.0.1,port=62053,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=2 port=62053 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/tickets.js ; r.uri = /tickets.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@218ca3cb
+sending reply to [Connection: id=2 port=62053 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62053,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62054,localport=80]
+nextCon,numCon,MAXCON:3,1,100
+Registered new connectionID=3 to Socket[addr=/127.0.0.1,port=62054,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=3 port=62054 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@4b3739fc
+sending reply to [Connection: id=3 port=62054 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62054,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62055,localport=80]
+nextCon,numCon,MAXCON:4,1,100
+Registered new connectionID=4 to Socket[addr=/127.0.0.1,port=62055,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=4 port=62055 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/tickets.js ; r.uri = /tickets.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@762e36f7
+sending reply to [Connection: id=4 port=62055 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62055,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62056,localport=80]
+nextCon,numCon,MAXCON:5,1,100
+Registered new connectionID=5 to Socket[addr=/127.0.0.1,port=62056,localport=80]
+GET params found: ticket_id = 95465155
+[HTTP] [Request] GET res/front/tickets from [Connection: id=5 port=62056 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@471d7147
+processGET custom [Ljava.lang.String;@471d7147, [Ljava.lang.String;@42705055
+sending reply to [Connection: id=5 port=62056 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2413
+[Server] [DEBUG] b1 array size = 2413; capacity = 2413; limit = 2413 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62056,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62057,localport=80]
+nextCon,numCon,MAXCON:6,1,100
+Registered new connectionID=6 to Socket[addr=/127.0.0.1,port=62057,localport=80]
+GET params found: id = 4
+[HTTP] [Request] GET res/front/tickets from [Connection: id=6 port=62057 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@37e46858
+processGET custom [Ljava.lang.String;@37e46858, [Ljava.lang.String;@1bdfb0aa
+[DatabaseManager] Attempting query: select * from tickets where id='4'
+[DatabaseManager] query error: Unknown column 'id' in 'where clause'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+Exception in thread "Thread-1" java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at com.db.ServerQuery.response_getFields(ServerQuery.java:331)
+	at com.tickets.TicketProcessing$1.done(TicketProcessing.java:96)
+	at com.db.ServerQuery.finish(ServerQuery.java:191)
+	at com.db.DatabaseManager.doQuery(DatabaseManager.java:199)
+	at com.db.DatabaseManager.run(DatabaseManager.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:831)

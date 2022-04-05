@@ -1,0 +1,867 @@
+main'd
+loading configuration...
+loaded configuration: DNE: DNE
+loaded configuration: db_addr: localhost
+loaded configuration: db_name: rztech
+loaded configuration: db_user: root
+loaded configuration: db_pass: admin
+loaded configuration: DNE: DNE
+config loaded.
+[Console] Initialized!
+[DatabaseManager] Attempting database connection to jdbc:mysql://localhost:3306/rztech?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Chicago
+[DatabaseManager] Connection opened successfully!
+[LoginHandler] Login handler launched successfully!
+[DatabaseManager] Attempting query: create table if not exists maps(mapcode INTEGER, data TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists users(id INTEGER PRIMARY KEY AUTO_INCREMENT, username TEXT, password TEXT, email TEXT, privileges INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists players(username TEXT, x INTEGER, y INTEGER, z INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists settings(name TEXT, value TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists bans(name TEXT, ip TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select name from bans where name!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select ip from bans where ip!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[CareTaker] Server caretaker started successfully!
+[HTTP] Attempting to start server on port 80...
+[HTTP] Started successfully!
+[TCP] Attempting to start server on port 43594...
+[TCP] Started successfully!
+[DatabaseManager] Attempting query: SHOW TABLES LIKE "tickets"
+[DatabaseManager] Row: [Tables_in_rztech (tickets)=tickets] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61946,localport=80]
+nextCon,numCon,MAXCON:0,1,100
+Registered new connectionID=0 to Socket[addr=/127.0.0.1,port=61946,localport=80]
+[HTTP] [Request] GET res/front/login from [Connection: id=0 port=61946 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+route: /employee:/pages/portal/portal.html
+relURI=/login ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/login ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/login ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/login ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/login ; r.uri = /login
+checking for custom get: /pages/login/login.html and fields = [Ljava.lang.String;@7ec35d0e
+sending reply to [Connection: id=0 port=61946 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29989 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1230
+[Server] [DEBUG] b1 array size = 1230; capacity = 1230; limit = 1230 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61946,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61947,localport=80]
+nextCon,numCon,MAXCON:1,1,100
+Registered new connectionID=1 to Socket[addr=/127.0.0.1,port=61947,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=1 port=61947 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@57a2f4c8
+sending reply to [Connection: id=1 port=61947 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61947,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61948,localport=80]
+nextCon,numCon,MAXCON:2,1,100
+Registered new connectionID=2 to Socket[addr=/127.0.0.1,port=61948,localport=80]
+[HTTP] [Request] GET res/front/login.js from [Connection: id=2 port=61948 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/login.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/login.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/login.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/login.js ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/login.js ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/login.js ; r.uri = /login.js
+checking for custom get: /pages/login/login.js and fields = [Ljava.lang.String;@ec0d9d5
+sending reply to [Connection: id=2 port=61948 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 6553
+[Server] [DEBUG] b1 array size = 6553; capacity = 6553; limit = 6553 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61948,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61951,localport=80]
+nextCon,numCon,MAXCON:3,1,100
+Registered new connectionID=3 to Socket[addr=/127.0.0.1,port=61951,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=3 port=61951 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@541b6da6
+sending reply to [Connection: id=3 port=61951 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61951,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61952,localport=80]
+nextCon,numCon,MAXCON:4,1,100
+Registered new connectionID=4 to Socket[addr=/127.0.0.1,port=61952,localport=80]
+[HTTP] [Request] GET res/front/login from [Connection: id=4 port=61952 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/login ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/login ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/login ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/login ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/login ; r.uri = /login
+checking for custom get: /pages/login/login.html and fields = [Ljava.lang.String;@5c9d0881
+sending reply to [Connection: id=4 port=61952 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1230
+[Server] [DEBUG] b1 array size = 1230; capacity = 1230; limit = 1230 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61952,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61953,localport=80]
+nextCon,numCon,MAXCON:5,1,100
+Registered new connectionID=5 to Socket[addr=/127.0.0.1,port=61953,localport=80]
+[HTTP] [Request] GET res/front/login.js from [Connection: id=5 port=61953 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+route: /employee:/pages/portal/portal.html
+relURI=/login.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/login.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/login.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/login.js ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/login.js ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/login.js ; r.uri = /login.js
+checking for custom get: /pages/login/login.js and fields = [Ljava.lang.String;@3969ca6d
+sending reply to [Connection: id=5 port=61953 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 6553
+[Server] [DEBUG] b1 array size = 6553; capacity = 6553; limit = 6553 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61953,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61956,localport=80]
+nextCon,numCon,MAXCON:6,1,100
+Registered new connectionID=6 to Socket[addr=/127.0.0.1,port=61956,localport=80]
+[HTTP] [Request] GET res/front/ from [Connection: id=6 port=61956 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=6 port=61956 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29997 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1038
+[Server] [DEBUG] b1 array size = 1038; capacity = 1038; limit = 1038 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61956,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61957,localport=80]
+nextCon,numCon,MAXCON:7,1,100
+Registered new connectionID=7 to Socket[addr=/127.0.0.1,port=61957,localport=80]
+[HTTP] [Request] GET res/front/tickets from [Connection: id=7 port=61957 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@7328f6d2
+sending reply to [Connection: id=7 port=61957 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2413
+[Server] [DEBUG] b1 array size = 2413; capacity = 2413; limit = 2413 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61957,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61958,localport=80]
+nextCon,numCon,MAXCON:8,1,100
+Registered new connectionID=8 to Socket[addr=/127.0.0.1,port=61958,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=8 port=61958 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@66eaa404
+sending reply to [Connection: id=8 port=61958 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61958,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61959,localport=80]
+nextCon,numCon,MAXCON:9,1,100
+Registered new connectionID=9 to Socket[addr=/127.0.0.1,port=61959,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=9 port=61959 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/tickets.js ; r.uri = /tickets.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@4ba749cb
+sending reply to [Connection: id=9 port=61959 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61959,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61962,localport=80]
+nextCon,numCon,MAXCON:10,1,100
+Registered new connectionID=10 to Socket[addr=/127.0.0.1,port=61962,localport=80]
+[HTTP] [Request] GET res/front/tickets from [Connection: id=10 port=61962 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@399979a3
+sending reply to [Connection: id=10 port=61962 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2413
+[Server] [DEBUG] b1 array size = 2413; capacity = 2413; limit = 2413 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61962,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61963,localport=80]
+nextCon,numCon,MAXCON:11,1,100
+Registered new connectionID=11 to Socket[addr=/127.0.0.1,port=61963,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=11 port=61963 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@51b2b218
+sending reply to [Connection: id=11 port=61963 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61963,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61964,localport=80]
+nextCon,numCon,MAXCON:12,1,100
+Registered new connectionID=12 to Socket[addr=/127.0.0.1,port=61964,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=12 port=61964 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/tickets.js ; r.uri = /tickets.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@23949dec
+sending reply to [Connection: id=12 port=61964 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61964,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61965,localport=80]
+nextCon,numCon,MAXCON:13,1,100
+Registered new connectionID=13 to Socket[addr=/127.0.0.1,port=61965,localport=80]
+GET params found: ticket_id = 95465155
+[HTTP] [Request] GET res/front/tickets from [Connection: id=13 port=61965 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@155722b5
+processGET custom [Ljava.lang.String;@155722b5, [Ljava.lang.String;@51317075
+[DatabaseManager] Attempting query: select * from tickets where ticket_id='95465155'
+[DatabaseManager] Row: [ticket_id=95465155] [title=jhfghjfgkhjg] [customerName=zach] [customerPhone=333] [customerEmail=zack] [info=ljhgjghjlg] [status=Awaiting diagnosis] [dueDate=754654] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2749
+[Server] [DEBUG] b1 array size = 2749; capacity = 2749; limit = 2749 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61965,localport=80]
+Disconnecting Socket[unconnected]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61966,localport=80]
+nextCon,numCon,MAXCON:14,1,100
+Registered new connectionID=14 to Socket[addr=/127.0.0.1,port=61966,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=14 port=61966 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@6b439392
+sending reply to [Connection: id=14 port=61966 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61966,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61967,localport=80]
+nextCon,numCon,MAXCON:15,1,100
+Registered new connectionID=15 to Socket[addr=/127.0.0.1,port=61967,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=15 port=61967 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/tickets.js ; r.uri = /tickets.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@8bda1dc
+sending reply to [Connection: id=15 port=61967 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61967,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61968,localport=80]
+nextCon,numCon,MAXCON:16,1,100
+Registered new connectionID=16 to Socket[addr=/127.0.0.1,port=61968,localport=80]
+GET params found: ticket_id = 95465155
+[HTTP] [Request] GET res/front/tickets from [Connection: id=16 port=61968 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@520f5c35
+processGET custom [Ljava.lang.String;@520f5c35, [Ljava.lang.String;@3c68936f
+[DatabaseManager] Attempting query: select * from tickets where ticket_id='95465155'
+[DatabaseManager] Row: [ticket_id=95465155] [title=jhfghjfgkhjg] [customerName=zach] [customerPhone=333] [customerEmail=zack] [info=ljhgjghjlg] [status=Awaiting diagnosis] [dueDate=754654] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2749
+[Server] [DEBUG] b1 array size = 2749; capacity = 2749; limit = 2749 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61968,localport=80]
+Disconnecting Socket[unconnected]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61969,localport=80]
+nextCon,numCon,MAXCON:17,1,100
+Registered new connectionID=17 to Socket[addr=/127.0.0.1,port=61969,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=17 port=61969 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@4020ee5c
+sending reply to [Connection: id=17 port=61969 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61969,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61970,localport=80]
+nextCon,numCon,MAXCON:18,1,100
+Registered new connectionID=18 to Socket[addr=/127.0.0.1,port=61970,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=18 port=61970 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/tickets.js ; r.uri = /tickets.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@10ede901
+sending reply to [Connection: id=18 port=61970 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61970,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61971,localport=80]
+nextCon,numCon,MAXCON:19,1,100
+Registered new connectionID=19 to Socket[addr=/127.0.0.1,port=61971,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=19 port=61971 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@5dd8ca50
+sending reply to [Connection: id=19 port=61971 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61971,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61973,localport=80]
+nextCon,numCon,MAXCON:20,1,100
+Registered new connectionID=20 to Socket[addr=/127.0.0.1,port=61973,localport=80]
+GET params found: ticket_id = 95465155
+[HTTP] [Request] GET res/front/tickets from [Connection: id=20 port=61973 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@343c4c06
+processGET custom [Ljava.lang.String;@343c4c06, [Ljava.lang.String;@30f88964
+[DatabaseManager] Attempting query: select * from tickets where ticket_id='95465155'
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61972,localport=80]
+nextCon,numCon,MAXCON:21,2,100
+Registered new connectionID=21 to Socket[addr=/127.0.0.1,port=61972,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=21 port=61972 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/tickets.js ; r.uri = /tickets.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@69bd081
+sending reply to [Connection: id=21 port=61972 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61972,localport=80]
+[DatabaseManager] Row: [ticket_id=95465155] [title=jhfghjfgkhjg] [customerName=zach] [customerPhone=333] [customerEmail=zack] [info=ljhgjghjlg] [status=Awaiting diagnosis] [dueDate=754654] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2749
+[Server] [DEBUG] b1 array size = 2749; capacity = 2749; limit = 2749 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61973,localport=80]
+Disconnecting Socket[unconnected]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61975,localport=80]
+nextCon,numCon,MAXCON:22,1,100
+Registered new connectionID=22 to Socket[addr=/127.0.0.1,port=61975,localport=80]
+[HTTP] [Request] GET res/front/tickets from [Connection: id=22 port=61975 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@4b002383
+sending reply to [Connection: id=22 port=61975 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2413
+[Server] [DEBUG] b1 array size = 2413; capacity = 2413; limit = 2413 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61975,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61976,localport=80]
+nextCon,numCon,MAXCON:23,1,100
+Registered new connectionID=23 to Socket[addr=/127.0.0.1,port=61976,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=23 port=61976 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@2a45b477
+sending reply to [Connection: id=23 port=61976 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61976,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61977,localport=80]
+nextCon,numCon,MAXCON:24,1,100
+Registered new connectionID=24 to Socket[addr=/127.0.0.1,port=61977,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=24 port=61977 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/tickets.js ; r.uri = /tickets.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@60138687
+sending reply to [Connection: id=24 port=61977 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61977,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61980,localport=80]
+nextCon,numCon,MAXCON:25,1,100
+Registered new connectionID=25 to Socket[addr=/127.0.0.1,port=61980,localport=80]
+GET params found: ticket_id = 95465155
+[HTTP] [Request] GET res/front/tickets from [Connection: id=25 port=61980 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@7d8def08
+processGET custom [Ljava.lang.String;@7d8def08, [Ljava.lang.String;@3c70016
+[DatabaseManager] Attempting query: select * from tickets where ticket_id='95465155'
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61979,localport=80]
+nextCon,numCon,MAXCON:26,2,100
+Registered new connectionID=26 to Socket[addr=/127.0.0.1,port=61979,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=26 port=61979 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/tickets.js ; r.uri = /tickets.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@39af6e74
+sending reply to [Connection: id=26 port=61979 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61979,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61978,localport=80]
+nextCon,numCon,MAXCON:27,2,100
+Registered new connectionID=27 to Socket[addr=/127.0.0.1,port=61978,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=27 port=61978 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@b7ba174
+sending reply to [Connection: id=27 port=61978 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61978,localport=80]
+[DatabaseManager] Row: [ticket_id=95465155] [title=jhfghjfgkhjg] [customerName=zach] [customerPhone=333] [customerEmail=zack] [info=ljhgjghjlg] [status=Awaiting diagnosis] [dueDate=754654] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2749
+[Server] [DEBUG] b1 array size = 2749; capacity = 2749; limit = 2749 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61980,localport=80]
+Disconnecting Socket[unconnected]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61982,localport=80]
+nextCon,numCon,MAXCON:28,1,100
+Registered new connectionID=28 to Socket[addr=/127.0.0.1,port=61982,localport=80]
+[HTTP] [Request] GET res/front/ from [Connection: id=28 port=61982 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=28 port=61982 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1038
+[Server] [DEBUG] b1 array size = 1038; capacity = 1038; limit = 1038 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61982,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61983,localport=80]
+nextCon,numCon,MAXCON:29,1,100
+Registered new connectionID=29 to Socket[addr=/127.0.0.1,port=61983,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=29 port=61983 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@486fb0d8
+sending reply to [Connection: id=29 port=61983 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61983,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61984,localport=80]
+nextCon,numCon,MAXCON:30,1,100
+Registered new connectionID=30 to Socket[addr=/127.0.0.1,port=61984,localport=80]
+[HTTP] [Request] GET res/front/pages/tickets/tickets.js from [Connection: id=30 port=61984 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/pages/tickets/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/pages/tickets/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/pages/tickets/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/pages/tickets/tickets.js ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/pages/tickets/tickets.js ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/pages/tickets/tickets.js ; r.uri = /login.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@6e58feba
+sending reply to [Connection: id=30 port=61984 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61984,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61985,localport=80]
+nextCon,numCon,MAXCON:31,1,100
+Registered new connectionID=31 to Socket[addr=/127.0.0.1,port=61985,localport=80]
+[HTTP] [Request] GET res/front/pages/tickets/tickets.html from [Connection: id=31 port=61985 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/pages/tickets/tickets.html ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/pages/tickets/tickets.html ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/pages/tickets/tickets.html ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/pages/tickets/tickets.html ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/pages/tickets/tickets.html ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/pages/tickets/tickets.html ; r.uri = /login.js
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@7af43bde
+sending reply to [Connection: id=31 port=61985 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2413
+[Server] [DEBUG] b1 array size = 2413; capacity = 2413; limit = 2413 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61985,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61986,localport=80]
+nextCon,numCon,MAXCON:32,1,100
+Registered new connectionID=32 to Socket[addr=/127.0.0.1,port=61986,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=32 port=61986 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@4c59631f
+sending reply to [Connection: id=32 port=61986 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61986,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61987,localport=80]
+nextCon,numCon,MAXCON:33,1,100
+Registered new connectionID=33 to Socket[addr=/127.0.0.1,port=61987,localport=80]
+[HTTP] [Request] GET res/front/pages/tickets/tickets.js from [Connection: id=33 port=61987 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/pages/tickets/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/pages/tickets/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/pages/tickets/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/pages/tickets/tickets.js ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/pages/tickets/tickets.js ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/pages/tickets/tickets.js ; r.uri = /login.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@43c535a0
+sending reply to [Connection: id=33 port=61987 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61987,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61988,localport=80]
+nextCon,numCon,MAXCON:34,1,100
+Registered new connectionID=34 to Socket[addr=/127.0.0.1,port=61988,localport=80]
+[HTTP] [Request] GET res/front/pages/tickets/tickets.html from [Connection: id=34 port=61988 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/pages/tickets/tickets.html ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/pages/tickets/tickets.html ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/pages/tickets/tickets.html ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/pages/tickets/tickets.html ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/pages/tickets/tickets.html ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/pages/tickets/tickets.html ; r.uri = /login.js
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@1d92c082
+sending reply to [Connection: id=34 port=61988 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2413
+[Server] [DEBUG] b1 array size = 2413; capacity = 2413; limit = 2413 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61988,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61991,localport=80]
+nextCon,numCon,MAXCON:35,1,100
+Registered new connectionID=35 to Socket[addr=/127.0.0.1,port=61991,localport=80]
+GET params found: ticket_id = 95465155
+[HTTP] [Request] GET res/front/tickets from [Connection: id=35 port=61991 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@28b74179
+processGET custom [Ljava.lang.String;@28b74179, [Ljava.lang.String;@12462364
+[DatabaseManager] Attempting query: select * from tickets where ticket_id='95465155'
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61990,localport=80]
+nextCon,numCon,MAXCON:36,2,100
+Registered new connectionID=36 to Socket[addr=/127.0.0.1,port=61990,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=36 port=61990 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/tickets.js ; r.uri = /tickets.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@195a81f5
+sending reply to [Connection: id=36 port=61990 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61990,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61989,localport=80]
+nextCon,numCon,MAXCON:37,2,100
+Registered new connectionID=37 to Socket[addr=/127.0.0.1,port=61989,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=37 port=61989 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@6a19d1e3
+sending reply to [Connection: id=37 port=61989 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[DatabaseManager] Row: [ticket_id=95465155] [title=jhfghjfgkhjg] [customerName=zach] [customerPhone=333] [customerEmail=zack] [info=ljhgjghjlg] [status=Awaiting diagnosis] [dueDate=754654] 
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+[DatabaseManager] Query complete.
+Disconnecting Socket[addr=/127.0.0.1,port=61989,localport=80]
+done()! responseSize=1
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2749
+[Server] [DEBUG] b1 array size = 2749; capacity = 2749; limit = 2749 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61991,localport=80]
+Disconnecting Socket[unconnected]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61992,localport=80]
+nextCon,numCon,MAXCON:38,1,100
+Registered new connectionID=38 to Socket[addr=/127.0.0.1,port=61992,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=38 port=61992 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@32e38264
+sending reply to [Connection: id=38 port=61992 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61992,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61994,localport=80]
+nextCon,numCon,MAXCON:39,1,100
+Registered new connectionID=39 to Socket[addr=/127.0.0.1,port=61994,localport=80]
+[HTTP] [Request] GET res/front/tickets from [Connection: id=39 port=61994 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@75d90011
+sending reply to [Connection: id=39 port=61994 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2413
+[Server] [DEBUG] b1 array size = 2413; capacity = 2413; limit = 2413 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61994,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61993,localport=80]
+nextCon,numCon,MAXCON:40,1,100
+Registered new connectionID=40 to Socket[addr=/127.0.0.1,port=61993,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=40 port=61993 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/tickets.js ; r.uri = /tickets.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@63c736bb
+sending reply to [Connection: id=40 port=61993 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61993,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61997,localport=80]
+nextCon,numCon,MAXCON:41,1,100
+Registered new connectionID=41 to Socket[addr=/127.0.0.1,port=61997,localport=80]
+[HTTP] [Request] GET res/front/tickets from [Connection: id=41 port=61997 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@3260ef70
+sending reply to [Connection: id=41 port=61997 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2413
+[Server] [DEBUG] b1 array size = 2413; capacity = 2413; limit = 2413 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61997,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61995,localport=80]
+nextCon,numCon,MAXCON:42,1,100
+Registered new connectionID=42 to Socket[addr=/127.0.0.1,port=61995,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=42 port=61995 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@5abf763c
+sending reply to [Connection: id=42 port=61995 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61995,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61996,localport=80]
+nextCon,numCon,MAXCON:43,1,100
+Registered new connectionID=43 to Socket[addr=/127.0.0.1,port=61996,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=43 port=61996 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/tickets.js ; r.uri = /tickets.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@6e8f5c4e
+sending reply to [Connection: id=43 port=61996 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 7633
+[Server] [DEBUG] b1 array size = 7633; capacity = 7633; limit = 7633 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61996,localport=80]

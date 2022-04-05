@@ -62,7 +62,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
             case PACKETTYPE_EMPLOYEE_NEW_TICKET: //employee enters a ticket
                 enterNewTicket(c,fields,values);
                 break;
-            case PACKETTYPE_EMPLOYEE_VIEW_ALL_TICKETS:
+            case PACKETTYPE_EMPLOYEE_VIEW_ALL_TICKETS: //view allt ickets
                 queryAllTicketsToTable(c);
                 break;
         }
@@ -70,10 +70,11 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     }
 
     public byte[] processGET(HTTP http, ServerConnection c, String uri, String[] fields, String[] values) {
+        System.out.println("processGET custom "+fields+", "+values);
         boolean properFormat = false;
         String ticketid = "";
         for (int i=0; i<fields.length; i++) {
-            if (fields[i].equals("ticket_id")) {
+            if (fields[i].equals("id")) {
                 properFormat=true;
                 ticketid = values[i];
             }
@@ -90,7 +91,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
             buildHTML = T.toString();//HTMLGenerator.generateTable(this.response_getFields(),this.response_getValues());
             reply(c,RESPONSE_SHOW_TICKETS+";;;"+buildHTML);
         }*/
-        new ServerQuery(this,c,QUERYTYPE_VIEW_TICKET, "select * from tickets where ticket_id='"+ticketid+"'") {
+        new ServerQuery(this,c,QUERYTYPE_VIEW_TICKET, "select * from tickets where id='"+ticketid+"'") {
             public void done() {
                 HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
                 T.addBasicBorders();
@@ -135,12 +136,12 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
 
     private void queryAllTicketsToTable(ServerConnection c) {
 
-        new ServerQuery(this,c,QUERYTYPE_SEARCH_TICKETS,"select ticket_id,title,customerName,status,dueDate from tickets;") {
+        new ServerQuery(this,c,QUERYTYPE_SEARCH_TICKETS,"select id,title,customerName,status,dueDate from tickets;") {
             String buildHTML = "";
             public void done() {
                 HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
                 T.addBasicBorders();
-                T.addHrefToColumn("ticket_id","tickets.html");
+                T.addHrefToColumn("id","tickets");
                 buildHTML = T.toString();//HTMLGenerator.generateTable(this.response_getFields(),this.response_getValues());
                 reply(c,RESPONSE_SHOW_TICKETS+";;;"+buildHTML);
             }
@@ -151,7 +152,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
 
     // old method
     private void queryAllTickets(ServerConnection c) {
-        new ServerQuery(this,c,QUERYTYPE_SEARCH_TICKETS,"select ticket_id,title,customerName,status,dueDate from tickets;") {
+        new ServerQuery(this,c,QUERYTYPE_SEARCH_TICKETS,"select id,title,customerName,status,dueDate from tickets;") {
             String buildHTML = "<pre>[Ticket ID]\t\t\t[Title]\t\t\t[Customer Name]\t\t\t[Status]\t\t\t[Due Date]</pre><br>";
 
             String[] tableColNames = {};
@@ -161,7 +162,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                 for (int i=0; i<this.getResponses().size(); i++) {
                     String r = this.getResponses().get(i);
                     String[][] fv = this.responseParams(i);
-                    buildHTML += "<pre><a href=\"tickets.html?id="+this.responseParamValue(i,"ticket_id")+"\">"+this.responseParamValue(i,"ticket_id")+"</a>\t\t\t";
+                    buildHTML += "<pre><a href=\"tickets.html?id="+this.responseParamValue(i,"id")+"\">"+this.responseParamValue(i,"id")+"</a>\t\t\t";
                     buildHTML += ""+this.responseParamValue(i,"title")+"\t\t\t";
                     buildHTML += ""+this.responseParamValue(i,"customerName")+"\t\t\t";
                     buildHTML += ""+this.responseParamValue(i,"status")+"\t\t\t";
@@ -190,7 +191,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         int x = 1+(int)(Math.random()*100000000);
         boolean found = false;
         boolean found2 = false;
-        new ServerQuery(this,"select ticket_id from tickets where ticket_id='"+x+"'") {
+        new ServerQuery(this,"select id from tickets where id='"+x+"'") {
             public void done() {
                 if (this.getResponses().size() > 0) {
                     generateNewTicketID(buf);
@@ -206,7 +207,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
 
 
     public void storeTicket(Ticket T, ServerConnection c, int type) {
-        new ServerQuery(this,c,type,"INSERT INTO tickets(ticket_id,title,customerName,customerPhone,customerEmail,info,status,dueDate) VALUES('"+T.getId()+"','"+T.getTitle()+"','"+T.getCustName()+"','"+T.getCustPhone()+"','"+T.getCustEmail()+"','"+T.getInfo()+"','"+T.getStatus()+"','"+T.getDue()+"')") {
+        new ServerQuery(this,c,type,"INSERT INTO tickets(id,title,customerName,customerPhone,customerEmail,info,status,dueDate) VALUES('"+T.getId()+"','"+T.getTitle()+"','"+T.getCustName()+"','"+T.getCustPhone()+"','"+T.getCustEmail()+"','"+T.getInfo()+"','"+T.getStatus()+"','"+T.getDue()+"')") {
             public void done() {
                 System.out.println("inserted ticket "+T.getId()+"!");
                 reply(c,RESPONSE_SUCCESS+":"+T.getId());
@@ -220,7 +221,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         new ServerQuery(this,"SHOW TABLES LIKE \""+getTable()+"\"") {
             public void done() {
                 if (this.responseSize()==0) {
-                    new ServerQuery(this.util(),"CREATE TABLE "+getTable()+"(ticket_id TEXT, title TEXT, customerName TEXT, customerPhone TEXT, customerEmail TEXT, info TEXT, status TEXT, dueDate TEXT)") {
+                    new ServerQuery(this.util(),"CREATE TABLE "+getTable()+"(id TEXT, title TEXT, customerName TEXT, customerPhone TEXT, customerEmail TEXT, info TEXT, status TEXT, dueDate TEXT)") {
                         public void done() {
                             System.out.println("Successfully initialized database table: tickets");
                         }

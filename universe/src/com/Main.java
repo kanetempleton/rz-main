@@ -28,7 +28,8 @@ public class Main {
 
         HTTP http_protocol = new HTTP("res/front/",80) {
             public byte[] processGET(ServerConnection c, String uri, String[] fields, String[] values) {
-                if (uri.endsWith("/tickets.html") && fields.length>0) {
+                System.out.println("checking for custom get: "+uri+" and fields = "+fields);
+                if (uri.contains("/tickets") && fields.length>0) {
                     return ticketManager.processGET(this,c,uri,fields,values);
                     //c.setNeedsReply(true);
                     //return WAIT_FOR_RESPONSE;
@@ -38,9 +39,13 @@ public class Main {
                 }
                 return null;
             }
-        };
-     //   http_protocol.addRoute("/employee","/pages/portal/portal.html");
-     //   http_protocol.addRoute("/tickets","/pages/tickets/tickets.html");
+        }; //GET res/front/login.js ; GET res/front/pages/login/login.js
+        http_protocol.addRoute("/employee","/pages/portal/portal.html");
+        http_protocol.addRoute("/portal.js","/pages/portal/portal.js");
+        http_protocol.addRoute("/tickets","/pages/tickets/tickets.html");
+        http_protocol.addRoute("/tickets.js","/pages/tickets/tickets.js");
+        http_protocol.addRoute("/login","/pages/login/login.html");
+        http_protocol.addRoute("/login.js","/pages/login/login.js");
         Server http = new Server(http_protocol);
 
         //HTTP http2 = new HTTP("res/front/index/",80);
