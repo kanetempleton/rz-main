@@ -13,6 +13,7 @@ import com.tickets.*;
 public class Main {
 
     public static Launcher launcher;
+    public static HTTP http_protocol;
 
     public static void main(String[] args) {
         System.out.println("main'd");
@@ -26,7 +27,7 @@ public class Main {
         TicketProcessing ticketManager = new TicketProcessing();
         //launcher.loadThread(ticketManager);
 
-        HTTP http_protocol = new HTTP("res/front/",80) {
+        http_protocol = new HTTP("res/front/",80) {
             public byte[] processGET(ServerConnection c, String uri, String[] fields, String[] values) {
                 System.out.println("checking for custom get: "+uri+" and fields = "+fields);
                 if (uri.contains("/tickets") && fields.length>0) {
@@ -57,7 +58,7 @@ public class Main {
             public void processPOST(ServerConnection c, String uri, int packetID, String[] fields, String[] values) {
 
                 if (packetID >= 500 && packetID <= 600) {
-                    ticketManager.processPOST(c,uri,packetID,fields,values);
+                    ticketManager.processPOST(http_protocol,c,uri,packetID,fields,values);
                 }
 
             }

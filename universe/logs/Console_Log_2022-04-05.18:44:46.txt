@@ -1,0 +1,193 @@
+main'd
+loading configuration...
+loaded configuration: DNE: DNE
+loaded configuration: db_addr: localhost
+loaded configuration: db_name: rztech
+loaded configuration: db_user: root
+loaded configuration: db_pass: admin
+loaded configuration: DNE: DNE
+config loaded.
+[Console] Initialized!
+[DatabaseManager] Attempting database connection to jdbc:mysql://localhost:3306/rztech?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Chicago
+[DatabaseManager] Connection opened successfully!
+[LoginHandler] Login handler launched successfully!
+[DatabaseManager] Attempting query: create table if not exists maps(mapcode INTEGER, data TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists users(id INTEGER PRIMARY KEY AUTO_INCREMENT, username TEXT, password TEXT, email TEXT, privileges INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists players(username TEXT, x INTEGER, y INTEGER, z INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists settings(name TEXT, value TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists bans(name TEXT, ip TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select name from bans where name!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select ip from bans where ip!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[CareTaker] Server caretaker started successfully!
+[HTTP] Attempting to start server on port 80...
+[HTTP] Started successfully!
+[TCP] Attempting to start server on port 43594...
+[TCP] Started successfully!
+[DatabaseManager] Attempting query: SHOW TABLES LIKE "tickets"
+[DatabaseManager] Row: [Tables_in_rztech (tickets)=tickets] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52772,localport=80]
+nextCon,numCon,MAXCON:0,1,100
+Registered new connectionID=0 to Socket[addr=/127.0.0.1,port=52772,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=0 port=52772 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@7a9ed3ad
+sending reply to [Connection: id=0 port=52772 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29984 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52772,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52773,localport=80]
+nextCon,numCon,MAXCON:1,1,100
+Registered new connectionID=1 to Socket[addr=/127.0.0.1,port=52773,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=1 port=52773 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@6cb789b6
+sending reply to [Connection: id=1 port=52773 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 11191
+[Server] [DEBUG] b1 array size = 11191; capacity = 11191; limit = 11191 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52773,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52774,localport=80]
+nextCon,numCon,MAXCON:2,1,100
+Registered new connectionID=2 to Socket[addr=/127.0.0.1,port=52774,localport=80]
+GET params found: id = 15906300
+[HTTP] [Request] GET res/front/tickets from [Connection: id=2 port=52774 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@125b0adb
+[DatabaseManager] Attempting query: select * from tickets where id='15906300'
+[DatabaseManager] Row: [id=15906300] [title=title 9] [customerName=mrkanesir2] [customerPhone=3194717717] [customerEmail=jizz@jizz.com] [info=i have issues man] [status=Awaiting diagnosis] [dueDate=fuck you; SELECT * FROM USERS;] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2939
+[Server] [DEBUG] b1 array size = 2939; capacity = 2939; limit = 2939 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52774,localport=80]
+Disconnecting Socket[unconnected]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52775,localport=80]
+nextCon,numCon,MAXCON:3,1,100
+Registered new connectionID=3 to Socket[addr=/127.0.0.1,port=52775,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=3 port=52775 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@7ebbf54f
+sending reply to [Connection: id=3 port=52775 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52775,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52776,localport=80]
+nextCon,numCon,MAXCON:4,1,100
+Registered new connectionID=4 to Socket[addr=/127.0.0.1,port=52776,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=4 port=52776 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@67fcebb1
+sending reply to [Connection: id=4 port=52776 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 11191
+[Server] [DEBUG] b1 array size = 11191; capacity = 11191; limit = 11191 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52776,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52780,localport=80]
+nextCon,numCon,MAXCON:5,1,100
+Registered new connectionID=5 to Socket[addr=/127.0.0.1,port=52780,localport=80]
+GET params found: modify = 15906300
+[HTTP] [Request] GET res/front/tickets from [Connection: id=5 port=52780 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@3446ec69
+[DatabaseManager] Attempting query: select * from tickets where id='15906300'
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52782,localport=80]
+nextCon,numCon,MAXCON:6,2,100
+Registered new connectionID=6 to Socket[addr=/127.0.0.1,port=52782,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=6 port=52782 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@11f53428
+sending reply to [Connection: id=6 port=52782 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 11191
+[Server] [DEBUG] b1 array size = 11191; capacity = 11191; limit = 11191 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52782,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52781,localport=80]
+nextCon,numCon,MAXCON:7,2,100
+Registered new connectionID=7 to Socket[addr=/127.0.0.1,port=52781,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=7 port=52781 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@1cde00a1
+[DatabaseManager] Row: [id=15906300] [title=title 9] [customerName=mrkanesir2] [customerPhone=3194717717] [customerEmail=jizz@jizz.com] [info=i have issues man] [status=Awaiting diagnosis] [dueDate=fuck you; SELECT * FROM USERS;] 
+sending reply to [Connection: id=7 port=52781 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[DatabaseManager] Query complete.
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+done()! responseSize=1
+Disconnecting Socket[addr=/127.0.0.1,port=52781,localport=80]
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 3245
+[Server] [DEBUG] b1 array size = 3245; capacity = 3245; limit = 3245 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52780,localport=80]
+Disconnecting Socket[unconnected]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52783,localport=80]
+nextCon,numCon,MAXCON:8,1,100
+Registered new connectionID=8 to Socket[addr=/127.0.0.1,port=52783,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=8 port=52783 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@32e98799
+sending reply to [Connection: id=8 port=52783 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52783,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52784,localport=80]
+nextCon,numCon,MAXCON:9,1,100
+Registered new connectionID=9 to Socket[addr=/127.0.0.1,port=52784,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=9 port=52784 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@66b27361
+sending reply to [Connection: id=9 port=52784 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 11191
+[Server] [DEBUG] b1 array size = 11191; capacity = 11191; limit = 11191 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52784,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52817,localport=80]
+nextCon,numCon,MAXCON:10,1,100
+Registered new connectionID=10 to Socket[addr=/127.0.0.1,port=52817,localport=80]
+GET params found: modify = 15906300
+[HTTP] [Request] GET res/front/tickets from [Connection: id=10 port=52817 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@432d271c
+[DatabaseManager] Attempting query: select * from tickets where id='15906300'
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52818,localport=80]
+nextCon,numCon,MAXCON:11,2,100
+Registered new connectionID=11 to Socket[addr=/127.0.0.1,port=52818,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=11 port=52818 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@1982a421
+sending reply to [Connection: id=11 port=52818 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+[DatabaseManager] Row: [id=15906300] [title=title 9] [customerName=mrkanesir2] [customerPhone=3194717717] [customerEmail=jizz@jizz.com] [info=i have issues man] [status=Awaiting diagnosis] [dueDate=fuck you; SELECT * FROM USERS;] 
+[DatabaseManager] Query complete.
+Disconnecting Socket[addr=/127.0.0.1,port=52818,localport=80]
+done()! responseSize=1
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52819,localport=80]
+nextCon,numCon,MAXCON:12,2,100
+Registered new connectionID=12 to Socket[addr=/127.0.0.1,port=52819,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=12 port=52819 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@33bd75ca
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 3245
+[Server] [DEBUG] b1 array size = 3245; capacity = 3245; limit = 3245 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52817,localport=80]
+Disconnecting Socket[unconnected]
+sending reply to [Connection: id=12 port=52819 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 11191
+[Server] [DEBUG] b1 array size = 11191; capacity = 11191; limit = 11191 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52819,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52820,localport=80]
+nextCon,numCon,MAXCON:13,1,100
+Registered new connectionID=13 to Socket[addr=/127.0.0.1,port=52820,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=13 port=52820 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@2482dc16
+sending reply to [Connection: id=13 port=52820 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52820,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52821,localport=80]
+nextCon,numCon,MAXCON:14,1,100
+Registered new connectionID=14 to Socket[addr=/127.0.0.1,port=52821,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=14 port=52821 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@70e6e4e1
+sending reply to [Connection: id=14 port=52821 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 11191
+[Server] [DEBUG] b1 array size = 11191; capacity = 11191; limit = 11191 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52821,localport=80]

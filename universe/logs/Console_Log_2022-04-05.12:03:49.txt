@@ -1,0 +1,92 @@
+main'd
+loading configuration...
+loaded configuration: DNE: DNE
+loaded configuration: db_addr: localhost
+loaded configuration: db_name: rztech
+loaded configuration: db_user: root
+loaded configuration: db_pass: admin
+loaded configuration: DNE: DNE
+config loaded.
+[Console] Initialized!
+[DatabaseManager] Attempting database connection to jdbc:mysql://localhost:3306/rztech?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Chicago
+[DatabaseManager] Connection opened successfully!
+[LoginHandler] Login handler launched successfully!
+[DatabaseManager] Attempting query: create table if not exists maps(mapcode INTEGER, data TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists users(id INTEGER PRIMARY KEY AUTO_INCREMENT, username TEXT, password TEXT, email TEXT, privileges INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists players(username TEXT, x INTEGER, y INTEGER, z INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists settings(name TEXT, value TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists bans(name TEXT, ip TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select name from bans where name!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select ip from bans where ip!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[CareTaker] Server caretaker started successfully!
+[HTTP] Attempting to start server on port 80...
+[HTTP] Started successfully!
+[TCP] Attempting to start server on port 43594...
+[TCP] Started successfully!
+[DatabaseManager] Attempting query: SHOW TABLES LIKE "tickets"
+[DatabaseManager] Row: [Tables_in_rztech (tickets)=tickets] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=55012,localport=80]
+nextCon,numCon,MAXCON:0,1,100
+Registered new connectionID=0 to Socket[addr=/127.0.0.1,port=55012,localport=80]
+GET params found: id = 88082745
+[HTTP] [Request] GET res/front/tickets from [Connection: id=0 port=55012 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@10423534
+processGET custom [Ljava.lang.String;@10423534, [Ljava.lang.String;@6b597382
+[DatabaseManager] Attempting query: select * from tickets where id='88082745'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at com.db.ServerQuery.response_getFields(ServerQuery.java:331)
+	at com.tickets.TicketProcessing$1.done(TicketProcessing.java:97)
+	at com.db.ServerQuery.finish(ServerQuery.java:191)
+	at com.db.DatabaseManager.doQuery(DatabaseManager.java:199)
+	at com.db.DatabaseManager.run(DatabaseManager.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 14
+[Server] [DEBUG] b1 array size = 14; capacity = 14; limit = 14 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=55012,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=55019,localport=80]
+nextCon,numCon,MAXCON:1,1,100
+Registered new connectionID=1 to Socket[addr=/127.0.0.1,port=55019,localport=80]
+GET params found: id = 88082745
+[HTTP] [Request] GET res/front/tickets from [Connection: id=1 port=55019 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@342b569f
+processGET custom [Ljava.lang.String;@342b569f, [Ljava.lang.String;@d30af92
+[DatabaseManager] Attempting query: select * from tickets where id='88082745'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at com.db.ServerQuery.response_getFields(ServerQuery.java:331)
+	at com.tickets.TicketProcessing$1.done(TicketProcessing.java:97)
+	at com.db.ServerQuery.finish(ServerQuery.java:191)
+	at com.db.DatabaseManager.doQuery(DatabaseManager.java:199)
+	at com.db.DatabaseManager.run(DatabaseManager.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:831)

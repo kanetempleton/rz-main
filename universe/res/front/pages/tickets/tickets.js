@@ -48,6 +48,10 @@ $.ajax({
             if (result == 'retry') {
                 trycustomerquery();
             }
+            else if (result.startsWith("ticketfound")) {
+                document.getElementById("statusCode").innerHTML = "Ticket found! Info for Customer Ticket #"+ticketID+":";
+                document.getElementById("output").innerHTML = result.split(";;;")[1];
+            }/*
             else if (result == 'ticketfound') { // TODO
                 document.getElementById("statusCode").innerHTML = "Ticket found! Info for Customer Ticket #"+ticketID+":";
                 document.getElementById("output").innerHTML = "ticket.id<br>ticket.title<br>ticket.customer<br>ticket.status<br>ticket.info";
@@ -62,7 +66,7 @@ $.ajax({
             }
             else if (result == 'customernotfound') { //TODO
                 document.getElementById("statusCode").innerHTML = "No tickets were found for "+custName+". Please contact us.";
-            }
+            }*/
             else {
                 document.getElementById("statusCode").innerHTML = "Unrecognized server response.";
             }
@@ -164,8 +168,9 @@ $.ajax({
                 tryemployeequery();
             }
             else if (result.startsWith('success')) { // TODO
-                document.getElementById("employeeStatusCode").innerHTML = "Ticket #"+result.split(":")[1]+" successfully created!";
+                document.getElementById("employeeStatusCode").innerHTML = "<a href=/tickets?id="+result.split(":")[1]+">Ticket #"+result.split(":")[1]+"</a> successfully created!";
 //                document.getElementById("output").innerHTML = "ticket.id<br>ticket.title<br>ticket.customer<br>ticket.status<br>ticket.info";
+                clearEmployeeInputForms();
             }
             else if (result == 'inprogress') { //TODO
                 document.getElementById("employeeStatusCode").innerHTML = "Your input was formatted correctly, but the server's response protocol is still in progress.<br>Check back soon to test the full functionality.";
@@ -182,6 +187,65 @@ $.ajax({
     });
 }
 
+function tryEditQuery() {
+console.log("tryeditquery()");
+
+const URL='fuzz'
+
+
+	const custName = document.getElementById("form_customerName").value;
+	const custPhone = document.getElementById("form_customerPhone").value;
+	const custEmail = document.getElementById("form_customerEmail").value;
+	const ticketTitle = document.getElementById("form_title").value;
+	const ticketInfo = document.getElementById("form_info").value;
+	const ticketDueDate = document.getElementById("form_dueDate").value;
+	const ticketStatus = document.getElementById("form_status").value;
+
+	const sendme={
+    	    packet:505,
+    		customerName: custName,
+    		customerPhone: custPhone,
+    		customerEmail: custEmail,
+    		title: ticketTitle,
+    		info: ticketInfo,
+    		due: ticketDueDate,
+    		status: ticketStatus,
+    		end:0
+    	}
+    	document.getElementById("statusCode").innerHTML = "Retrieving information...";
+    $.ajax({
+            url: URL,
+            type: 'POST',
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            data: sendme,
+            success: function(result) {
+                console.log("sent data "+sendme)
+                // Do something with the result
+                console.log(result)
+
+                if (result == 'retry') {
+                    tryEditQuery();
+                }
+                else if (result.startsWith('success')) { // TODO
+                    document.getElementById("employeeStatusCode").innerHTML = "<a href=/tickets?id="+result.split(":")[1]+">Ticket #"+result.split(":")[1]+"</a> successfully created!";
+    //                document.getElementById("output").innerHTML = "ticket.id<br>ticket.title<br>ticket.customer<br>ticket.status<br>ticket.info";
+                  //  clearEmployeeInputForms();
+                }
+                else if (result == 'inprogress') { //TODO
+                    document.getElementById("employeeStatusCode").innerHTML = "Your input was formatted correctly, but the server's response protocol is still in progress.<br>Check back soon to test the full functionality.";
+                 //   document.getElementById("output").innerHTML = "ticket_i.id, ticket_i.title, ticket_i.status";
+
+                }
+                else if (result == 'failure') { //TODO
+                    document.getElementById("employeeStatusCode").innerHTML = "Ticket was not created. There might be an error with your input.";
+                }
+                else {
+                    document.getElementById("statusCode").innerHTML = "Unrecognized server response. Please scream at the web admin about this.";
+                }
+            }
+        });
+}
+
 var submitButton = document.getElementById("searchButton");
 submitButton.addEventListener ("click", function() {
     trycustomerquery();
@@ -194,10 +258,26 @@ var showAllTicketsButton = document.getElementById("showAllTicketsButton");
 showAllTicketsButton.addEventListener ("click", function() {
     tryshowquery();
 });
+/*
+var submitChangesButton = document.getElementById("submitChangesButton");
+submitChangesButton.addEventListener ("click", function() {
+    tryeditquery();
+});*/
+
+
 
 
 function drawTicketPageAsEmployee() {
     document.getElementById("employeeAccess").removeAttribute("hidden");
+}
+
+function clearEmployeeInputForms() {
+    document.getElementById("customerName").value = "";
+    document.getElementById("customerPhone").value = "";
+    document.getElementById("customerEmail").value = "";
+    document.getElementById("ticketTitle").value = "";
+    document.getElementById("ticketInfo").value = "";
+    document.getElementById("ticketDue").value = "";
 }
 
 function render() {

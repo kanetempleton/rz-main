@@ -1,0 +1,244 @@
+main'd
+loading configuration...
+loaded configuration: DNE: DNE
+loaded configuration: db_addr: localhost
+loaded configuration: db_name: rztech
+loaded configuration: db_user: root
+loaded configuration: db_pass: admin
+loaded configuration: DNE: DNE
+config loaded.
+[Console] Initialized!
+[DatabaseManager] Attempting database connection to jdbc:mysql://localhost:3306/rztech?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Chicago
+[DatabaseManager] Connection opened successfully!
+[LoginHandler] Login handler launched successfully!
+[DatabaseManager] Attempting query: create table if not exists maps(mapcode INTEGER, data TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists users(id INTEGER PRIMARY KEY AUTO_INCREMENT, username TEXT, password TEXT, email TEXT, privileges INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists players(username TEXT, x INTEGER, y INTEGER, z INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists settings(name TEXT, value TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists bans(name TEXT, ip TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select name from bans where name!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select ip from bans where ip!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[CareTaker] Server caretaker started successfully!
+[HTTP] Attempting to start server on port 80...
+[HTTP] Started successfully!
+[TCP] Attempting to start server on port 43594...
+[TCP] Started successfully!
+[DatabaseManager] Attempting query: SHOW TABLES LIKE "tickets"
+[DatabaseManager] Row: [Tables_in_rztech (tickets)=tickets] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62576,localport=80]
+nextCon,numCon,MAXCON:0,1,100
+Registered new connectionID=0 to Socket[addr=/127.0.0.1,port=62576,localport=80]
+[HTTP] [Request] GET res/front/tickets from [Connection: id=0 port=62576 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@79f006f2
+sending reply to [Connection: id=0 port=62576 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29919 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2413
+[Server] [DEBUG] b1 array size = 2413; capacity = 2413; limit = 2413 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62576,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62577,localport=80]
+nextCon,numCon,MAXCON:1,1,100
+Registered new connectionID=1 to Socket[addr=/127.0.0.1,port=62577,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=1 port=62577 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@30652a37
+sending reply to [Connection: id=1 port=62577 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62577,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62578,localport=80]
+nextCon,numCon,MAXCON:2,1,100
+Registered new connectionID=2 to Socket[addr=/127.0.0.1,port=62578,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=2 port=62578 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@124c465
+sending reply to [Connection: id=2 port=62578 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29996 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 8381
+[Server] [DEBUG] b1 array size = 8381; capacity = 8381; limit = 8381 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62578,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62588,localport=80]
+nextCon,numCon,MAXCON:3,1,100
+Registered new connectionID=3 to Socket[addr=/127.0.0.1,port=62588,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=3 port=62588 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=3 port=62588 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62588,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62589,localport=80]
+nextCon,numCon,MAXCON:4,1,100
+Registered new connectionID=4 to Socket[addr=/127.0.0.1,port=62589,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=4 port=62589 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=4 port=62589 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62589,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62590,localport=80]
+nextCon,numCon,MAXCON:5,1,100
+Registered new connectionID=5 to Socket[addr=/127.0.0.1,port=62590,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=5 port=62590 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+sending reply to [Connection: id=5 port=62590 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29996 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62590,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62591,localport=80]
+nextCon,numCon,MAXCON:6,1,100
+Registered new connectionID=6 to Socket[addr=/127.0.0.1,port=62591,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=6 port=62591 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=6 port=62591 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62591,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62592,localport=80]
+nextCon,numCon,MAXCON:7,1,100
+Registered new connectionID=7 to Socket[addr=/127.0.0.1,port=62592,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=7 port=62592 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=7 port=62592 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62592,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62593,localport=80]
+nextCon,numCon,MAXCON:8,1,100
+Registered new connectionID=8 to Socket[addr=/127.0.0.1,port=62593,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=8 port=62593 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=8 port=62593 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29997 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62593,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62594,localport=80]
+nextCon,numCon,MAXCON:9,1,100
+Registered new connectionID=9 to Socket[addr=/127.0.0.1,port=62594,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=9 port=62594 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=9 port=62594 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62594,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62595,localport=80]
+nextCon,numCon,MAXCON:10,1,100
+Registered new connectionID=10 to Socket[addr=/127.0.0.1,port=62595,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=10 port=62595 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=10 port=62595 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62595,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62596,localport=80]
+nextCon,numCon,MAXCON:11,1,100
+Registered new connectionID=11 to Socket[addr=/127.0.0.1,port=62596,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=11 port=62596 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=11 port=62596 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62596,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62597,localport=80]
+nextCon,numCon,MAXCON:12,1,100
+Registered new connectionID=12 to Socket[addr=/127.0.0.1,port=62597,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=12 port=62597 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[HTTP] [POST] 'packet=502&end=0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              '
+PROCESSING WEB PACKET!!!!
+[WebPackets] packetype was 502
+[TicketProcessing] Processing ticket query...
+[DatabaseManager] Attempting query: select id,title,customerName,status,dueDate from tickets;
+[DatabaseManager] Row: [id=0xRZT35T] [title=Dummy Ticket] [customerName=Zach] [status=Parts being ordered] [dueDate=April 1, 2022] 
+[DatabaseManager] Row: [id=11421440] [title=bob] [customerName=bob] [status=Awaiting diagnosis] [dueDate=bob] 
+[DatabaseManager] Row: [id=66779996] [title=title2] [customerName=mr kane sir] [status=Awaiting diagnosis] [dueDate=some day] 
+[DatabaseManager] Row: [id=15906300] [title=title 9] [customerName=mrkanesir2] [status=Awaiting diagnosis] [dueDate=fuck you; SELECT * FROM USERS;] 
+[DatabaseManager] Query complete.
+done()! responseSize=4
+what the fuck column_data[i][x]=0xRZT35T
+what the fuck 2 column_data[i][x]=0xRZT35T
+what the fuck column_data[i][x]=11421440
+what the fuck 2 column_data[i][x]=11421440
+what the fuck column_data[i][x]=66779996
+what the fuck 2 column_data[i][x]=66779996
+what the fuck column_data[i][x]=15906300
+what the fuck 2 column_data[i][x]=15906300
+sending reply: [alltickets;;;<table  border='1px solid black'><tr><th>id</th><th>title</th><th>customerName</th><th>status</th><th>dueDate</th><th>delete</th></tr><tr><th><a href="tickets?id=0xRZT35T">0xRZT35T</a></th><th>Dummy Ticket</th><th>Zach</th><th>Parts being ordered</th><th>April 1, 2022</th><th><a href="tickets?delete=0xRZT35T">remove ticket</a></th></tr><tr><th><a href="tickets?id=11421440">11421440</a></th><th>bob</th><th>bob</th><th>Awaiting diagnosis</th><th>bob</th><th><a href="tickets?delete=11421440">remove ticket</a></th></tr><tr><th><a href="tickets?id=66779996">66779996</a></th><th>title2</th><th>mr kane sir</th><th>Awaiting diagnosis</th><th>some day</th><th><a href="tickets?delete=66779996">remove ticket</a></th></tr><tr><th><a href="tickets?id=15906300">15906300</a></th><th>title 9</th><th>mrkanesir2</th><th>Awaiting diagnosis</th><th>fuck you; SELECT * FROM USERS;</th><th><a href="tickets?delete=15906300">remove ticket</a></th></tr></table>]
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1003
+[Server] [DEBUG] b1 array size = 1003; capacity = 1003; limit = 1003 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62597,localport=80]
+Disconnecting Socket[unconnected]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62599,localport=80]
+nextCon,numCon,MAXCON:13,1,100
+Registered new connectionID=13 to Socket[addr=/127.0.0.1,port=62599,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=13 port=62599 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=13 port=62599 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29994 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62599,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62600,localport=80]
+nextCon,numCon,MAXCON:14,1,100
+Registered new connectionID=14 to Socket[addr=/127.0.0.1,port=62600,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=14 port=62600 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=14 port=62600 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29997 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62600,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62601,localport=80]
+nextCon,numCon,MAXCON:15,1,100
+Registered new connectionID=15 to Socket[addr=/127.0.0.1,port=62601,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=15 port=62601 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=15 port=62601 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29996 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62601,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62602,localport=80]
+nextCon,numCon,MAXCON:16,1,100
+Registered new connectionID=16 to Socket[addr=/127.0.0.1,port=62602,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=16 port=62602 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=16 port=62602 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29994 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62602,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62603,localport=80]
+nextCon,numCon,MAXCON:17,1,100
+Registered new connectionID=17 to Socket[addr=/127.0.0.1,port=62603,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=17 port=62603 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=17 port=62603 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29991 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62603,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62604,localport=80]
+nextCon,numCon,MAXCON:18,1,100
+Registered new connectionID=18 to Socket[addr=/127.0.0.1,port=62604,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=18 port=62604 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=18 port=62604 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62604,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62605,localport=80]
+nextCon,numCon,MAXCON:19,1,100
+Registered new connectionID=19 to Socket[addr=/127.0.0.1,port=62605,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=19 port=62605 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=19 port=62605 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29996 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62605,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=62606,localport=80]
+nextCon,numCon,MAXCON:20,1,100
+Registered new connectionID=20 to Socket[addr=/127.0.0.1,port=62606,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=20 port=62606 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[HTTP] [POST] 'packet=500&ticket=11421440&customer=bob&end=0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 '
+PROCESSING WEB PACKET!!!!
+[WebPackets] packetype was 500
+[TicketProcessing] Processing ticket query...
+[DatabaseManager] Attempting query: select * from tickets where id='11421440' AND customerName='bob'
+[DatabaseManager] Row: [id=11421440] [title=bob] [customerName=bob] [customerPhone=bob] [customerEmail=bob] [info=bob] [status=Awaiting diagnosis] [dueDate=bob] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+sending ticket response...
+sending reply: [ticketfound;;;<table  border='1px solid black'><tr><th>id</th><th>title</th><th>customerName</th><th>customerPhone</th><th>customerEmail</th><th>info</th><th>status</th><th>dueDate</th><th>modify</th><th>delete</th></tr><tr><th>11421440</th><th>bob</th><th>bob</th><th>bob</th><th>bob</th><th>bob</th><th>Awaiting diagnosis</th><th>bob</th><th><a href=/tickets?update>edit ticket</a></th><th><a href=/tickets?delete>remove ticket</a></th></tr></table>]
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 492
+[Server] [DEBUG] b1 array size = 492; capacity = 492; limit = 492 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=62606,localport=80]
+Disconnecting Socket[unconnected]

@@ -1,0 +1,501 @@
+main'd
+loading configuration...
+loaded configuration: DNE: DNE
+loaded configuration: db_addr: localhost
+loaded configuration: db_name: rztech
+loaded configuration: db_user: root
+loaded configuration: db_pass: admin
+loaded configuration: DNE: DNE
+config loaded.
+[Console] Initialized!
+[DatabaseManager] Attempting database connection to jdbc:mysql://localhost:3306/rztech?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Chicago
+[DatabaseManager] Connection opened successfully!
+[LoginHandler] Login handler launched successfully!
+[DatabaseManager] Attempting query: create table if not exists maps(mapcode INTEGER, data TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists users(id INTEGER PRIMARY KEY AUTO_INCREMENT, username TEXT, password TEXT, email TEXT, privileges INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists players(username TEXT, x INTEGER, y INTEGER, z INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists settings(name TEXT, value TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists bans(name TEXT, ip TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select name from bans where name!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select ip from bans where ip!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[CareTaker] Server caretaker started successfully!
+[HTTP] Attempting to start server on port 80...
+[HTTP] Started successfully!
+[TCP] Attempting to start server on port 43594...
+[TCP] Started successfully!
+[DatabaseManager] Attempting query: SHOW TABLES LIKE "tickets"
+[DatabaseManager] Row: [Tables_in_rztech (tickets)=tickets] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57465,localport=80]
+nextCon,numCon,MAXCON:0,1,100
+Registered new connectionID=0 to Socket[addr=/127.0.0.1,port=57465,localport=80]
+[HTTP] [Request] GET res/front/tickets from [Connection: id=0 port=57465 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets ; r.uri = /tickets
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@6b597382
+sending reply to [Connection: id=0 port=57465 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29982 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2413
+[Server] [DEBUG] b1 array size = 2413; capacity = 2413; limit = 2413 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57465,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57466,localport=80]
+nextCon,numCon,MAXCON:1,1,100
+Registered new connectionID=1 to Socket[addr=/127.0.0.1,port=57466,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=1 port=57466 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@504a48cf
+sending reply to [Connection: id=1 port=57466 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57466,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57467,localport=80]
+nextCon,numCon,MAXCON:2,1,100
+Registered new connectionID=2 to Socket[addr=/127.0.0.1,port=57467,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=2 port=57467 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/tickets.js ; r.uri = /tickets.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@342b569f
+sending reply to [Connection: id=2 port=57467 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 8097
+[Server] [DEBUG] b1 array size = 8097; capacity = 8097; limit = 8097 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57467,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57468,localport=80]
+nextCon,numCon,MAXCON:3,1,100
+Registered new connectionID=3 to Socket[addr=/127.0.0.1,port=57468,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=3 port=57468 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/style/rzstyle.css ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/style/rzstyle.css ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/style/rzstyle.css ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/style/rzstyle.css ; r.uri = /tickets.js
+route: /login:/pages/login/login.html
+relURI=/style/rzstyle.css ; r.uri = /login
+route: /login.js:/pages/login/login.js
+relURI=/style/rzstyle.css ; r.uri = /login.js
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@65d827aa
+sending reply to [Connection: id=3 port=57468 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57468,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57469,localport=80]
+nextCon,numCon,MAXCON:4,1,100
+Registered new connectionID=4 to Socket[addr=/127.0.0.1,port=57469,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=4 port=57469 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+route: /employee:/pages/portal/portal.html
+relURI=/tickets.js ; r.uri = /employee
+route: /portal.js:/pages/portal/portal.js
+relURI=/tickets.js ; r.uri = /portal.js
+route: /tickets:/pages/tickets/tickets.html
+relURI=/tickets.js ; r.uri = /tickets
+route: /tickets.js:/pages/tickets/tickets.js
+relURI=/tickets.js ; r.uri = /tickets.js
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@9a73a35
+sending reply to [Connection: id=4 port=57469 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 8097
+[Server] [DEBUG] b1 array size = 8097; capacity = 8097; limit = 8097 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57469,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57472,localport=80]
+nextCon,numCon,MAXCON:5,1,100
+Registered new connectionID=5 to Socket[addr=/127.0.0.1,port=57472,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=5 port=57472 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+sending reply to [Connection: id=5 port=57472 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29997 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57472,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57473,localport=80]
+nextCon,numCon,MAXCON:6,1,100
+Registered new connectionID=6 to Socket[addr=/127.0.0.1,port=57473,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=6 port=57473 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=6 port=57473 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57473,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57474,localport=80]
+nextCon,numCon,MAXCON:7,1,100
+Registered new connectionID=7 to Socket[addr=/127.0.0.1,port=57474,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=7 port=57474 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=7 port=57474 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57474,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57475,localport=80]
+nextCon,numCon,MAXCON:8,1,100
+Registered new connectionID=8 to Socket[addr=/127.0.0.1,port=57475,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=8 port=57475 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=8 port=57475 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57475,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57476,localport=80]
+nextCon,numCon,MAXCON:9,1,100
+Registered new connectionID=9 to Socket[addr=/127.0.0.1,port=57476,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=9 port=57476 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=9 port=57476 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57476,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57477,localport=80]
+nextCon,numCon,MAXCON:10,1,100
+Registered new connectionID=10 to Socket[addr=/127.0.0.1,port=57477,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=10 port=57477 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=10 port=57477 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57477,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57478,localport=80]
+nextCon,numCon,MAXCON:11,1,100
+Registered new connectionID=11 to Socket[addr=/127.0.0.1,port=57478,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=11 port=57478 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=11 port=57478 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57478,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57479,localport=80]
+nextCon,numCon,MAXCON:12,1,100
+Registered new connectionID=12 to Socket[addr=/127.0.0.1,port=57479,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=12 port=57479 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=12 port=57479 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57479,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57480,localport=80]
+nextCon,numCon,MAXCON:13,1,100
+Registered new connectionID=13 to Socket[addr=/127.0.0.1,port=57480,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=13 port=57480 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=13 port=57480 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57480,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57481,localport=80]
+nextCon,numCon,MAXCON:14,1,100
+Registered new connectionID=14 to Socket[addr=/127.0.0.1,port=57481,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=14 port=57481 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=14 port=57481 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57481,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57482,localport=80]
+nextCon,numCon,MAXCON:15,1,100
+Registered new connectionID=15 to Socket[addr=/127.0.0.1,port=57482,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=15 port=57482 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=15 port=57482 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57482,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57483,localport=80]
+nextCon,numCon,MAXCON:16,1,100
+Registered new connectionID=16 to Socket[addr=/127.0.0.1,port=57483,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=16 port=57483 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=16 port=57483 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57483,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57484,localport=80]
+nextCon,numCon,MAXCON:17,1,100
+Registered new connectionID=17 to Socket[addr=/127.0.0.1,port=57484,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=17 port=57484 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=17 port=57484 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57484,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57485,localport=80]
+nextCon,numCon,MAXCON:18,1,100
+Registered new connectionID=18 to Socket[addr=/127.0.0.1,port=57485,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=18 port=57485 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=18 port=57485 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57485,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57486,localport=80]
+nextCon,numCon,MAXCON:19,1,100
+Registered new connectionID=19 to Socket[addr=/127.0.0.1,port=57486,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=19 port=57486 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=19 port=57486 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57486,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57487,localport=80]
+nextCon,numCon,MAXCON:20,1,100
+Registered new connectionID=20 to Socket[addr=/127.0.0.1,port=57487,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=20 port=57487 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=20 port=57487 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57487,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57488,localport=80]
+nextCon,numCon,MAXCON:21,1,100
+Registered new connectionID=21 to Socket[addr=/127.0.0.1,port=57488,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=21 port=57488 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=21 port=57488 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57488,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57489,localport=80]
+nextCon,numCon,MAXCON:22,1,100
+Registered new connectionID=22 to Socket[addr=/127.0.0.1,port=57489,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=22 port=57489 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=22 port=57489 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57489,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57490,localport=80]
+nextCon,numCon,MAXCON:23,1,100
+Registered new connectionID=23 to Socket[addr=/127.0.0.1,port=57490,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=23 port=57490 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=23 port=57490 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57490,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=57491,localport=80]
+nextCon,numCon,MAXCON:24,1,100
+Registered new connectionID=24 to Socket[addr=/127.0.0.1,port=57491,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=24 port=57491 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[HTTP] [POST] 'packet=502&end=0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              '
+PROCESSING WEB PACKET!!!!
+[WebPackets] packetype was 502
+[TicketProcessing] Processing ticket query...
+[DatabaseManager] Attempting query: select id,title,customerName,status,dueDate from tickets;
+[DatabaseManager] Row: [id=0xRZT35T] [title=Dummy Ticket] [customerName=Zach] [status=Parts being ordered] [dueDate=April 1, 2022] 
+[DatabaseManager] Row: [id=48123721] [title=title] [customerName=bob] [status=Awaiting diagnosis] [dueDate=now] 
+[DatabaseManager] Row: [id=67290670] [title=title] [customerName=bob] [status=Awaiting diagnosis] [dueDate=now] 
+[DatabaseManager] Row: [id=79607945] [title=broken+iphone] [customerName=testdude] [status=Awaiting diagnosis] [dueDate=now] 
+[DatabaseManager] Row: [id=3426248] [title=some+title] [customerName=abc] [status=Awaiting diagnosis] [dueDate=any+date] 
+[DatabaseManager] Row: [id=63772790] [title=vbob] [customerName=abc] [status=Awaiting diagnosis] [dueDate=sdf] 
+[DatabaseManager] Row: [id=62356409] [title=missing+swag] [customerName=kane] [status=Awaiting diagnosis] [dueDate=immediately] 
+[DatabaseManager] Row: [id=56914069] [title=jhfghjfgkhjg] [customerName=zach] [status=Awaiting diagnosis] [dueDate=754654] 
+[DatabaseManager] Row: [id=95465155] [title=jhfghjfgkhjg] [customerName=zach] [status=Awaiting diagnosis] [dueDate=754654] 
+[DatabaseManager] Row: [id=69541677] [title=asdlkjf] [customerName=aslkdfj] [status=Awaiting diagnosis] [dueDate=asldfkj] 
+[DatabaseManager] Row: [id=76258087] [title=asdlkjf] [customerName=aslkdfj] [status=Awaiting diagnosis] [dueDate=asldfkj] 
+[DatabaseManager] Row: [id=56678308] [title=BOB] [customerName=BOB] [status=Awaiting diagnosis] [dueDate=BOB] 
+[DatabaseManager] Row: [id=52279382] [title=sdlkfj] [customerName=kljsfd] [status=Awaiting diagnosis] [dueDate=fsdf] 
+[DatabaseManager] Row: [id=41571420] [title=sdlkfj] [customerName=kljsfd] [status=Awaiting diagnosis] [dueDate=fsdf] 
+[DatabaseManager] Row: [id=83687546] [title=sdlkfj] [customerName=kljsfd] [status=Awaiting diagnosis] [dueDate=fsdf] 
+[DatabaseManager] Row: [id=39792556] [title=sdlkfj] [customerName=kljsfd] [status=Awaiting diagnosis] [dueDate=fsdf] 
+[DatabaseManager] Row: [id=4552012] [title=lkasdjf] [customerName=alskdjf] [status=Awaiting diagnosis] [dueDate=alsdkfjasdf] 
+[DatabaseManager] Row: [id=3931209] [title=sdlfkj] [customerName=asdlfkj] [status=Awaiting diagnosis] [dueDate=laskdjf%3B+SELECT+*+FROM+USERS%3B] 
+[DatabaseManager] Row: [id=11421440] [title=bob] [customerName=bob] [status=Awaiting diagnosis] [dueDate=bob] 
+[DatabaseManager] Row: [id=86381268] [title=alsdkfj] [customerName=asdflkj] [status=Awaiting diagnosis] [dueDate=laksdfj] 
+[DatabaseManager] Row: [id=64231865] [title=lkajsdflkasdfj] [customerName=asdfkasdjhf] [status=Awaiting diagnosis] [dueDate=alsdkfjasdf%3B+SELECT+*+FROM+USERS%3B] 
+[DatabaseManager] Row: [id=86309899] [title=asdf] [customerName=asdfa] [status=Awaiting diagnosis] [dueDate=asdf] 
+[DatabaseManager] Row: [id=3287632] [title=asldkfj] [customerName=asdfasdf] [status=Awaiting diagnosis] [dueDate=asdlfkj] 
+[DatabaseManager] Row: [id=66779996] [title=title2] [customerName=mr kane sir] [status=Awaiting diagnosis] [dueDate=some day] 
+[DatabaseManager] Row: [id=15906300] [title=title 9] [customerName=mrkanesir2] [status=Awaiting diagnosis] [dueDate=fuck you; SELECT * FROM USERS;] 
+[DatabaseManager] Query complete.
+done()! responseSize=25
+what the fuck column_data[i][x]=0xRZT35T
+what the fuck 2 column_data[i][x]=0xRZT35T
+what the fuck column_data[i][x]=48123721
+what the fuck 2 column_data[i][x]=48123721
+what the fuck column_data[i][x]=67290670
+what the fuck 2 column_data[i][x]=67290670
+what the fuck column_data[i][x]=79607945
+what the fuck 2 column_data[i][x]=79607945
+what the fuck column_data[i][x]=3426248
+what the fuck 2 column_data[i][x]=3426248
+what the fuck column_data[i][x]=63772790
+what the fuck 2 column_data[i][x]=63772790
+what the fuck column_data[i][x]=62356409
+what the fuck 2 column_data[i][x]=62356409
+what the fuck column_data[i][x]=56914069
+what the fuck 2 column_data[i][x]=56914069
+what the fuck column_data[i][x]=95465155
+what the fuck 2 column_data[i][x]=95465155
+what the fuck column_data[i][x]=69541677
+what the fuck 2 column_data[i][x]=69541677
+what the fuck column_data[i][x]=76258087
+what the fuck 2 column_data[i][x]=76258087
+what the fuck column_data[i][x]=56678308
+what the fuck 2 column_data[i][x]=56678308
+what the fuck column_data[i][x]=52279382
+what the fuck 2 column_data[i][x]=52279382
+what the fuck column_data[i][x]=41571420
+what the fuck 2 column_data[i][x]=41571420
+what the fuck column_data[i][x]=83687546
+what the fuck 2 column_data[i][x]=83687546
+what the fuck column_data[i][x]=39792556
+what the fuck 2 column_data[i][x]=39792556
+what the fuck column_data[i][x]=4552012
+what the fuck 2 column_data[i][x]=4552012
+what the fuck column_data[i][x]=3931209
+what the fuck 2 column_data[i][x]=3931209
+what the fuck column_data[i][x]=11421440
+what the fuck 2 column_data[i][x]=11421440
+what the fuck column_data[i][x]=86381268
+what the fuck 2 column_data[i][x]=86381268
+what the fuck column_data[i][x]=64231865
+what the fuck 2 column_data[i][x]=64231865
+what the fuck column_data[i][x]=86309899
+what the fuck 2 column_data[i][x]=86309899
+what the fuck column_data[i][x]=3287632
+what the fuck 2 column_data[i][x]=3287632
+what the fuck column_data[i][x]=66779996
+what the fuck 2 column_data[i][x]=66779996
+what the fuck column_data[i][x]=15906300
+what the fuck 2 column_data[i][x]=15906300
+[HTMLTable] column_data[i][j]=0xRZT35T
+[HTMLTable] column_data[i][j]=Dummy Ticket
+[HTMLTable] column_data[i][j]=Zach
+[HTMLTable] column_data[i][j]=Parts being ordered
+[HTMLTable] column_data[i][j]=April 1, 2022
+[HTMLTable] column_data[i][j]=48123721
+[HTMLTable] column_data[i][j]=title
+[HTMLTable] column_data[i][j]=bob
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=now
+[HTMLTable] column_data[i][j]=67290670
+[HTMLTable] column_data[i][j]=title
+[HTMLTable] column_data[i][j]=bob
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=now
+[HTMLTable] column_data[i][j]=79607945
+[HTMLTable] column_data[i][j]=broken+iphone
+[HTMLTable] column_data[i][j]=testdude
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=now
+[HTMLTable] column_data[i][j]=3426248
+[HTMLTable] column_data[i][j]=some+title
+[HTMLTable] column_data[i][j]=abc
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=any+date
+[HTMLTable] column_data[i][j]=63772790
+[HTMLTable] column_data[i][j]=vbob
+[HTMLTable] column_data[i][j]=abc
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=sdf
+[HTMLTable] column_data[i][j]=62356409
+[HTMLTable] column_data[i][j]=missing+swag
+[HTMLTable] column_data[i][j]=kane
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=immediately
+[HTMLTable] column_data[i][j]=56914069
+[HTMLTable] column_data[i][j]=jhfghjfgkhjg
+[HTMLTable] column_data[i][j]=zach
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=754654
+[HTMLTable] column_data[i][j]=95465155
+[HTMLTable] column_data[i][j]=jhfghjfgkhjg
+[HTMLTable] column_data[i][j]=zach
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=754654
+[HTMLTable] column_data[i][j]=69541677
+[HTMLTable] column_data[i][j]=asdlkjf
+[HTMLTable] column_data[i][j]=aslkdfj
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=asldfkj
+[HTMLTable] column_data[i][j]=76258087
+[HTMLTable] column_data[i][j]=asdlkjf
+[HTMLTable] column_data[i][j]=aslkdfj
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=asldfkj
+[HTMLTable] column_data[i][j]=56678308
+[HTMLTable] column_data[i][j]=BOB
+[HTMLTable] column_data[i][j]=BOB
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=BOB
+[HTMLTable] column_data[i][j]=52279382
+[HTMLTable] column_data[i][j]=sdlkfj
+[HTMLTable] column_data[i][j]=kljsfd
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=fsdf
+[HTMLTable] column_data[i][j]=41571420
+[HTMLTable] column_data[i][j]=sdlkfj
+[HTMLTable] column_data[i][j]=kljsfd
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=fsdf
+[HTMLTable] column_data[i][j]=83687546
+[HTMLTable] column_data[i][j]=sdlkfj
+[HTMLTable] column_data[i][j]=kljsfd
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=fsdf
+[HTMLTable] column_data[i][j]=39792556
+[HTMLTable] column_data[i][j]=sdlkfj
+[HTMLTable] column_data[i][j]=kljsfd
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=fsdf
+[HTMLTable] column_data[i][j]=4552012
+[HTMLTable] column_data[i][j]=lkasdjf
+[HTMLTable] column_data[i][j]=alskdjf
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=alsdkfjasdf
+[HTMLTable] column_data[i][j]=3931209
+[HTMLTable] column_data[i][j]=sdlfkj
+[HTMLTable] column_data[i][j]=asdlfkj
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=laskdjf%3B+SELECT+*+FROM+USERS%3B
+[HTMLTable] column_data[i][j]=11421440
+[HTMLTable] column_data[i][j]=bob
+[HTMLTable] column_data[i][j]=bob
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=bob
+[HTMLTable] column_data[i][j]=86381268
+[HTMLTable] column_data[i][j]=alsdkfj
+[HTMLTable] column_data[i][j]=asdflkj
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=laksdfj
+[HTMLTable] column_data[i][j]=64231865
+[HTMLTable] column_data[i][j]=lkajsdflkasdfj
+[HTMLTable] column_data[i][j]=asdfkasdjhf
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=alsdkfjasdf%3B+SELECT+*+FROM+USERS%3B
+[HTMLTable] column_data[i][j]=86309899
+[HTMLTable] column_data[i][j]=asdf
+[HTMLTable] column_data[i][j]=asdfa
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=asdf
+[HTMLTable] column_data[i][j]=3287632
+[HTMLTable] column_data[i][j]=asldkfj
+[HTMLTable] column_data[i][j]=asdfasdf
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=asdlfkj
+[HTMLTable] column_data[i][j]=66779996
+[HTMLTable] column_data[i][j]=title2
+[HTMLTable] column_data[i][j]=mr kane sir
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=some day
+[HTMLTable] column_data[i][j]=15906300
+[HTMLTable] column_data[i][j]=title 9
+[HTMLTable] column_data[i][j]=mrkanesir2
+[HTMLTable] column_data[i][j]=Awaiting diagnosis
+[HTMLTable] column_data[i][j]=fuck you; SELECT * FROM USERS;
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 3586
+[Server] [DEBUG] b1 array size = 3586; capacity = 3586; limit = 3586 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=57491,localport=80]
+Disconnecting Socket[unconnected]
