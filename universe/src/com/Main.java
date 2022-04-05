@@ -21,7 +21,7 @@ public class Main {
         launcher = new Launcher();
         launcher.addDatabaseManager();
         launcher.addLoginHandler();
-        launcher.addCareTaker(18000000);
+        launcher.addCareTaker(1800000);
 
         TicketProcessing ticketManager = new TicketProcessing();
         //launcher.loadThread(ticketManager);
