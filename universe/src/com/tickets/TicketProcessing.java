@@ -116,9 +116,11 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                 if (fields[i].equals("end"))
                     continue;
                 updateQuery += fields[i]+"='"+cleanseInput(values[i])+"'";
-                if (i<fields.length-2)
+                if (i<fields.length-1)
                     updateQuery+=",";
             }
+            if (updateQuery.endsWith(","))
+                updateQuery = updateQuery.substring(0,updateQuery.length()-2);
 
             String ticketid = getValue("id",fields,values);
             updateQuery+=" WHERE id='"+ticketid+"';";

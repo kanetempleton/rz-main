@@ -29,7 +29,7 @@ public class Main {
 
         http_protocol = new HTTP("res/front/",80) {
             public byte[] processGET(ServerConnection c, String uri, String[] fields, String[] values) {
-                System.out.println("checking for custom get: "+uri+" and fields = "+fields);
+                //System.out.println("checking for custom get: "+uri+" and fields = "+fields);
                 if (uri.contains("/tickets") && fields.length>0) {
                     return ticketManager.processGET(this,c,uri,fields,values);
                     //c.setNeedsReply(true);
