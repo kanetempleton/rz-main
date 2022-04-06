@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="176ce6e1-0fc6-4078-9b03-7f89ccd1f02c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/res/front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/universe/res/front/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/res/front/pages/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/universe/res/front/pages/login/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/res/front/pages/portal/portal.html" beforeDir="false" afterPath="$PROJECT_DIR$/universe/res/front/pages/portal/portal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/res/front/pages/tickets/tickets.js" beforeDir="false" afterPath="$PROJECT_DIR$/universe/res/front/pages/tickets/tickets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/res/lib/JBend.jar" beforeDir="false" afterPath="$PROJECT_DIR$/universe/res/lib/JBend.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/universe/src/com/tickets/TicketProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/universe/src/com/tickets/TicketProcessing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

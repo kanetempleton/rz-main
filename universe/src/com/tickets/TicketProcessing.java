@@ -213,8 +213,10 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         } else {
             System.out.println("rights check failed!");
         }
-        if (!canDoThis)
+        if (!canDoThis) {
+            reply(c,RESPONSE_PERMISSION_DENIED);
             return;
+        }
         new ServerQuery(this,c,QUERYTYPE_DELETE_TICKET, "DELETE FROM tickets WHERE id='"+ticketid+"'") {
             public void done() {
                 /*if (this.responseSize()!=1) {

@@ -1,0 +1,1556 @@
+main'd
+loading configuration...
+loaded configuration: DNE: DNE
+loaded configuration: db_addr: localhost
+loaded configuration: db_name: rztech
+loaded configuration: db_user: root
+loaded configuration: db_pass: admin
+loaded configuration: DNE: DNE
+config loaded.
+[Console] Initialized!
+[DatabaseManager] Attempting database connection to jdbc:mysql://localhost:3306/rztech?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Chicago
+[DatabaseManager] Connection opened successfully!
+[LoginHandler] Login handler launched successfully!
+[DatabaseManager] Attempting query: create table if not exists maps(mapcode INTEGER, data TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists users(id INTEGER PRIMARY KEY AUTO_INCREMENT, username TEXT, password TEXT, email TEXT, privileges INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists players(username TEXT, x INTEGER, y INTEGER, z INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists settings(name TEXT, value TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists bans(name TEXT, ip TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select name from bans where name!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select ip from bans where ip!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[CareTaker] Server caretaker started successfully!
+[HTTP] Attempting to start server on port 80...
+[HTTP] Started successfully!
+[TCP] Attempting to start server on port 43594...
+[TCP] Started successfully!
+[DatabaseManager] Attempting query: SHOW TABLES LIKE "tickets"
+[DatabaseManager] Row: [Tables_in_rztech (tickets)=tickets] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61097,localport=80]
+nextCon,numCon,MAXCON:0,1,100
+Registered new connectionID=0 to Socket[addr=/127.0.0.1,port=61097,localport=80]
+GET params found: modify = 15906300
+[HTTP] [Request] GET res/front/tickets from [Connection: id=0 port=61097 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+checking for custom get: /pages/tickets/tickets.html and fields = [Ljava.lang.String;@7d6b2cca
+[DatabaseManager] Attempting query: select * from tickets where id='15906300'
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61098,localport=80]
+nextCon,numCon,MAXCON:1,2,100
+Registered new connectionID=1 to Socket[addr=/127.0.0.1,port=61098,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=1 port=61098 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@1d8d1756
+sending reply to [Connection: id=1 port=61098 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[DatabaseManager] Row: [id=15906300] [title=title 9] [customerName=mrkanesir2] [customerPhone=3194717717] [customerEmail=jizz@jizz.com] [info=i have issues man] [status=Awaiting diagnosis] [dueDate=fuck you; SELECT * FROM USERS;] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61098,localport=80]
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 3270
+[Server] [DEBUG] b1 array size = 3270; capacity = 3270; limit = 3270 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61097,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61099,localport=80]
+Disconnecting Socket[unconnected]
+nextCon,numCon,MAXCON:2,1,100
+Registered new connectionID=2 to Socket[addr=/127.0.0.1,port=61099,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=2 port=61099 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@3e366ff6
+sending reply to [Connection: id=2 port=61099 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 11278
+[Server] [DEBUG] b1 array size = 11278; capacity = 11278; limit = 11278 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61099,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61100,localport=80]
+nextCon,numCon,MAXCON:3,1,100
+Registered new connectionID=3 to Socket[addr=/127.0.0.1,port=61100,localport=80]
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=3 port=61100 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /style/rzstyle.css and fields = [Ljava.lang.String;@432a0db4
+sending reply to [Connection: id=3 port=61100 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61100,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61101,localport=80]
+nextCon,numCon,MAXCON:4,1,100
+Registered new connectionID=4 to Socket[addr=/127.0.0.1,port=61101,localport=80]
+[HTTP] [Request] GET res/front/tickets.js from [Connection: id=4 port=61101 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+checking for custom get: /pages/tickets/tickets.js and fields = [Ljava.lang.String;@2f990bc6
+sending reply to [Connection: id=4 port=61101 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 11278
+[Server] [DEBUG] b1 array size = 11278; capacity = 11278; limit = 11278 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61101,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61122,localport=80]
+nextCon,numCon,MAXCON:5,1,100
+Registered new connectionID=5 to Socket[addr=/127.0.0.1,port=61122,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=5 port=61122 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=5 port=61122 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61122,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61123,localport=80]
+nextCon,numCon,MAXCON:6,1,100
+Registered new connectionID=6 to Socket[addr=/127.0.0.1,port=61123,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=6 port=61123 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=6 port=61123 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61123,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61124,localport=80]
+nextCon,numCon,MAXCON:7,1,100
+Registered new connectionID=7 to Socket[addr=/127.0.0.1,port=61124,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=7 port=61124 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=7 port=61124 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61124,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61125,localport=80]
+nextCon,numCon,MAXCON:8,1,100
+Registered new connectionID=8 to Socket[addr=/127.0.0.1,port=61125,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=8 port=61125 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=8 port=61125 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61125,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61126,localport=80]
+nextCon,numCon,MAXCON:9,1,100
+Registered new connectionID=9 to Socket[addr=/127.0.0.1,port=61126,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=9 port=61126 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=9 port=61126 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61126,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61127,localport=80]
+nextCon,numCon,MAXCON:10,1,100
+Registered new connectionID=10 to Socket[addr=/127.0.0.1,port=61127,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=10 port=61127 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=10 port=61127 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61127,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61128,localport=80]
+nextCon,numCon,MAXCON:11,1,100
+Registered new connectionID=11 to Socket[addr=/127.0.0.1,port=61128,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=11 port=61128 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=11 port=61128 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61128,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61129,localport=80]
+nextCon,numCon,MAXCON:12,1,100
+Registered new connectionID=12 to Socket[addr=/127.0.0.1,port=61129,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=12 port=61129 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=12 port=61129 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61129,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61130,localport=80]
+nextCon,numCon,MAXCON:13,1,100
+Registered new connectionID=13 to Socket[addr=/127.0.0.1,port=61130,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=13 port=61130 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=13 port=61130 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61130,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61131,localport=80]
+nextCon,numCon,MAXCON:14,1,100
+Registered new connectionID=14 to Socket[addr=/127.0.0.1,port=61131,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=14 port=61131 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=14 port=61131 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61131,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61132,localport=80]
+nextCon,numCon,MAXCON:15,1,100
+Registered new connectionID=15 to Socket[addr=/127.0.0.1,port=61132,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=15 port=61132 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=15 port=61132 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61132,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61133,localport=80]
+nextCon,numCon,MAXCON:16,1,100
+Registered new connectionID=16 to Socket[addr=/127.0.0.1,port=61133,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=16 port=61133 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=16 port=61133 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61133,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61134,localport=80]
+nextCon,numCon,MAXCON:17,1,100
+Registered new connectionID=17 to Socket[addr=/127.0.0.1,port=61134,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=17 port=61134 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=17 port=61134 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61134,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61135,localport=80]
+nextCon,numCon,MAXCON:18,1,100
+Registered new connectionID=18 to Socket[addr=/127.0.0.1,port=61135,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=18 port=61135 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=18 port=61135 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61135,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61136,localport=80]
+nextCon,numCon,MAXCON:19,1,100
+Registered new connectionID=19 to Socket[addr=/127.0.0.1,port=61136,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=19 port=61136 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=19 port=61136 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61136,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61137,localport=80]
+nextCon,numCon,MAXCON:20,1,100
+Registered new connectionID=20 to Socket[addr=/127.0.0.1,port=61137,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=20 port=61137 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=20 port=61137 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61137,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61138,localport=80]
+nextCon,numCon,MAXCON:21,1,100
+Registered new connectionID=21 to Socket[addr=/127.0.0.1,port=61138,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=21 port=61138 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=21 port=61138 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61138,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61139,localport=80]
+nextCon,numCon,MAXCON:22,1,100
+Registered new connectionID=22 to Socket[addr=/127.0.0.1,port=61139,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=22 port=61139 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=22 port=61139 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61139,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61140,localport=80]
+nextCon,numCon,MAXCON:23,1,100
+Registered new connectionID=23 to Socket[addr=/127.0.0.1,port=61140,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=23 port=61140 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=23 port=61140 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61140,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61141,localport=80]
+nextCon,numCon,MAXCON:24,1,100
+Registered new connectionID=24 to Socket[addr=/127.0.0.1,port=61141,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=24 port=61141 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=24 port=61141 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61141,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61142,localport=80]
+nextCon,numCon,MAXCON:25,1,100
+Registered new connectionID=25 to Socket[addr=/127.0.0.1,port=61142,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=25 port=61142 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=25 port=61142 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61142,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61143,localport=80]
+nextCon,numCon,MAXCON:26,1,100
+Registered new connectionID=26 to Socket[addr=/127.0.0.1,port=61143,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=26 port=61143 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=26 port=61143 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61143,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61144,localport=80]
+nextCon,numCon,MAXCON:27,1,100
+Registered new connectionID=27 to Socket[addr=/127.0.0.1,port=61144,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=27 port=61144 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=27 port=61144 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61144,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61145,localport=80]
+nextCon,numCon,MAXCON:28,1,100
+Registered new connectionID=28 to Socket[addr=/127.0.0.1,port=61145,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=28 port=61145 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=28 port=61145 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61145,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61146,localport=80]
+nextCon,numCon,MAXCON:29,1,100
+Registered new connectionID=29 to Socket[addr=/127.0.0.1,port=61146,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=29 port=61146 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=29 port=61146 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61146,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61147,localport=80]
+nextCon,numCon,MAXCON:30,1,100
+Registered new connectionID=30 to Socket[addr=/127.0.0.1,port=61147,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=30 port=61147 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=30 port=61147 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61147,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61148,localport=80]
+nextCon,numCon,MAXCON:31,1,100
+Registered new connectionID=31 to Socket[addr=/127.0.0.1,port=61148,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=31 port=61148 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=31 port=61148 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61148,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61149,localport=80]
+nextCon,numCon,MAXCON:32,1,100
+Registered new connectionID=32 to Socket[addr=/127.0.0.1,port=61149,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=32 port=61149 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=32 port=61149 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61149,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61150,localport=80]
+nextCon,numCon,MAXCON:33,1,100
+Registered new connectionID=33 to Socket[addr=/127.0.0.1,port=61150,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=33 port=61150 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=33 port=61150 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61150,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61151,localport=80]
+nextCon,numCon,MAXCON:34,1,100
+Registered new connectionID=34 to Socket[addr=/127.0.0.1,port=61151,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=34 port=61151 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=34 port=61151 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61151,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61152,localport=80]
+nextCon,numCon,MAXCON:35,1,100
+Registered new connectionID=35 to Socket[addr=/127.0.0.1,port=61152,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=35 port=61152 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=35 port=61152 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61152,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61153,localport=80]
+nextCon,numCon,MAXCON:36,1,100
+Registered new connectionID=36 to Socket[addr=/127.0.0.1,port=61153,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=36 port=61153 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=36 port=61153 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61153,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61154,localport=80]
+nextCon,numCon,MAXCON:37,1,100
+Registered new connectionID=37 to Socket[addr=/127.0.0.1,port=61154,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=37 port=61154 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=37 port=61154 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61154,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61155,localport=80]
+nextCon,numCon,MAXCON:38,1,100
+Registered new connectionID=38 to Socket[addr=/127.0.0.1,port=61155,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=38 port=61155 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=38 port=61155 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61155,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61156,localport=80]
+nextCon,numCon,MAXCON:39,1,100
+Registered new connectionID=39 to Socket[addr=/127.0.0.1,port=61156,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=39 port=61156 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=39 port=61156 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61156,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61157,localport=80]
+nextCon,numCon,MAXCON:40,1,100
+Registered new connectionID=40 to Socket[addr=/127.0.0.1,port=61157,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=40 port=61157 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=40 port=61157 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61157,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61158,localport=80]
+nextCon,numCon,MAXCON:41,1,100
+Registered new connectionID=41 to Socket[addr=/127.0.0.1,port=61158,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=41 port=61158 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=41 port=61158 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61158,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61159,localport=80]
+nextCon,numCon,MAXCON:42,1,100
+Registered new connectionID=42 to Socket[addr=/127.0.0.1,port=61159,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=42 port=61159 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=42 port=61159 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61159,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61160,localport=80]
+nextCon,numCon,MAXCON:43,1,100
+Registered new connectionID=43 to Socket[addr=/127.0.0.1,port=61160,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=43 port=61160 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=43 port=61160 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61160,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61161,localport=80]
+nextCon,numCon,MAXCON:44,1,100
+Registered new connectionID=44 to Socket[addr=/127.0.0.1,port=61161,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=44 port=61161 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=44 port=61161 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61161,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61162,localport=80]
+nextCon,numCon,MAXCON:45,1,100
+Registered new connectionID=45 to Socket[addr=/127.0.0.1,port=61162,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=45 port=61162 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=45 port=61162 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61162,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61163,localport=80]
+nextCon,numCon,MAXCON:46,1,100
+Registered new connectionID=46 to Socket[addr=/127.0.0.1,port=61163,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=46 port=61163 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=46 port=61163 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61163,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61164,localport=80]
+nextCon,numCon,MAXCON:47,1,100
+Registered new connectionID=47 to Socket[addr=/127.0.0.1,port=61164,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=47 port=61164 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=47 port=61164 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61164,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61165,localport=80]
+nextCon,numCon,MAXCON:48,1,100
+Registered new connectionID=48 to Socket[addr=/127.0.0.1,port=61165,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=48 port=61165 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=48 port=61165 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61165,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61166,localport=80]
+nextCon,numCon,MAXCON:49,1,100
+Registered new connectionID=49 to Socket[addr=/127.0.0.1,port=61166,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=49 port=61166 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=49 port=61166 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61166,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61167,localport=80]
+nextCon,numCon,MAXCON:50,1,100
+Registered new connectionID=50 to Socket[addr=/127.0.0.1,port=61167,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=50 port=61167 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=50 port=61167 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61167,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61168,localport=80]
+nextCon,numCon,MAXCON:51,1,100
+Registered new connectionID=51 to Socket[addr=/127.0.0.1,port=61168,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=51 port=61168 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=51 port=61168 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61168,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61169,localport=80]
+nextCon,numCon,MAXCON:52,1,100
+Registered new connectionID=52 to Socket[addr=/127.0.0.1,port=61169,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=52 port=61169 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=52 port=61169 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61169,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61170,localport=80]
+nextCon,numCon,MAXCON:53,1,100
+Registered new connectionID=53 to Socket[addr=/127.0.0.1,port=61170,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=53 port=61170 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=53 port=61170 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61170,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61171,localport=80]
+nextCon,numCon,MAXCON:54,1,100
+Registered new connectionID=54 to Socket[addr=/127.0.0.1,port=61171,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=54 port=61171 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=54 port=61171 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61171,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61172,localport=80]
+nextCon,numCon,MAXCON:55,1,100
+Registered new connectionID=55 to Socket[addr=/127.0.0.1,port=61172,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=55 port=61172 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=55 port=61172 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61172,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61173,localport=80]
+nextCon,numCon,MAXCON:56,1,100
+Registered new connectionID=56 to Socket[addr=/127.0.0.1,port=61173,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=56 port=61173 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=56 port=61173 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61173,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61174,localport=80]
+nextCon,numCon,MAXCON:57,1,100
+Registered new connectionID=57 to Socket[addr=/127.0.0.1,port=61174,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=57 port=61174 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=57 port=61174 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61174,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61175,localport=80]
+nextCon,numCon,MAXCON:58,1,100
+Registered new connectionID=58 to Socket[addr=/127.0.0.1,port=61175,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=58 port=61175 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=58 port=61175 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61175,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61176,localport=80]
+nextCon,numCon,MAXCON:59,1,100
+Registered new connectionID=59 to Socket[addr=/127.0.0.1,port=61176,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=59 port=61176 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=59 port=61176 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61176,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61177,localport=80]
+nextCon,numCon,MAXCON:60,1,100
+Registered new connectionID=60 to Socket[addr=/127.0.0.1,port=61177,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=60 port=61177 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=60 port=61177 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61177,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61178,localport=80]
+nextCon,numCon,MAXCON:61,1,100
+Registered new connectionID=61 to Socket[addr=/127.0.0.1,port=61178,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=61 port=61178 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=61 port=61178 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61178,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61179,localport=80]
+nextCon,numCon,MAXCON:62,1,100
+Registered new connectionID=62 to Socket[addr=/127.0.0.1,port=61179,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=62 port=61179 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=62 port=61179 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61179,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61180,localport=80]
+nextCon,numCon,MAXCON:63,1,100
+Registered new connectionID=63 to Socket[addr=/127.0.0.1,port=61180,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=63 port=61180 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=63 port=61180 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61180,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61181,localport=80]
+nextCon,numCon,MAXCON:64,1,100
+Registered new connectionID=64 to Socket[addr=/127.0.0.1,port=61181,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=64 port=61181 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=64 port=61181 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61181,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61182,localport=80]
+nextCon,numCon,MAXCON:65,1,100
+Registered new connectionID=65 to Socket[addr=/127.0.0.1,port=61182,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=65 port=61182 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=65 port=61182 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61182,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61183,localport=80]
+nextCon,numCon,MAXCON:66,1,100
+Registered new connectionID=66 to Socket[addr=/127.0.0.1,port=61183,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=66 port=61183 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=66 port=61183 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61183,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61184,localport=80]
+nextCon,numCon,MAXCON:67,1,100
+Registered new connectionID=67 to Socket[addr=/127.0.0.1,port=61184,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=67 port=61184 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=67 port=61184 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61184,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61185,localport=80]
+nextCon,numCon,MAXCON:68,1,100
+Registered new connectionID=68 to Socket[addr=/127.0.0.1,port=61185,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=68 port=61185 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=68 port=61185 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61185,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61186,localport=80]
+nextCon,numCon,MAXCON:69,1,100
+Registered new connectionID=69 to Socket[addr=/127.0.0.1,port=61186,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=69 port=61186 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=69 port=61186 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61186,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61187,localport=80]
+nextCon,numCon,MAXCON:70,1,100
+Registered new connectionID=70 to Socket[addr=/127.0.0.1,port=61187,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=70 port=61187 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=70 port=61187 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61187,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61188,localport=80]
+nextCon,numCon,MAXCON:71,1,100
+Registered new connectionID=71 to Socket[addr=/127.0.0.1,port=61188,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=71 port=61188 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=71 port=61188 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61188,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61189,localport=80]
+nextCon,numCon,MAXCON:72,1,100
+Registered new connectionID=72 to Socket[addr=/127.0.0.1,port=61189,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=72 port=61189 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=72 port=61189 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61189,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61190,localport=80]
+nextCon,numCon,MAXCON:73,1,100
+Registered new connectionID=73 to Socket[addr=/127.0.0.1,port=61190,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=73 port=61190 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=73 port=61190 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61190,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61191,localport=80]
+nextCon,numCon,MAXCON:74,1,100
+Registered new connectionID=74 to Socket[addr=/127.0.0.1,port=61191,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=74 port=61191 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=74 port=61191 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61191,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61192,localport=80]
+nextCon,numCon,MAXCON:75,1,100
+Registered new connectionID=75 to Socket[addr=/127.0.0.1,port=61192,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=75 port=61192 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=75 port=61192 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61192,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61193,localport=80]
+nextCon,numCon,MAXCON:76,1,100
+Registered new connectionID=76 to Socket[addr=/127.0.0.1,port=61193,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=76 port=61193 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=76 port=61193 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61193,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61194,localport=80]
+nextCon,numCon,MAXCON:77,1,100
+Registered new connectionID=77 to Socket[addr=/127.0.0.1,port=61194,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=77 port=61194 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=77 port=61194 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61194,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61195,localport=80]
+nextCon,numCon,MAXCON:78,1,100
+Registered new connectionID=78 to Socket[addr=/127.0.0.1,port=61195,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=78 port=61195 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=78 port=61195 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61195,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61196,localport=80]
+nextCon,numCon,MAXCON:79,1,100
+Registered new connectionID=79 to Socket[addr=/127.0.0.1,port=61196,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=79 port=61196 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=79 port=61196 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61196,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61197,localport=80]
+nextCon,numCon,MAXCON:80,1,100
+Registered new connectionID=80 to Socket[addr=/127.0.0.1,port=61197,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=80 port=61197 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=80 port=61197 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61197,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61198,localport=80]
+nextCon,numCon,MAXCON:81,1,100
+Registered new connectionID=81 to Socket[addr=/127.0.0.1,port=61198,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=81 port=61198 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=81 port=61198 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61198,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61199,localport=80]
+nextCon,numCon,MAXCON:82,1,100
+Registered new connectionID=82 to Socket[addr=/127.0.0.1,port=61199,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=82 port=61199 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=82 port=61199 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61199,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61200,localport=80]
+nextCon,numCon,MAXCON:83,1,100
+Registered new connectionID=83 to Socket[addr=/127.0.0.1,port=61200,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=83 port=61200 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=83 port=61200 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61200,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61201,localport=80]
+nextCon,numCon,MAXCON:84,1,100
+Registered new connectionID=84 to Socket[addr=/127.0.0.1,port=61201,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=84 port=61201 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=84 port=61201 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61201,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61202,localport=80]
+nextCon,numCon,MAXCON:85,1,100
+Registered new connectionID=85 to Socket[addr=/127.0.0.1,port=61202,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=85 port=61202 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=85 port=61202 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61202,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61203,localport=80]
+nextCon,numCon,MAXCON:86,1,100
+Registered new connectionID=86 to Socket[addr=/127.0.0.1,port=61203,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=86 port=61203 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=86 port=61203 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61203,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61204,localport=80]
+nextCon,numCon,MAXCON:87,1,100
+Registered new connectionID=87 to Socket[addr=/127.0.0.1,port=61204,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=87 port=61204 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=87 port=61204 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61204,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61205,localport=80]
+nextCon,numCon,MAXCON:88,1,100
+Registered new connectionID=88 to Socket[addr=/127.0.0.1,port=61205,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=88 port=61205 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=88 port=61205 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61205,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61206,localport=80]
+nextCon,numCon,MAXCON:89,1,100
+Registered new connectionID=89 to Socket[addr=/127.0.0.1,port=61206,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=89 port=61206 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=89 port=61206 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61206,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61207,localport=80]
+nextCon,numCon,MAXCON:90,1,100
+Registered new connectionID=90 to Socket[addr=/127.0.0.1,port=61207,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=90 port=61207 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=90 port=61207 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61207,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61208,localport=80]
+nextCon,numCon,MAXCON:91,1,100
+Registered new connectionID=91 to Socket[addr=/127.0.0.1,port=61208,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=91 port=61208 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=91 port=61208 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61208,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61209,localport=80]
+nextCon,numCon,MAXCON:92,1,100
+Registered new connectionID=92 to Socket[addr=/127.0.0.1,port=61209,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=92 port=61209 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=92 port=61209 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61209,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61210,localport=80]
+nextCon,numCon,MAXCON:93,1,100
+Registered new connectionID=93 to Socket[addr=/127.0.0.1,port=61210,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=93 port=61210 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=93 port=61210 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61210,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61211,localport=80]
+nextCon,numCon,MAXCON:94,1,100
+Registered new connectionID=94 to Socket[addr=/127.0.0.1,port=61211,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=94 port=61211 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=94 port=61211 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61211,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61212,localport=80]
+nextCon,numCon,MAXCON:95,1,100
+Registered new connectionID=95 to Socket[addr=/127.0.0.1,port=61212,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=95 port=61212 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=95 port=61212 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61212,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61213,localport=80]
+nextCon,numCon,MAXCON:96,1,100
+Registered new connectionID=96 to Socket[addr=/127.0.0.1,port=61213,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=96 port=61213 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=96 port=61213 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61213,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61214,localport=80]
+nextCon,numCon,MAXCON:97,1,100
+Registered new connectionID=97 to Socket[addr=/127.0.0.1,port=61214,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=97 port=61214 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=97 port=61214 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61214,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61215,localport=80]
+nextCon,numCon,MAXCON:98,1,100
+Registered new connectionID=98 to Socket[addr=/127.0.0.1,port=61215,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=98 port=61215 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=98 port=61215 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61215,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61216,localport=80]
+nextCon,numCon,MAXCON:99,1,100
+Registered new connectionID=99 to Socket[addr=/127.0.0.1,port=61216,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=99 port=61216 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=99 port=61216 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61216,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61217,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=1 to Socket[addr=/127.0.0.1,port=61217,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=1 port=61217 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=1 port=61217 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61217,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61218,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=1 to Socket[addr=/127.0.0.1,port=61218,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=1 port=61218 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=1 port=61218 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61218,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61219,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=0 to Socket[addr=/127.0.0.1,port=61219,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=0 port=61219 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=0 port=61219 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61219,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61220,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=0 to Socket[addr=/127.0.0.1,port=61220,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=0 port=61220 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=0 port=61220 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61220,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61221,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=0 to Socket[addr=/127.0.0.1,port=61221,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=0 port=61221 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=0 port=61221 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61221,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61222,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=2 to Socket[addr=/127.0.0.1,port=61222,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=2 port=61222 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=2 port=61222 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61222,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61223,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=2 to Socket[addr=/127.0.0.1,port=61223,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=2 port=61223 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=2 port=61223 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61223,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61224,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=3 to Socket[addr=/127.0.0.1,port=61224,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=3 port=61224 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=3 port=61224 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61224,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61225,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=3 to Socket[addr=/127.0.0.1,port=61225,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=3 port=61225 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=3 port=61225 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61225,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61226,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=4 to Socket[addr=/127.0.0.1,port=61226,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=4 port=61226 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=4 port=61226 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61226,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61227,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=4 to Socket[addr=/127.0.0.1,port=61227,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=4 port=61227 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=4 port=61227 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61227,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61228,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=5 to Socket[addr=/127.0.0.1,port=61228,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=5 port=61228 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=5 port=61228 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61228,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61229,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=5 to Socket[addr=/127.0.0.1,port=61229,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=5 port=61229 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=5 port=61229 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61229,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61230,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=6 to Socket[addr=/127.0.0.1,port=61230,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=6 port=61230 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=6 port=61230 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61230,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61231,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=6 to Socket[addr=/127.0.0.1,port=61231,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=6 port=61231 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=6 port=61231 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61231,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61232,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=7 to Socket[addr=/127.0.0.1,port=61232,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=7 port=61232 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=7 port=61232 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61232,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61233,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=7 to Socket[addr=/127.0.0.1,port=61233,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=7 port=61233 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=7 port=61233 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29996 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61233,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61234,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=8 to Socket[addr=/127.0.0.1,port=61234,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=8 port=61234 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=8 port=61234 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61234,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61235,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=8 to Socket[addr=/127.0.0.1,port=61235,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=8 port=61235 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=8 port=61235 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61235,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61236,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=9 to Socket[addr=/127.0.0.1,port=61236,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=9 port=61236 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=9 port=61236 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61236,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61237,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=9 to Socket[addr=/127.0.0.1,port=61237,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=9 port=61237 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=9 port=61237 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61237,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61238,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=10 to Socket[addr=/127.0.0.1,port=61238,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=10 port=61238 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=10 port=61238 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61238,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61239,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=10 to Socket[addr=/127.0.0.1,port=61239,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=10 port=61239 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=10 port=61239 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61239,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61240,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=11 to Socket[addr=/127.0.0.1,port=61240,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=11 port=61240 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=11 port=61240 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61240,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61241,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=11 to Socket[addr=/127.0.0.1,port=61241,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=11 port=61241 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=11 port=61241 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61241,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61242,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=12 to Socket[addr=/127.0.0.1,port=61242,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=12 port=61242 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=12 port=61242 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61242,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61243,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=12 to Socket[addr=/127.0.0.1,port=61243,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=12 port=61243 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=12 port=61243 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61243,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61244,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=13 to Socket[addr=/127.0.0.1,port=61244,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=13 port=61244 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=13 port=61244 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61244,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61245,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=13 to Socket[addr=/127.0.0.1,port=61245,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=13 port=61245 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=13 port=61245 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61245,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61246,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=14 to Socket[addr=/127.0.0.1,port=61246,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=14 port=61246 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=14 port=61246 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61246,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61247,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=14 to Socket[addr=/127.0.0.1,port=61247,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=14 port=61247 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=14 port=61247 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61247,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61248,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=15 to Socket[addr=/127.0.0.1,port=61248,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=15 port=61248 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=15 port=61248 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61248,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61249,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=15 to Socket[addr=/127.0.0.1,port=61249,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=15 port=61249 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=15 port=61249 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61249,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61250,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=16 to Socket[addr=/127.0.0.1,port=61250,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=16 port=61250 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=16 port=61250 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61250,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61251,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=16 to Socket[addr=/127.0.0.1,port=61251,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=16 port=61251 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=16 port=61251 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61251,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61252,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=17 to Socket[addr=/127.0.0.1,port=61252,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=17 port=61252 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=17 port=61252 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61252,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61253,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=17 to Socket[addr=/127.0.0.1,port=61253,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=17 port=61253 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=17 port=61253 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61253,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61254,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=18 to Socket[addr=/127.0.0.1,port=61254,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=18 port=61254 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=18 port=61254 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61254,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61255,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=18 to Socket[addr=/127.0.0.1,port=61255,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=18 port=61255 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=18 port=61255 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61255,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61256,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=19 to Socket[addr=/127.0.0.1,port=61256,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=19 port=61256 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=19 port=61256 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61256,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61257,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=19 to Socket[addr=/127.0.0.1,port=61257,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=19 port=61257 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=19 port=61257 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61257,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61258,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=20 to Socket[addr=/127.0.0.1,port=61258,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=20 port=61258 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=20 port=61258 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61258,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61259,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=20 to Socket[addr=/127.0.0.1,port=61259,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=20 port=61259 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=20 port=61259 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61259,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61260,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=21 to Socket[addr=/127.0.0.1,port=61260,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=21 port=61260 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=21 port=61260 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61260,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61261,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=21 to Socket[addr=/127.0.0.1,port=61261,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=21 port=61261 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=21 port=61261 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61261,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61262,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=22 to Socket[addr=/127.0.0.1,port=61262,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=22 port=61262 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=22 port=61262 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61262,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61263,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=22 to Socket[addr=/127.0.0.1,port=61263,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=22 port=61263 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=22 port=61263 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61263,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61264,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=23 to Socket[addr=/127.0.0.1,port=61264,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=23 port=61264 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=23 port=61264 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61264,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61265,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=23 to Socket[addr=/127.0.0.1,port=61265,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=23 port=61265 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=23 port=61265 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61265,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61266,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=24 to Socket[addr=/127.0.0.1,port=61266,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=24 port=61266 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=24 port=61266 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61266,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61267,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=24 to Socket[addr=/127.0.0.1,port=61267,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=24 port=61267 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=24 port=61267 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61267,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61268,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=25 to Socket[addr=/127.0.0.1,port=61268,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=25 port=61268 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=25 port=61268 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61268,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61269,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=25 to Socket[addr=/127.0.0.1,port=61269,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=25 port=61269 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=25 port=61269 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61269,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61270,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=26 to Socket[addr=/127.0.0.1,port=61270,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=26 port=61270 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=26 port=61270 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61270,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61271,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=26 to Socket[addr=/127.0.0.1,port=61271,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=26 port=61271 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=26 port=61271 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61271,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61272,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=27 to Socket[addr=/127.0.0.1,port=61272,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=27 port=61272 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=27 port=61272 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61272,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61273,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=27 to Socket[addr=/127.0.0.1,port=61273,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=27 port=61273 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=27 port=61273 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61273,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61274,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=28 to Socket[addr=/127.0.0.1,port=61274,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=28 port=61274 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=28 port=61274 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61274,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61275,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=28 to Socket[addr=/127.0.0.1,port=61275,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=28 port=61275 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=28 port=61275 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61275,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61276,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=29 to Socket[addr=/127.0.0.1,port=61276,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=29 port=61276 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=29 port=61276 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61276,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61277,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=29 to Socket[addr=/127.0.0.1,port=61277,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=29 port=61277 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=29 port=61277 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61277,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61278,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=30 to Socket[addr=/127.0.0.1,port=61278,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=30 port=61278 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=30 port=61278 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61278,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61279,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=30 to Socket[addr=/127.0.0.1,port=61279,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=30 port=61279 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=30 port=61279 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61279,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61280,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=31 to Socket[addr=/127.0.0.1,port=61280,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=31 port=61280 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=31 port=61280 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61280,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61281,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=31 to Socket[addr=/127.0.0.1,port=61281,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=31 port=61281 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=31 port=61281 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61281,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61282,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=32 to Socket[addr=/127.0.0.1,port=61282,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=32 port=61282 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=32 port=61282 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61282,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61283,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=32 to Socket[addr=/127.0.0.1,port=61283,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=32 port=61283 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=32 port=61283 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61283,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61284,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=33 to Socket[addr=/127.0.0.1,port=61284,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=33 port=61284 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=33 port=61284 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61284,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61285,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=33 to Socket[addr=/127.0.0.1,port=61285,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=33 port=61285 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=33 port=61285 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61285,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61286,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=34 to Socket[addr=/127.0.0.1,port=61286,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=34 port=61286 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=34 port=61286 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61286,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61287,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=34 to Socket[addr=/127.0.0.1,port=61287,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=34 port=61287 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=34 port=61287 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61287,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61288,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=35 to Socket[addr=/127.0.0.1,port=61288,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=35 port=61288 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=35 port=61288 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61288,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61289,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=35 to Socket[addr=/127.0.0.1,port=61289,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=35 port=61289 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=35 port=61289 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61289,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61290,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=36 to Socket[addr=/127.0.0.1,port=61290,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=36 port=61290 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=36 port=61290 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61290,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61291,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=36 to Socket[addr=/127.0.0.1,port=61291,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=36 port=61291 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=36 port=61291 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 46
+[Server] [DEBUG] b1 array size = 46; capacity = 46; limit = 46 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61291,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=61292,localport=80]
+nextCon,numCon,MAXCON:100,1,100
+Recycle!
+Registered recycled connectionID=37 to Socket[addr=/127.0.0.1,port=61292,localport=80]
+[HTTP] [Request] POST /fuzz from [Connection: id=37 port=61292 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[HTTP] [POST] 'packet=505&id=15906300&customerName=mrkanesir3&customerPhone=3194717717&customerEmail=jizz%40jizz.com&title=title+9&info=i+have+issues+man&due=fuck+you%3B+SELECT+*+FROM+USERS%3B&status=Awaiting+diagnosis&end=0                                                                                                                                                                                                                                                                                                                                            '
+PROCESSING WEB PACKET!!!!
+[WebPackets] packetype was 505
+[TicketProcessing] Processing ticket query...
+modify: fields and vals
+id: 15906300
+customerName: mrkanesir3
+customerPhone: 3194717717
+customerEmail: jizz%40jizz.com
+title: title+9
+info: i+have+issues+man
+due: fuck+you%3B+SELECT+*+FROM+USERS%3B
+status: Awaiting+diagnosis
+end: 0                                                                                                                                                                                                                                                                                                                                            
+[DatabaseManager] Attempting query: UPDATE tickets SET 
+[DatabaseManager] query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+[DatabaseManager] Query complete.
+done()! responseSize=0
+modified successfully!
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 48
+[Server] [DEBUG] b1 array size = 48; capacity = 48; limit = 48 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=61292,localport=80]
+Disconnecting Socket[unconnected]
