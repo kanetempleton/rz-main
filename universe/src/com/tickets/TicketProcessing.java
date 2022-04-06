@@ -4,6 +4,7 @@ import com.server.entity.*;
 import com.server.protocol.*;
 import com.db.*;
 import com.util.html.*;
+import com.server.web.Cookie;
 
 
 public class TicketProcessing extends DatabaseUtility implements Runnable {
@@ -205,6 +206,9 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     //delete a ticket from the database
     private void deleteTicket(HTTP http, ServerConnection c, String uri, String ticketid) {
         String username = c.getCookie("usr");
+        for (Cookie x: c.getCookies()) {
+            System.out.println("cookie for "+c+": "+x);
+        }
         System.out.println("checking rights for "+username);
         boolean canDoThis=false;
         if (username.equalsIgnoreCase("rzadmin")) {
