@@ -145,6 +145,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                             //reply();
                            // String r = http.multiHTMLResponse_noTags(http.HTTP_OK,new String[]{http.fileHTML_noTags(uri),T.toString()});
                             //reply(c,r);
+                            System.out.println("responding with modify success");
                             reply(c,RESPONSE_MODIFY_SUCCESS+";;;"+T.toString());
                            // c.sendMessage(r);
                            // c.disconnect();
@@ -434,7 +435,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     //convert POST input data to text
     //might need some work so people don't hack us
     private String cleanseInput(String input) {
-        return input.replace("+"," ").replace("%40","@").replace("%3B",";");
+        return input.replace("+"," ").replace("%40","@").replace("%3B",";").replace("%2F","/");
     }
 
     //send a reply with HTTP 200 OK
