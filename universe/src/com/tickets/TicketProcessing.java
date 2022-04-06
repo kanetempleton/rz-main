@@ -32,10 +32,12 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     public static final int QUERYTYPE_SEARCH_TICKETS = 1002;
     public static final int QUERYTYPE_VIEW_TICKET = 1003;
     public static final int QUERYTYPE_DELETE_TICKET = 1004;
+    public static final int QUERYTYPE_MODIFY_TICKET = 1005;
 
     public static final int PACKETTYPE_CUSTOMER_VIEW_TICKET = 500;
     public static final int PACKETTYPE_EMPLOYEE_NEW_TICKET = 501;
     public static final int PACKETTYPE_EMPLOYEE_VIEW_ALL_TICKETS = 502;
+    public static final int PACKETTYPE_MODIFY_TICKET = 505;
 
 
     // CUSTOMER RESPONSE CODES
@@ -46,14 +48,14 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     private static final String RESPONSE_FAILURE = "failure";
     private static final String RESPONSE_SHOW_TICKETS = "alltickets";
     private static final String RESPONSE_SHOW_TICKET = "ticketfound";
-
-    private void reply(ServerConnection c, String code) {
-        //System.out.println("sending reply: ["+code+"]");
-        c.sendMessage(HTTP.HTTP_OK+"\r\n"+code);
-        c.disconnect();
-    }
+    private static final String RESPONSE_NONSENSE = "nonsense";
+    private static final String RESPONSE_PERMISSION_DENIED = "notallowed";
+    private static final String RESPONSE_MODIFY_SUCCESS = "modifysuccess";
 
 
+
+
+    //process data from POST requests
     public void processPOST(HTTP http, ServerConnection c, String uri, int packetID, String[] fields, String[] values) {
 
         System.out.println("[TicketProcessing] Processing ticket query...");
@@ -69,71 +71,91 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
             case PACKETTYPE_EMPLOYEE_VIEW_ALL_TICKETS: //view all tickets
                 queryAllTicketsToTable(c);
                 break;
+            case PACKETTYPE_MODIFY_TICKET:
+                editTicket(http,c,uri,fields,values);
+                break;
+            default:
+                reply(c,RESPONSE_NONSENSE);
+                break;
         }
 
     }
 
+    // process custom GET requests.. mainly useful for dynamic page generation using parameters
     public byte[] processGET(HTTP http, ServerConnection c, String uri, String[] fields, String[] values) {
         boolean properFormat = false;
         String function = "get";
         String ticketid = "";
         for (int i=0; i<fields.length; i++) {
-            if (fields[i].equals("id")) {
+            if (fields[i].equals("id") || fields[i].equals("delete") || fields[i].equals("modify")) {
                 properFormat=true;
                 ticketid = values[i];
-                function = "id";
-            }
-            if (fields[i].equals("delete")) {
-                properFormat=true;
-                ticketid = values[i];
-                function = "delete";
-            }
-            if (fields[i].equals("modify")) {
-                properFormat=true;
-                ticketid = values[i];
-                function = "modify";
+                function = fields[i];
             }
         }
         if (!properFormat)
             return null;
 
         c.setNeedsReply(true);
+
         if (function.equals("id"))
             queryTicketByID(http,c,uri,ticketid);
         if (function.equals("delete"))
             deleteTicket(http,c,uri,ticketid);
         if (function.equals("modify"))
-            editTicket(http,c,uri,ticketid);
-       /* String buildHTML = "";
-        public void done() {
-            HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
-            T.addBasicBorders();
-            T.addHrefToColumn("ticket_id","tickets.html");
-            buildHTML = T.toString();//HTMLGenerator.generateTable(this.response_getFields(),this.response_getValues());
-            reply(c,RESPONSE_SHOW_TICKETS+";;;"+buildHTML);
-        }*/
-       /* new ServerQuery(this,c,QUERYTYPE_VIEW_TICKET, "select * from tickets where id='"+ticketid+"'") {
-            public void done() {
-                if (this.responseSize()!=1) {
-                    reply(c,RESPONSE_NO_TICKET);
-                    return;
-                }
-                HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
-                T.addBasicBorders();
-                T.appendColumnToEnd("modify","<a href=/tickets?update>edit ticket</a>");
-                T.appendColumnToEnd("delete","<a href=/tickets?delete>remove ticket</a>");
-                //T.appendStyle(" class='center'");
-                //reply();
-                String r = http.multiHTMLResponse_noTags(http.HTTP_OK,new String[]{http.fileHTML_noTags(uri),T.toString()});
-               // reply(c,r);
-                c.sendMessage(r);
-                c.disconnect();
-            }
-        };*/
+            showEditTicketFields(http,c,uri,ticketid);
+
         return http.WAIT_FOR_RESPONSE.getBytes();
     }
 
-    private void editTicket(HTTP http, ServerConnection c, String uri, String ticketid) {
+    private void editTicket(HTTP http, ServerConnection c, String uri, String[] fields, String[] values) {
+        if (c.getCookie("usr").equalsIgnoreCase("rzadmin")) {
+            String updateQuery = "UPDATE tickets SET ";
+            for (int i=0; i<fields.length; i++) {
+                if (fields[i].equals("end"))
+                    continue;
+                updateQuery += fields[i]+"='"+cleanseInput(values[i])+"'";
+                if (i<fields.length-2)
+                    updateQuery+=",";
+            }
+
+            String ticketid = getValue("id",fields,values);
+            updateQuery+=" WHERE id='"+ticketid+"';";
+            new ServerQuery(this,c,QUERYTYPE_MODIFY_TICKET, updateQuery) {
+                public void done() {
+                    System.out.println("ticket modified successfully!");
+                    new ServerQuery(this.getUtil(), c, QUERYTYPE_VIEW_TICKET, "select * from tickets where id='"+ticketid+"'") {
+                        public void done() {
+                            HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
+                            T.addBasicBorders();
+                           // T.addFormToRow("id",ticketid);
+                            // T.addHrefToColumn("id","tickets");
+
+                            if (c.getCookie("usr").equals("rzadmin")) {
+                                //  T.appendColumnToEnd("modify", "edit ticket");
+                                T.appendColumnToEnd("modify", "<button id=\"submitChangesButton\" onclick=\"tryEditQuery()\">Submit Changes</button>");
+                                // T.addHrefToColumn("delete","tickets","id");
+                            }
+
+
+                            //T.appendStyle(" class='center'");
+                            //reply();
+                           // String r = http.multiHTMLResponse_noTags(http.HTTP_OK,new String[]{http.fileHTML_noTags(uri),T.toString()});
+                            //reply(c,r);
+                            reply(c,RESPONSE_MODIFY_SUCCESS+";;;"+T.toString());
+                           // c.sendMessage(r);
+                           // c.disconnect();
+                        }
+                    };
+                    //reply(c,RESPONSE_MODIFY_SUCCESS);
+                }
+            };
+        } else {
+            reply(c,RESPONSE_PERMISSION_DENIED);
+        }
+    }
+
+    private void showEditTicketFields(HTTP http, ServerConnection c, String uri, String ticketid) {
         new ServerQuery(this,c,QUERYTYPE_VIEW_TICKET, "select * from tickets where id='"+ticketid+"'") {
             public void done() {
                 if (this.responseSize()!=1) {
@@ -180,6 +202,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         queryTickets(http,c,uri,"id='"+ticketid+"' AND customerName='"+customerName+"'");
     }
 
+    //delete a ticket from the database
     private void deleteTicket(HTTP http, ServerConnection c, String uri, String ticketid) {
         String username = c.getCookie("usr");
         System.out.println("checking rights for "+username);
@@ -262,10 +285,11 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         };
     }
 
+    //POST request for submitting ticket
     private void enterNewTicket(ServerConnection c, String[] fields, String[] values) {
         System.out.println("[TicketProcessing] Create new ticket");
         int[] ticketid = {0};
-        generateNewTicketID(ticketid);
+        generateNewTicketID(ticketid,100000);
         while (ticketid[0] == 0) {
 
         }
@@ -292,6 +316,8 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     }
 
 
+    // "show all tickets" button
+    // show summary for all tickets and put them in an HTML table
     private void queryAllTicketsToTable(ServerConnection c) {
 
         new ServerQuery(this,c,QUERYTYPE_SEARCH_TICKETS,"select id,title,customerName,status,dueDate from tickets;") {
@@ -343,24 +369,21 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                     }*/
                 //    buildHTML+="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>";
                 }
-               /* for (String x: this.getResponses()) {
-                    buildHTML+= "{"+x+"}<br>";
-                }
-                */
 
                 reply(c,RESPONSE_SHOW_TICKETS+";;;"+buildHTML);
             }
         };
     }
 
-    private void generateNewTicketID(int[] buf) {
-        int x = 1+(int)(Math.random()*100000000);
+    //find an unused ticket id
+    private void generateNewTicketID(int[] buf, int max) {
+        int x = 1+(int)(Math.random()*max);
         boolean found = false;
         boolean found2 = false;
         new ServerQuery(this,"select id from tickets where id='"+x+"'") {
             public void done() {
                 if (this.getResponses().size() > 0) {
-                    generateNewTicketID(buf);
+                    generateNewTicketID(buf,max);
                     System.out.println("retrying new ticket id...");
                 } else {
                     buf[0] = x;
@@ -372,6 +395,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     }
 
 
+    // store a ticket into the database
     public void storeTicket(Ticket T, ServerConnection c, int type) {
         new ServerQuery(this,c,type,"INSERT INTO tickets(id,title,customerName,customerPhone,customerEmail,info,status,dueDate) VALUES('"+T.getId()+"','"+T.getTitle()+"','"+T.getCustName()+"','"+T.getCustPhone()+"','"+T.getCustEmail()+"','"+T.getInfo()+"','"+T.getStatus()+"','"+T.getDue()+"')") {
             public void done() {
@@ -383,6 +407,8 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         };
     }
 
+    // initialize the "tickets" database table
+    // @TODO: auto-modify table structure
     public void initTable() {
         new ServerQuery(this,"SHOW TABLES LIKE \""+getTable()+"\"") {
             public void done() {
@@ -397,8 +423,26 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         };
     }
 
+    //convert POST input data to text
+    //might need some work so people don't hack us
     private String cleanseInput(String input) {
         return input.replace("+"," ").replace("%40","@").replace("%3B",";");
+    }
+
+    //send a reply with HTTP 200 OK
+    //mainly used for responding to POST requests
+    private void reply(ServerConnection c, String code) {
+        //System.out.println("sending reply: ["+code+"]");
+        c.sendMessage(HTTP.HTTP_OK+"\r\n"+code);
+        c.disconnect();
+    }
+
+    private String getValue(String field, String[] fields, String[] values) {
+        for (int i=0; i<fields.length; i++) {
+            if (fields[i].equals(field))
+                return values[i];
+        }
+        return "NULL";
     }
 
 }

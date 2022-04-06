@@ -200,15 +200,17 @@ const URL='fuzz'
 	const ticketInfo = document.getElementById("form_info").value;
 	const ticketDueDate = document.getElementById("form_dueDate").value;
 	const ticketStatus = document.getElementById("form_status").value;
+	const ticketID = document.getElementById("form_id").value;
 
 	const sendme={
     	    packet:505,
+    	    id: ticketID,
     		customerName: custName,
     		customerPhone: custPhone,
     		customerEmail: custEmail,
     		title: ticketTitle,
     		info: ticketInfo,
-    		due: ticketDueDate,
+    		dueDate: ticketDueDate,
     		status: ticketStatus,
     		end:0
     	}
@@ -226,9 +228,10 @@ const URL='fuzz'
                 if (result == 'retry') {
                     tryEditQuery();
                 }
-                else if (result.startsWith('success')) { // TODO
-                    document.getElementById("employeeStatusCode").innerHTML = "<a href=/tickets?id="+result.split(":")[1]+">Ticket #"+result.split(":")[1]+"</a> successfully created!";
+                else if (result.startsWith('modifysuccess')) { // TODO
+                    document.getElementById("employeeStatusCode").innerHTML = "<a href=/tickets?id="+ticketID+">Ticket #"+ticketID+"</a> successfully modified!";
     //                document.getElementById("output").innerHTML = "ticket.id<br>ticket.title<br>ticket.customer<br>ticket.status<br>ticket.info";
+                    document.getElementById("output").innerHTML = result.split(";;;")[1];
                   //  clearEmployeeInputForms();
                 }
                 else if (result == 'inprogress') { //TODO
