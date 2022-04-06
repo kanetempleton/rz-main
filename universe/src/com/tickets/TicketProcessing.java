@@ -438,7 +438,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     //convert POST input data to text
     //might need some work so people don't hack us
     private String cleanseInput(String input) {
-        return input.replace("+"," ").replace("%40","@").replace("%3B",";").replace("%2F","/").replace("%25252C",",");
+        return input.replace("+"," ").replace("%40","@").replace("%3B",";").replace("%2F","/").replace("%25252C",",").replace("%2C",",");
     }
 
     //send a reply with HTTP 200 OK
