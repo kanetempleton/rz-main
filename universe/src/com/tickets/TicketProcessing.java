@@ -119,8 +119,11 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                 if (i<fields.length-1)
                     updateQuery+=",";
             }
+
             if (updateQuery.endsWith(","))
-                updateQuery = updateQuery.substring(0,updateQuery.length()-2);
+                updateQuery = updateQuery.substring(0,updateQuery.length()-1);
+
+
 
             String ticketid = getValue("id",fields,values);
             updateQuery+=" WHERE id='"+ticketid+"';";
@@ -396,7 +399,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                     System.out.println("retrying new ticket id...");
                 } else {
                     buf[0] = x;
-                    System.out.println("ticket id found: "+x);
+                    System.out.println("ticket id found: "+x+" buffer[0]="+buf[0]);
                 }
             }
         };
