@@ -19,6 +19,7 @@ public class Main {
         System.out.println("main'd");
        // Server webserver = new Server(new HTTP("./res/front/",4000));
        // new Thread(webserver).start();
+
         launcher = new Launcher();
         launcher.addDatabaseManager();
         launcher.addLoginHandler();
@@ -47,6 +48,10 @@ public class Main {
         http_protocol.addRoute("/tickets.js","/pages/tickets/tickets.js");
         http_protocol.addRoute("/login","/pages/login/login.html");
         http_protocol.addRoute("/login.js","/pages/login/login.js");
+        http_protocol.addRoute("/api","/api/api.html");
+        http_protocol.addRoute("/api/tickets","/api/tickets/tickets_api.html");
+        http_protocol.addRoute("/style","/style/rzstyle.css");
+
         Server http = new Server(http_protocol);
 
         //HTTP http2 = new HTTP("res/front/index/",80);

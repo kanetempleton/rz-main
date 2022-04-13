@@ -1,0 +1,260 @@
+main'd
+loading configuration...
+loaded configuration: DNE: DNE
+loaded configuration: db_addr: localhost
+loaded configuration: db_name: rztech
+loaded configuration: db_user: root
+loaded configuration: db_pass: admin
+loaded configuration: DNE: DNE
+config loaded.
+[Console] Initialized!
+[DatabaseManager] Attempting database connection to jdbc:mysql://localhost:3306/rztech?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Chicago
+[DatabaseManager] Connection opened successfully!
+[LoginHandler] Login handler launched successfully!
+[DatabaseManager] Attempting query: create table if not exists maps(mapcode INTEGER, data TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists users(id INTEGER PRIMARY KEY AUTO_INCREMENT, username TEXT, password TEXT, email TEXT, privileges INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists players(username TEXT, x INTEGER, y INTEGER, z INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists settings(name TEXT, value TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists bans(name TEXT, ip TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select name from bans where name!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select ip from bans where ip!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[CareTaker] Server caretaker started successfully!
+[HTTP] Attempting to start server on port 80...
+[HTTP] Started successfully!
+[TCP] Attempting to start server on port 43594...
+[TCP] Started successfully!
+[DatabaseManager] Attempting query: SHOW TABLES LIKE "tickets"
+[DatabaseManager] Row: [Tables_in_rztech (tickets)=tickets] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52839,localport=80]
+nextCon,numCon,MAXCON:0,1,100
+Registered new connectionID=0 to Socket[addr=/127.0.0.1,port=52839,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/login from [Connection: id=0 port=52839 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=0 port=52839 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29984 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1218
+[Server] [DEBUG] b1 array size = 1218; capacity = 1218; limit = 1218 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52839,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52840,localport=80]
+nextCon,numCon,MAXCON:1,1,100
+Registered new connectionID=1 to Socket[addr=/127.0.0.1,port=52840,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=1 port=52840 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=1 port=52840 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29997 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52840,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52845,localport=80]
+nextCon,numCon,MAXCON:2,1,100
+Registered new connectionID=2 to Socket[addr=/127.0.0.1,port=52845,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/login.js from [Connection: id=2 port=52845 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=2 port=52845 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 6553
+[Server] [DEBUG] b1 array size = 6553; capacity = 6553; limit = 6553 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52845,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52846,localport=80]
+nextCon,numCon,MAXCON:3,1,100
+Registered new connectionID=3 to Socket[addr=/127.0.0.1,port=52846,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/favicon.ico from [Connection: id=3 port=52846 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=3 port=52846 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 50
+[Server] [DEBUG] b1 array size = 50; capacity = 50; limit = 50 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52846,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52880,localport=80]
+nextCon,numCon,MAXCON:4,1,100
+Registered new connectionID=4 to Socket[addr=/127.0.0.1,port=52880,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/ from [Connection: id=4 port=52880 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=4 port=52880 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1007
+[Server] [DEBUG] b1 array size = 1007; capacity = 1007; limit = 1007 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52880,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52905,localport=80]
+nextCon,numCon,MAXCON:5,1,100
+Registered new connectionID=5 to Socket[addr=/127.0.0.1,port=52905,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/login from [Connection: id=5 port=52905 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=5 port=52905 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1218
+[Server] [DEBUG] b1 array size = 1218; capacity = 1218; limit = 1218 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52905,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52906,localport=80]
+nextCon,numCon,MAXCON:6,1,100
+Registered new connectionID=6 to Socket[addr=/127.0.0.1,port=52906,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=6 port=52906 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=6 port=52906 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52906,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52908,localport=80]
+nextCon,numCon,MAXCON:7,1,100
+Registered new connectionID=7 to Socket[addr=/127.0.0.1,port=52908,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/login.js from [Connection: id=7 port=52908 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=7 port=52908 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 6553
+[Server] [DEBUG] b1 array size = 6553; capacity = 6553; limit = 6553 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52908,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52909,localport=80]
+nextCon,numCon,MAXCON:8,1,100
+Registered new connectionID=8 to Socket[addr=/127.0.0.1,port=52909,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/favicon.ico from [Connection: id=8 port=52909 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=8 port=52909 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 50
+[Server] [DEBUG] b1 array size = 50; capacity = 50; limit = 50 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52909,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52930,localport=80]
+nextCon,numCon,MAXCON:9,1,100
+Registered new connectionID=9 to Socket[addr=/127.0.0.1,port=52930,localport=80]
+[HTTP] [Request] PUT /login from [Connection: id=9 port=52930 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[HTTP] [PUT] 'packet=1&username=rzadmin&password=s3cr3tk3y&end=0                                                                                                                                                                                                                                                                                                                           '
+PROCESSING WEB PACKET!!!!
+[WebPackets] packetype was 1
+[DatabaseManager] Attempting query: SELECT COUNT(*) FROM users WHERE username='rzadmin';
+[DatabaseManager] Row: [COUNT(*)=1] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[DatabaseManager] Attempting query: SELECT password FROM users WHERE username='rzadmin';
+[DatabaseManager] Row: [password=s3cr3tk3y] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 86
+[Server] [DEBUG] b1 array size = 86; capacity = 86; limit = 86 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52930,localport=80]
+Disconnecting Socket[unconnected]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52943,localport=80]
+nextCon,numCon,MAXCON:10,1,100
+Registered new connectionID=10 to Socket[addr=/127.0.0.1,port=52943,localport=80]
+showing cookies for GET:
+Cookie:usr=rzadmin
+[HTTP] [Request] GET res/front/login from [Connection: id=10 port=52943 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=10 port=52943 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1218
+[Server] [DEBUG] b1 array size = 1218; capacity = 1218; limit = 1218 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52943,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52944,localport=80]
+nextCon,numCon,MAXCON:11,1,100
+Registered new connectionID=11 to Socket[addr=/127.0.0.1,port=52944,localport=80]
+showing cookies for GET:
+Cookie:usr=rzadmin
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=11 port=52944 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=11 port=52944 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52944,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52945,localport=80]
+nextCon,numCon,MAXCON:12,1,100
+Registered new connectionID=12 to Socket[addr=/127.0.0.1,port=52945,localport=80]
+showing cookies for GET:
+Cookie:usr=rzadmin
+[HTTP] [Request] GET res/front/login.js from [Connection: id=12 port=52945 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=12 port=52945 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 6553
+[Server] [DEBUG] b1 array size = 6553; capacity = 6553; limit = 6553 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52945,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52947,localport=80]
+nextCon,numCon,MAXCON:13,1,100
+Registered new connectionID=13 to Socket[addr=/127.0.0.1,port=52947,localport=80]
+showing cookies for GET:
+Cookie:usr=rzadmin
+[HTTP] [Request] GET res/front/favicon.ico from [Connection: id=13 port=52947 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=13 port=52947 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 50
+[Server] [DEBUG] b1 array size = 50; capacity = 50; limit = 50 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52947,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52960,localport=80]
+nextCon,numCon,MAXCON:14,1,100
+Registered new connectionID=14 to Socket[addr=/127.0.0.1,port=52960,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/ from [Connection: id=14 port=52960 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=14 port=52960 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1007
+[Server] [DEBUG] b1 array size = 1007; capacity = 1007; limit = 1007 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52960,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=52993,localport=80]
+nextCon,numCon,MAXCON:15,1,100
+Registered new connectionID=15 to Socket[addr=/127.0.0.1,port=52993,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/ from [Connection: id=15 port=52993 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=15 port=52993 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1007
+[Server] [DEBUG] b1 array size = 1007; capacity = 1007; limit = 1007 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=52993,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=53399,localport=80]
+nextCon,numCon,MAXCON:16,1,100
+Registered new connectionID=16 to Socket[addr=/127.0.0.1,port=53399,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/ from [Connection: id=16 port=53399 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=16 port=53399 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1007
+[Server] [DEBUG] b1 array size = 1007; capacity = 1007; limit = 1007 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=53399,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=53587,localport=80]
+nextCon,numCon,MAXCON:17,1,100
+Registered new connectionID=17 to Socket[addr=/127.0.0.1,port=53587,localport=80]
+showing cookies for GET:
+Cookie:usr=rzadmin
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=17 port=53587 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=17 port=53587 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29996 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=53587,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=53617,localport=80]
+nextCon,numCon,MAXCON:18,1,100
+Registered new connectionID=18 to Socket[addr=/127.0.0.1,port=53617,localport=80]
+showing cookies for GET:
+Cookie:usr=rzadmin
+[HTTP] [Request] GET res/front/login from [Connection: id=18 port=53617 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=18 port=53617 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 1218
+[Server] [DEBUG] b1 array size = 1218; capacity = 1218; limit = 1218 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=53617,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=53618,localport=80]
+nextCon,numCon,MAXCON:19,1,100
+Registered new connectionID=19 to Socket[addr=/127.0.0.1,port=53618,localport=80]
+showing cookies for GET:
+Cookie:usr=rzadmin
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=19 port=53618 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=19 port=53618 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=53618,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=53619,localport=80]
+nextCon,numCon,MAXCON:20,1,100
+Registered new connectionID=20 to Socket[addr=/127.0.0.1,port=53619,localport=80]
+showing cookies for GET:
+Cookie:usr=rzadmin
+[HTTP] [Request] GET res/front/login.js from [Connection: id=20 port=53619 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=20 port=53619 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29998 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 6553
+[Server] [DEBUG] b1 array size = 6553; capacity = 6553; limit = 6553 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=53619,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=53620,localport=80]
+nextCon,numCon,MAXCON:21,1,100
+Registered new connectionID=21 to Socket[addr=/127.0.0.1,port=53620,localport=80]
+showing cookies for GET:
+Cookie:usr=rzadmin
+[HTTP] [Request] GET res/front/favicon.ico from [Connection: id=21 port=53620 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=21 port=53620 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 50
+[Server] [DEBUG] b1 array size = 50; capacity = 50; limit = 50 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=53620,localport=80]

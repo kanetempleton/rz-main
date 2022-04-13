@@ -1,0 +1,106 @@
+main'd
+loading configuration...
+loaded configuration: DNE: DNE
+loaded configuration: db_addr: localhost
+loaded configuration: db_name: rztech
+loaded configuration: db_user: root
+loaded configuration: db_pass: admin
+loaded configuration: DNE: DNE
+config loaded.
+[Console] Initialized!
+[DatabaseManager] Attempting database connection to jdbc:mysql://localhost:3306/rztech?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Chicago
+[DatabaseManager] Connection opened successfully!
+[LoginHandler] Login handler launched successfully!
+[DatabaseManager] Attempting query: create table if not exists maps(mapcode INTEGER, data TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists users(id INTEGER PRIMARY KEY AUTO_INCREMENT, username TEXT, password TEXT, email TEXT, privileges INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists players(username TEXT, x INTEGER, y INTEGER, z INTEGER)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists settings(name TEXT, value TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: create table if not exists bans(name TEXT, ip TEXT)
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select name from bans where name!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[DatabaseManager] Attempting query: select ip from bans where ip!='none'
+[DatabaseManager] Query complete.
+done()! responseSize=0
+[CareTaker] Server caretaker started successfully!
+[HTTP] Attempting to start server on port 80...
+[HTTP] Started successfully!
+[TCP] Attempting to start server on port 43594...
+[TCP] Started successfully!
+[DatabaseManager] Attempting query: SHOW TABLES LIKE "tickets"
+[DatabaseManager] Row: [Tables_in_rztech (tickets)=tickets] 
+[DatabaseManager] Query complete.
+done()! responseSize=1
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=60625,localport=80]
+nextCon,numCon,MAXCON:0,1,100
+Registered new connectionID=0 to Socket[addr=/127.0.0.1,port=60625,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/api/tickets from [Connection: id=0 port=60625 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29997 
+sending reply to [Connection: id=0 port=60625 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29975 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2705
+[Server] [DEBUG] b1 array size = 2705; capacity = 2705; limit = 2705 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=60625,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=60628,localport=80]
+nextCon,numCon,MAXCON:1,1,100
+Registered new connectionID=1 to Socket[addr=/127.0.0.1,port=60628,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=1 port=60628 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=1 port=60628 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=60628,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=60633,localport=80]
+nextCon,numCon,MAXCON:2,1,100
+Registered new connectionID=2 to Socket[addr=/127.0.0.1,port=60633,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/api/tickets from [Connection: id=2 port=60633 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=2 port=60633 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 2705
+[Server] [DEBUG] b1 array size = 2705; capacity = 2705; limit = 2705 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=60633,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=60634,localport=80]
+nextCon,numCon,MAXCON:3,1,100
+Registered new connectionID=3 to Socket[addr=/127.0.0.1,port=60634,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=3 port=60634 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=3 port=60634 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=60634,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=60636,localport=80]
+nextCon,numCon,MAXCON:4,1,100
+Registered new connectionID=4 to Socket[addr=/127.0.0.1,port=60636,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/api from [Connection: id=4 port=60636 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=4 port=60636 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 774
+[Server] [DEBUG] b1 array size = 774; capacity = 774; limit = 774 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=60636,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=60637,localport=80]
+nextCon,numCon,MAXCON:5,1,100
+Registered new connectionID=5 to Socket[addr=/127.0.0.1,port=60637,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/style/rzstyle.css from [Connection: id=5 port=60637 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+sending reply to [Connection: id=5 port=60637 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=60637,localport=80]
+[HTTP] Attempting to register connection for Socket[addr=/127.0.0.1,port=60638,localport=80]
+nextCon,numCon,MAXCON:6,1,100
+Registered new connectionID=6 to Socket[addr=/127.0.0.1,port=60638,localport=80]
+showing cookies for GET:
+[HTTP] [Request] GET res/front/style from [Connection: id=6 port=60638 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=30000 
+sending reply to [Connection: id=6 port=60638 ip=/127.0.0.1 ping=false pong= ttr=0 nextPing=29999 
+[Server] [DEBUG] messageToClient(s,mes) with mes size = 4159
+[Server] [DEBUG] b1 array size = 4159; capacity = 4159; limit = 4159 readOnly = false
+Disconnecting Socket[addr=/127.0.0.1,port=60638,localport=80]

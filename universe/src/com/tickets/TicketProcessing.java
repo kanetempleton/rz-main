@@ -437,6 +437,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
 
     //convert POST input data to text
     //might need some work so people don't hack us
+    //TODO: separate input cleansing for URLs... like use %20 instead of + for spacebar
     private String cleanseInput(String input) {
         return input.replace("+"," ").replace("%40","@").replace("%3B",";").replace("%2F","/").replace("%25252C",",").replace("%2C",",");
     }
