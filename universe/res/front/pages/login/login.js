@@ -30,6 +30,7 @@ const URL=''
 		password:pw,
 		end:0
 	}
+
 	document.getElementById("msgText").innerHTML = "Waiting for reply...";
 $.ajax({
         url: URL,
