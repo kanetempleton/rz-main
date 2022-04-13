@@ -51,6 +51,12 @@ public class Main {
         http_protocol.addRoute("/api","/api/api.html");
         http_protocol.addRoute("/api/tickets","/api/tickets/tickets_api.html");
         http_protocol.addRoute("/style","/style/rzstyle.css");
+        http_protocol.addRoute("/dev","/dev/dev.html");
+        http_protocol.addRoute("/dev/updates","/dev/updates/updates.html");
+        http_protocol.addRoute("/dev/updates/current","/dev/updates/current.html");
+        http_protocol.addRoute("/dev/todo","/dev/todo.html");
+        http_protocol.addRoute("/dev/bugs","/dev/bugs.html");
+        http_protocol.addRoute("/dev/changelog","/dev/changes.html");
 
         Server http = new Server(http_protocol);
 

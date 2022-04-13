@@ -10,5 +10,3 @@ function toggleDevWidth() {
     console.log("reverted devcol width")
  }
 }
-
-

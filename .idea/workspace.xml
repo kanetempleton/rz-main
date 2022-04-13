@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="176ce6e1-0fc6-4078-9b03-7f89ccd1f02c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/universe/res/front/dev/bugs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/universe/res/front/dev/changes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/universe/res/front/dev/dev.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/universe/res/front/dev/todo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/universe/res/front/dev/updates/current.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/universe/res/front/dev/updates/updates.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/universe/res/front/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/universe/res/front/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/universe/src/com/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/universe/src/com/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,5 +54,9 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="364" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1649767826467" />
+    <state x="350" y="197" width="670" height="676" key="search.everywhere.popup" timestamp="1649872834453">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="350" y="197" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1649872834453" />
   </component>
 </project>
