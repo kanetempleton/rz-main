@@ -9,5 +9,6 @@ function toggleDevWidth() {
     document.getElementById("devcol").style.width = "50px";
     console.log("reverted devcol width")
  }
-
 }
+
+
