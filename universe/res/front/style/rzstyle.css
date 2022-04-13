@@ -9,9 +9,6 @@ body {
  height: 900px;
  color: #ffffff;
 }
-a {
-color:#030303;
-}
 #appLinks {
     text-indent: 25px;
 }
@@ -30,6 +27,7 @@ display: block;
   margin-left: auto;
   margin-right: auto;
 }
+.variable { color: lime; font-weight: bold; }
 
 .error-head{
   font-size: 75px;

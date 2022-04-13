@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="176ce6e1-0fc6-4078-9b03-7f89ccd1f02c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/out/com/tickets/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/universe/out/com/tickets/Ticket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/out/com/tickets/TicketProcessing.class" beforeDir="false" afterPath="$PROJECT_DIR$/universe/out/com/tickets/TicketProcessing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/res/front/pages/tickets/tickets.js" beforeDir="false" afterPath="$PROJECT_DIR$/universe/res/front/pages/tickets/tickets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/res/lib/JBend.jar" beforeDir="false" afterPath="$PROJECT_DIR$/universe/res/lib/JBend.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/src/com/tickets/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/universe/src/com/tickets/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/src/com/tickets/TicketProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/universe/src/com/tickets/TicketProcessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/universe/res/front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/universe/res/front/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/universe/res/front/pages/portal/portal.html" beforeDir="false" afterPath="$PROJECT_DIR$/universe/res/front/pages/portal/portal.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +25,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/universe/res/front/api" />
+    </key>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -41,5 +42,11 @@
       <updated>1648080846911</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="364" y="263" key="com.intellij.ide.util.TipDialog" timestamp="1649767826467">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="364" y="263" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1649767826467" />
   </component>
 </project>

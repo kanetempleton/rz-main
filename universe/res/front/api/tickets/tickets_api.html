@@ -1,0 +1,310 @@
+
+<!doctype html>
+<html>
+
+<head>
+    <title>RZ Tech & Web API - Ticketing System</title>
+    <link rel="stylesheet" href="/style">
+    <style>
+        th, td {
+        padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Ticketing System API</h1>
+<h3><a href="/api"><<< Back to API Home</a></h3>
+
+<h2>Use Cases:</h2>
+<table border="1px solid black">
+    <thead>
+    <tr id="testing">
+        <td id="devcol" style="text-align: center; width: 50px;"><strong>dev status</strong></td>
+        <td style="text-align: center;"><strong>Function</strong></td>
+        <td style="text-align: center; width: 222px;"><strong>METHOD: URL</strong></td>
+        <td style="text-align: center;"><strong>Description</strong></td>
+        <td style="text-align: center;"><strong>Example</strong></td>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <tr>
+        <td><small><em>
+            <details>
+                <summary onclick="toggleDevWidth()">[!] minor functionality changes</summary>
+                <ul>
+                    <li>change input box behavior to accept ticket id or customer name, rather than require both</li>
+                </ul>
+            </details>
+        </em></small></td>
+        <td>
+            <p><strong>Ticket Lookup Page</strong><br><br>
+            <small><em>(view)</em></small></p>
+        </td>
+        <td>GET /tickets</td>
+        <td>Interface to initiate a ticket query.<br>
+            Tickets home page with query fields for customer name and ticket ID. <br>
+            Employees see all available query fields + a form to submit new tickets.
+        </td>
+        <td>
+            <ol>
+                <li>visit https://rztech.app/tickets</li>
+                <li>enter customer name = 'Test Customer'</li>
+            </ol>
+        </td>
+    </tr>
+
+    <tr>
+
+        <td><small><em>
+            <details>
+                <summary onclick="toggleDevWidth()">[!!] incomplete functionality; bug fixes</summary>
+                <ul>
+                    <li>query any ticket parameters in URL, check permissions</li>
+                    <li>handle malformed inputs</li>
+                    <li>handle empty queries without crashing</li>
+                    <li>tidy up output</li>
+                    <li>sort-by options</li>
+                    <li>URLs need to use %20 for space char</li>
+                </ul>
+            </details>
+        </em></small></td>
+        <td>
+            <p><strong>Query Tickets</strong><br><br>
+            <small><em>(view)</em></small></p>
+        </td>
+        <td>GET /tickets?<span class="variable">ticketparams</span></td>
+        <td>Initiate a database query to select tickets according to the constraints in <span class="variable">ticketparams</span>.<br>
+            Matching tickets are displayed in a table.
+        </td>
+        <td>
+            <ul>
+                <li>https://rztech.app/tickets?<span class="variable">id=10732</span></li>
+                <li>https://rztech.app/tickets?<span class="variable">id=10732&customerName=Test+Customer</span></li>
+            </ul>
+        </td>
+    </tr>
+
+
+    <tr>
+
+        <td><small><em>
+            <details>
+                <summary onclick="toggleDevWidth()">[!!] incomplete spec; missing some functionality; bug fixes</summary>
+                <ul>
+                    <li>the ajax url needs to be corrected from /fuzz to /tickets</li>
+                    <li>fix ticket id generation system so it doesn't get stuck</li>
+                    <li>form data requirements currently only checked client-side</li>
+                    <li>actual permissions verification for creating</li>
+                    <li>add status update fields to tickets table</li>
+                    <li>auto generate due dates and status update fields</li>
+                    <li>prevent duplicate tickets from being created</li>
+                </ul>
+            </details>
+        </em></small></td>
+        <td>
+            <p><strong>Create New Ticket</strong><br><br>
+                <small><em>(action)</em></small></p>
+        </td>
+        <td>POST /tickets</td>
+        <td>Create a new ticket using the form values on tickets home page.<br>
+            Only employees are authorized to do this action.<br>
+            New ticket forms will not appear unless logged in as employee.<br>
+            Confirmation message with link to the ticket should result, else an error code.
+        </td>
+        <td>
+            <details>
+                <summary>[Employee Use Case]</summary>
+            <ol>
+                <li>https://rztech.app/login</li>
+                <li>https://rztech.app/tickets</li>
+                <li>fill in new ticket fields</li>
+                <li>click submit to send POST request</li>
+            </ol>
+            </details>
+            <details>
+                <summary>[cURL Terminal Use Cases]</summary>
+                <!--- <li>https://rztech.app/tickets</li> --->
+                <ol>
+                    <li>Invalid (incomplete) Request:<br>curl -X POST -d 'title=test+ticket' https://rztech.app/tickets</li>
+                    <li>Valid (complete) Request:<br>curl -X POST -d 'packet=501&customerName=a&customerPhone=b&customerEmail=c&title=d&info=e&due=f&end=0' https://rztech.app/tickets
+                    </li>
+                </ol>
+            </details>
+        </td>
+    </tr>
+
+    <!--- ***[R]UUD --->
+    <tr>
+        <td><small><em>
+            <details>
+                <summary onclick="toggleDevWidth()">[X] INCOMPLETE SPEC; implementation does not match</summary>
+                <ul>
+                    <li>this should ONLY work for primary-key parameters</li>
+                </ul>
+            </details>
+        </em></small></td>
+        <td>
+            <p><strong>View a Ticket</strong><br><br>
+                <small><em>(view)</em></small></p>
+        </td>
+        <td>GET /tickets/view?<span class="variable">id</span><br>
+            GET /tickets/view/<span class="variable">:id</span>* not sure which one yet</td>
+        <td>View the full details on ticket #<span class="variable">id</span>.<br>
+            Employees can see update/modify/delete buttons, as well as a few extra data fields.
+        </td>
+        <td>
+            <ul>
+                <li>https://rztech.app/tickets/view?<span class="variable">id=10732</span></li>
+                <li>https://rztech.app/tickets/view/<span class="variable">10732</span></li>
+            </ul>
+        </td>
+    </tr>
+
+
+    <!--- ****[U]UD --->
+    <tr>
+        <td><small><em>
+            <details>
+                <summary onclick="toggleDevWidth()">[X] INCOMPLETE SPEC</summary>
+                <ul>
+                    <li>too much editing freedom, control certain fields</li>
+                    <li>obviously permissions checking needed</li>
+                </ul>
+            </details>
+        </em></small></td>
+        <td>
+            <p><strong>Modify a Ticket</strong><br><br>
+                <small><em>(view)</em></small></p>
+        </td>
+        <td>GET /tickets/modify?<span class="variable">id</span></td>
+        <td>Show modification form to fill in changes for ticket #<span class="variable">id</span>.<br>
+            * could potentially do status update interface within this same view, not sure yet
+        </td>
+        <td>
+            <ul>
+                <li>https://rztech.app/tickets/modify?<span class="variable">id=10732</span></li>
+            </ul>
+        </td>
+    </tr>
+
+
+    <!--- *****[U]D --->
+    <tr>
+        <td><small><em>
+            <details>
+                <summary onclick="toggleDevWidth()">[!!] INCORRECT SPEC; lacks most of its implementation; bugs</summary>
+                <ul>
+                    <li>spec should require id field is nonempty and should require other params also</li>
+                    <li>too much editing freedom, control certain fields (ex: cant change ticket id)</li>
+                    <li>obviously permissions checking needed</li>
+                    <li>auto update for lastUpdatedDate, lastUpdatedEmployee, etc.</li>
+                </ul>
+            </details>
+        </em></small></td>
+        <td>
+            <p><strong>Update a Ticket</strong><br><br>
+                <small><em>(action)</em></small></p>
+        </td>
+        <td>PUT /tickets</td>
+        <td>Submit a modification for a ticket and update the database with the new version.<br>
+            Since it is PUT, we submit exactly which fields need modified and they are directly replaced.<br>
+            * willing to open up options for PATCH at a later date
+        </td>
+        <td>
+            <details>
+                <summary>[Employee Use Case]</summary>
+                <ol>
+                    <li>https://rztech.app/login</li>
+                    <li>https://rztech.app/tickets/modify?id=10732</li>
+                    <li>ticket data now shows up in their respective editable text boxes</li>
+                    <li>make any desired changes to any of the fields EXCEPT FOR THE TICKET ID or any obviously unchangeable fields</li>
+                    <li>click submit to send PUT request</li>
+                    <li>some kind of response message should display in browser</li>
+                </ol>
+            </details>
+            <details>
+                <summary>[cURL Terminal Use Cases]</summary>
+                <!--- <li>https://rztech.app/tickets</li> --->
+                <ol>
+                    <li>Invalid (incomplete) Request:<br>curl -X PUT -d 'id=10732' https://rztech.app/tickets</li>
+                    <li>Valid (complete) Request:<br>curl -X PUT -d 'id=10732&customerName=a&customerPhone=b&customerEmail=c&title=d&info=e&due=f&end=0' https://rztech.app/tickets
+                    </li>
+                </ol>
+            </details>
+        </td>
+    </tr>
+
+    <!--- ******[D] --->
+    <tr>
+        <td><small><em>
+            <details>
+                <summary onclick="toggleDevWidth()">[!!] INCORRECT SPEC; lacks most of its implementation; bugs</summary>
+                <ul>
+                    <li>this really needs a confirmation</li>
+                    <li>also maybe an archive/temp trash</li>
+                    <li>protect deletion even more than editing</li>
+                    <li>HTTP server doesn't even support DELETE yet</li>
+                </ul>
+            </details>
+        </em></small></td>
+        <td>
+            <p><strong>Delete a Ticket</strong><br><br>
+                <small><em>(action)</em></small></p>
+        </td>
+        <td>DELETE /tickets</td>
+        <td>i seriously wonder just what the fuck this could POSSIBLY do...
+        </td>
+        <td>
+            <details>
+                <summary>[Employee Use Case]</summary>
+                <ol>
+                    <li>stop looking at this shit</li>
+                    <li>nice try</li>
+                </ol>
+            </details>
+            <details>
+                <summary>[cURL Terminal Use Cases]</summary>
+                <!--- <li>https://rztech.app/tickets</li> --->
+                <ol>
+                    <li>finish this later but like wtf there is no way in hell you should be able to do this with curl</li>
+                </ol>
+            </details>
+        </td>
+    </tr>
+
+
+    </tbody>
+</table>
+<!---
+<h2 style="color: brown;">Methods:</h2>
+<table style="width: 624px;">
+    <thead>
+    <tr>
+        <td style="width: 48px;text-align: center;"><b>Return type</b></td>
+        <td style="width: 192px;text-align: center;"><b>Method</b></td>
+        <td style="width: 384px;text-align: center;"><b>Description</b></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>void</td>
+        <td>
+            <p><strong>loadThread</strong>(Runnable r)</p>
+        </td>
+        <td><em>Adds any runnable thread object into the loading queue. Thread will begin running once the previous thread in the queue has been started.</em></td>
+    </tr>
+    <tr>
+        <td>void</td>
+        <td>
+            <p><strong>startThreads</strong>()</p>
+        </td>
+        <td><em>Begins launching loaded threads stored in the loading queue one at a time in the order which they were inserted.</em></td>
+    </tr>
+    </tbody>
+</table>
+--->
+<script src="/api/api.js"></script>
+</body>
