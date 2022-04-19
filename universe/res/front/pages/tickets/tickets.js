@@ -21,14 +21,26 @@ const URL='fuzz'
 	const ticketID = document.getElementById("enterTicketID").value;
 	const custName = document.getElementById("enterCustomerName").value;
 
-	const argz = "";
+	var argz = "";
 
-	if (ticketID.length < 1 || custName.length < 1) {
-	    document.getElementById("statusCode").innerHTML = "Please fill out both ticket ID and customer name.";
+	if (ticketID.length < 1 && custName.length < 1) {
+	    document.getElementById("statusCode").innerHTML = "Please fill out ticket ID or customer name.";
 	    return;
 	}
+	if (ticketID.length > 0 && custName.length>0) {
+	    argz += "id="+ticketID+"&customerName="+custName;
+	}
+	else if (ticketID.length > 0 && custName.length<1) {
+        argz += "id="+ticketID;
+    }
+    else if (ticketID.length<1 && custName.length>0) {
+        argz += "customerName="+custName;
+    }
+    console.log("href to /tickets?"+argz);
+	window.location.href = '/tickets?'+argz;
 
 
+/*
 	const sendme={
 	    packet:500,
 		ticket: ticketID,
@@ -51,7 +63,7 @@ $.ajax({
             else if (result.startsWith("ticketfound")) {
                 document.getElementById("statusCode").innerHTML = "Ticket found! Info for Customer Ticket #"+ticketID+":";
                 document.getElementById("output").innerHTML = result.split(";;;")[1];
-            }/*
+            }
             else if (result == 'ticketfound') { // TODO
                 document.getElementById("statusCode").innerHTML = "Ticket found! Info for Customer Ticket #"+ticketID+":";
                 document.getElementById("output").innerHTML = "ticket.id<br>ticket.title<br>ticket.customer<br>ticket.status<br>ticket.info";
@@ -66,12 +78,12 @@ $.ajax({
             }
             else if (result == 'customernotfound') { //TODO
                 document.getElementById("statusCode").innerHTML = "No tickets were found for "+custName+". Please contact us.";
-            }*/
+            }
             else {
                 document.getElementById("statusCode").innerHTML = "Unrecognized server response.";
             }
         }
-    });
+    });*/
 }
 
 
