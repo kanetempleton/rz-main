@@ -86,6 +86,22 @@ $.ajax({
     });*/
 }
 
+function tryajaxquery() {
+const URL = 'tickets'
+const sendme={
+    packet:502,
+    end:0
+}
+$.ajax({
+ url:URL,
+ type:'POST',
+ contentType:'application/json',
+ data:sendme,
+ success: function(result) {
+ console.log(result)
+ }
+});
+}
 
 function tryshowquery() {
 console.log("tryshowquery()");
@@ -230,7 +246,7 @@ const URL='fuzz'
     $.ajax({
             url: URL,
             type: 'POST',
-            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            contentType: 'application/json',
             data: sendme,
             success: function(result) {
                 console.log("sent data "+sendme)
