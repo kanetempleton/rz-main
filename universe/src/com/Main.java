@@ -29,10 +29,10 @@ public class Main {
         //launcher.loadThread(ticketManager);
 
         http_protocol = new HTTP("res/front/",80) {
-            public byte[] processGET(ServerConnection c, String uri, String[] fields, String[] values) {
-                //System.out.println("checking for custom get: "+uri+" and fields = "+fields);
+            public byte[] processGET(ServerConnection c, String uri, String resource, String[] fields, String[] values) {
+                System.out.println("checking for custom get: "+uri+" and resource = "+resource);
                 if (uri.contains("/tickets") && fields.length>0) {
-                    return ticketManager.processGET(this,c,uri,fields,values);
+                    return ticketManager.processGET(this,c,uri,resource,fields,values);
                     //c.setNeedsReply(true);
                     //return WAIT_FOR_RESPONSE;
                     //return multiHTMLResponse_noTags(HTTP_OK,new String[]{fileHTML_noTags(uri),"<h1>FREE DATA!!!</h1>"}).getBytes();
@@ -46,6 +46,7 @@ public class Main {
         http_protocol.addRoute("/portal.js","/pages/portal/portal.js");
         http_protocol.addRoute("/tickets","/pages/tickets/tickets.html");
         http_protocol.addRoute("/tickets.js","/pages/tickets/tickets.js");
+        http_protocol.addRoute("/ticketsjs","/pages/tickets/tickets.js");
         http_protocol.addRoute("/login","/pages/login/login.html");
         http_protocol.addRoute("/login.js","/pages/login/login.js");
         http_protocol.addRoute("/api","/api/api.html");
@@ -57,6 +58,9 @@ public class Main {
         http_protocol.addRoute("/dev/todo","/dev/todo.html");
         http_protocol.addRoute("/dev/bugs","/dev/bugs.html");
         http_protocol.addRoute("/dev/changelog","/dev/changes.html");
+        http_protocol.addRoute("/tickets/view","/pages/tickets/tickets.html");
+        http_protocol.addRoute("/tickets/modify","/pages/tickets/tickets.html");
+        http_protocol.addRoute("/tickets/delete","/pages/tickets/tickets.html");
 
         Server http = new Server(http_protocol);
 

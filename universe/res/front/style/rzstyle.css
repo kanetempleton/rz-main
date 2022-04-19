@@ -27,8 +27,10 @@ display: block;
   margin-left: auto;
   margin-right: auto;
 }
-.variable { color: lime; font-weight: bold; }
+.variable { color: cyan; font-weight: bold; }
 .complete { color: lime; font-weight: bold; }
+.inprogress { color: yellow; font-weight: bold; }
+.incomplete {color:darkred; font-weight:bold;}
 
 .error-head{
   font-size: 75px;

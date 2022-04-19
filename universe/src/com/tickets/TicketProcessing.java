@@ -83,24 +83,53 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     }
 
     // process custom GET requests.. mainly useful for dynamic page generation using parameters
-    public byte[] processGET(HTTP http, ServerConnection c, String uri, String[] fields, String[] values) {
+    public byte[] processGET(HTTP http, ServerConnection c, String uri, String res, String[] fields, String[] values) {
+       // System.out.println("PROCESSING CUSTOM GET!!!!!!!!"+uri);
         boolean properFormat = false;
         String function = "get";
         String ticketid = "";
         for (int i=0; i<fields.length; i++) {
-            if (fields[i].equals("delete") || fields[i].equals("modify")) {
+            if (uri.contains("/tickets/view")) {
+                function = "view";
+            }
+            else if (uri.contains("/tickets/modify")) {
+                function = "modify";
+            }
+            else if (uri.contains("/tickets/delete")) {
+                function = "delete";
+            }
+            if (fields[i].equals("id")) {
                 properFormat=true;
                 ticketid = values[i];
-                function = fields[i];
+               // function = "view";
             }
         }
         //if (!properFormat)
         //    return null;
-
-        if (function!="modify" && function!="delete")
-            function="query";
-
+       /* if (uri.contains("/tickets/view")) {
+            System.out.println("TICKET VIEW DETECTION SUXXESS!!!!!!!!!!");
+            function = "view";
+        }
+*/
         c.setNeedsReply(true);
+
+        switch (function) {
+            case "view":
+                queryTicketByID(http,c,uri,res,ticketid);
+                break;
+            case "modify":
+                queryTicketByIDWithEdit(http,c,uri,res,ticketid);
+                break;
+            case "delete":
+                deleteTicket(http,c,uri,res,ticketid);
+                break;
+            default:
+                function = "query";
+                queryTicketsByParams(http,c,uri,res,fields,values);
+                break;
+        }
+
+        /*c.setNeedsReply(true);
         if (function.equals("query")) {
             queryTicketsByParams(http,c,uri,fields,values);
         }
@@ -110,7 +139,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         if (function.equals("delete"))
             deleteTicket(http,c,uri,ticketid);
         if (function.equals("modify"))
-            showEditTicketFields(http,c,uri,ticketid);
+            showEditTicketFields(http,c,uri,ticketid);*/
 
         return http.WAIT_FOR_RESPONSE.getBytes();
     }
@@ -121,13 +150,13 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     //GET tickets?ticketparams
     //currently has no permission checks or restrictions on what fields can be queried
     //needs handling for bs inputs or empty queries
-    private void queryTicketsByParams(HTTP http, ServerConnection c, String uri, String[] fields, String[] values) {
+    private void queryTicketsByParams(HTTP http, ServerConnection c, String uri, String res, String[] fields, String[] values) {
         //return this.select_html_table(fields,fields,values);
         String queryString = "SELECT id,title,customerName,status,dueDate FROM "+this.getTable()+"";
         if (fields.length>0 && values.length>0 && fields.length==values.length) {
             queryString+= " WHERE ";
             for (int i=0; i<fields.length; i++) {
-                queryString+=fields[i]+"='"+values[i]+"'";
+                queryString+=fields[i]+"='"+cleanseInput(values[i])+"'";
                 if (i!=fields.length-1)
                     queryString+=",";
             }
@@ -135,22 +164,150 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         queryString+=";";
         new ServerQuery(this,c,QUERYTYPE_SEARCH_TICKETS,queryString) {
             public void done() {
+                if (this.responseSize()==0) {
+                    String r = http.multiHTMLResponse_noTags(http.HTTP_OK,new String[]{http.fileHTML_noTags(uri),"<strong>No items found</strong>"});
+                    // reply(c,r);
+                    c.sendMessage(r);
+                    c.disconnect();
+                    return;
+                }
                 HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
                 T.addBasicBorders();
                 System.out.println("responding with modify success");
+                T.addHrefToColumn("id","tickets/view");
                 if (c.getCookie("usr").equals("rzadmin")) {
                     T.appendColumnToEnd("modify", "edit ticket");
                     T.appendColumnToEnd("delete", "delete ticket");
-                    T.addHrefToColumn("delete","tickets","id");
-                    T.addHrefToColumn("modify","tickets","id");
+                    T.addHrefToColumn("delete","tickets/delete","id","id");
+                    T.addHrefToColumn("modify","tickets/modify","id","id");
                 }
                 //T.appendStyle(" class='center'");
                 //reply();
-                String r = http.multiHTMLResponse_noTags(http.HTTP_OK,new String[]{http.fileHTML_noTags(uri),T.toString()});
+                String r = http.multiHTMLResponse_noTags(http.HTTP_OK,new String[]{http.fileHTML_noTags(res),T.toString()});
                 // reply(c,r);
                 c.sendMessage(r);
                 c.disconnect();
                 //reply(c,T.toString());
+            }
+        };
+    }
+
+
+
+
+    //get info for a single ticket
+    //GET tickets/view?id=ticketid
+    private void queryTicketByID(HTTP http, ServerConnection c, String uri, String res, String ticketid) {
+        new ServerQuery(this,c,QUERYTYPE_VIEW_TICKET, "select * from tickets where id='"+ticketid+"'") {
+            public void done() {
+                if (this.responseSize()!=1) {
+                    reply(c,RESPONSE_NO_TICKET);
+                    return;
+                }
+                HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
+                T.addBasicBorders();
+                if (c.getCookie("usr").equals("rzadmin")) {
+                    T.appendColumnToEnd("modify", "edit ticket");
+                    T.appendColumnToEnd("delete", "delete ticket");
+                    T.addHrefToColumn("delete","delete","id","id");
+                    T.addHrefToColumn("modify","modify","id","id");
+                }
+                //T.appendStyle(" class='center'");
+                //reply();
+                String r = http.multiHTMLResponse_noTags(http.HTTP_OK,new String[]{http.fileHTML_noTags(res),T.toString()});
+                // reply(c,r);
+                c.sendMessage(r);
+                c.disconnect();
+            }
+        };
+    }
+
+
+    //show modify fields for a single ticket
+    //GET tickets/modify?id=ticketid
+    private void queryTicketByIDWithEdit(HTTP http, ServerConnection c, String uri, String res, String ticketid) {
+        new ServerQuery(this,c,QUERYTYPE_VIEW_TICKET, "select * from tickets where id='"+ticketid+"'") {
+            public void done() {
+                if (this.responseSize()!=1) {
+                    reply(c,RESPONSE_NO_TICKET);
+                    return;
+                }
+                HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
+                T.addBasicBorders();
+                T.addFormToRow("id",ticketid);
+                if (c.getCookie("usr").equals("rzadmin")) {
+                    //T.appendColumnToEnd("modify", "edit ticket");
+                    T.appendColumnToEnd("modify", "<button id=\"submitChangesButton\" onclick=\"tryEditQuery()\">Submit Changes</button>");
+
+                    T.appendColumnToEnd("delete", "delete ticket");
+                    T.addHrefToColumn("delete","delete","id","id");
+                 //   T.addHrefToColumn("modify","modify","id","id");
+
+                }
+                //T.appendStyle(" class='center'");
+                //reply();
+                String r = http.multiHTMLResponse_noTags(http.HTTP_OK,new String[]{http.fileHTML_noTags(res),T.toString()});
+                // reply(c,r);
+                c.sendMessage(r);
+                c.disconnect();
+            }
+        };
+    }
+
+
+    //delete a ticket from the database
+    //TODO: change this from GET to DELETE request, but i want to go home so fuck it
+    private void deleteTicket(HTTP http, ServerConnection c, String uri, String res, String ticketid) {
+        String username = c.getCookie("usr");
+        for (Cookie x: c.getCookies()) {
+            System.out.println("cookie for "+c+": "+x);
+        }
+        System.out.println("checking rights for "+username);
+        boolean canDoThis=false;
+        if (username.equalsIgnoreCase("rzadmin")) {
+            System.out.println("rights check success!");
+            canDoThis=true;
+        } else {
+            System.out.println("rights check failed!");
+        }
+        if (!canDoThis) {
+            reply(c,RESPONSE_PERMISSION_DENIED);
+            return;
+        }
+        new ServerQuery(this,c,QUERYTYPE_DELETE_TICKET, "DELETE FROM tickets WHERE id='"+ticketid+"'") {
+            public void done() {
+                /*if (this.responseSize()!=1) {
+                    reply(c,RESPONSE_NO_TICKET);
+                    return;
+                }*/
+                String r = http.multiHTMLResponse_noTags(http.HTTP_OK,new String[]{http.fileHTML_noTags(res),"TICKET #"+ticketid+" DELETED SUCCESSFULLY!"});
+                // reply(c,r);
+                c.sendMessage(r);
+                c.disconnect();
+            }
+        };
+    }
+
+    // "show all tickets" button
+    // show summary for all tickets and put them in an HTML table
+    private void queryAllTicketsToTable(ServerConnection c) {
+
+        new ServerQuery(this,c,QUERYTYPE_SEARCH_TICKETS,"select id,title,customerName,status,dueDate from tickets;") {
+            String buildHTML = "";
+            public void done() {
+                HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
+                //T.printColumnData();
+                T.addBasicBorders();
+                T.addHrefToColumn("id","/tickets/view");
+                //T.printColumnData();
+
+
+                //T.appendColumnToEnd("modify","<a href=/tickets?update>edit ticket</a>");
+
+                T.appendColumnToEnd("modify","edit ticket");
+                T.addHrefToColumn("modify","/tickets/modify","id","id");
+                buildHTML = T.toString();//HTMLGenerator.generateTable(this.response_getFields(),this.response_getValues());
+                reply(c,RESPONSE_SHOW_TICKETS+";;;"+buildHTML);
             }
         };
     }
@@ -258,37 +415,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         queryTickets(http,c,uri,"id='"+ticketid+"' AND customerName='"+customerName+"'");
     }
 
-    //delete a ticket from the database
-    private void deleteTicket(HTTP http, ServerConnection c, String uri, String ticketid) {
-        String username = c.getCookie("usr");
-        for (Cookie x: c.getCookies()) {
-            System.out.println("cookie for "+c+": "+x);
-        }
-        System.out.println("checking rights for "+username);
-        boolean canDoThis=false;
-        if (username.equalsIgnoreCase("rzadmin")) {
-            System.out.println("rights check success!");
-            canDoThis=true;
-        } else {
-            System.out.println("rights check failed!");
-        }
-        if (!canDoThis) {
-            reply(c,RESPONSE_PERMISSION_DENIED);
-            return;
-        }
-        new ServerQuery(this,c,QUERYTYPE_DELETE_TICKET, "DELETE FROM tickets WHERE id='"+ticketid+"'") {
-            public void done() {
-                /*if (this.responseSize()!=1) {
-                    reply(c,RESPONSE_NO_TICKET);
-                    return;
-                }*/
-                String r = http.multiHTMLResponse_noTags(http.HTTP_OK,new String[]{http.fileHTML_noTags(uri),"TICKET #"+ticketid+" DELETED SUCCESSFULLY!"});
-                // reply(c,r);
-                c.sendMessage(r);
-                c.disconnect();
-            }
-        };
-    }
+
 
     //queryTickets: used when customers search their tickets
     private void queryTickets(HTTP http, ServerConnection c, String uri, String where) {
@@ -319,32 +446,6 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         };
     }
 
-    //get info for a single ticket
-    //GET tickets?id=ticketid
-    private void queryTicketByID(HTTP http, ServerConnection c, String uri, String ticketid) {
-        new ServerQuery(this,c,QUERYTYPE_VIEW_TICKET, "select * from tickets where id='"+ticketid+"'") {
-            public void done() {
-                if (this.responseSize()!=1) {
-                    reply(c,RESPONSE_NO_TICKET);
-                    return;
-                }
-                HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
-                T.addBasicBorders();
-                if (c.getCookie("usr").equals("rzadmin")) {
-                    T.appendColumnToEnd("modify", "edit ticket");
-                    T.appendColumnToEnd("delete", "delete ticket");
-                    T.addHrefToColumn("delete","tickets","id");
-                    T.addHrefToColumn("modify","tickets","id");
-                }
-                //T.appendStyle(" class='center'");
-                //reply();
-                String r = http.multiHTMLResponse_noTags(http.HTTP_OK,new String[]{http.fileHTML_noTags(uri),T.toString()});
-                // reply(c,r);
-                c.sendMessage(r);
-                c.disconnect();
-            }
-        };
-    }
 
     //POST request for submitting ticket
     private void enterNewTicket(ServerConnection c, String[] fields, String[] values) {
@@ -377,64 +478,8 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     }
 
 
-    // "show all tickets" button
-    // show summary for all tickets and put them in an HTML table
-    private void queryAllTicketsToTable(ServerConnection c) {
-
-        new ServerQuery(this,c,QUERYTYPE_SEARCH_TICKETS,"select id,title,customerName,status,dueDate from tickets;") {
-            String buildHTML = "";
-            public void done() {
-                HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
-                //T.printColumnData();
-                T.addBasicBorders();
-                T.addHrefToColumn("id","tickets");
-                //T.printColumnData();
 
 
-                //T.appendColumnToEnd("modify","<a href=/tickets?update>edit ticket</a>");
-
-                T.appendColumnToEnd("delete","remove ticket");
-                T.addHrefToColumn("delete","tickets","id");
-                buildHTML = T.toString();//HTMLGenerator.generateTable(this.response_getFields(),this.response_getValues());
-                reply(c,RESPONSE_SHOW_TICKETS+";;;"+buildHTML);
-            }
-        };
-    }
-
-
-
-    // old method
-    private void queryAllTickets(ServerConnection c) {
-        new ServerQuery(this,c,QUERYTYPE_SEARCH_TICKETS,"select id,title,customerName,status,dueDate from tickets;") {
-            String buildHTML = "<pre>[Ticket ID]\t\t\t[Title]\t\t\t[Customer Name]\t\t\t[Status]\t\t\t[Due Date]</pre><br>";
-
-            String[] tableColNames = {};
-
-            public void done() {
-              //  buildHTML += "<pre>69420\t\tbroken phone\t\tbob\t\tawaiting diagnosis\t\t4/20/2022</pre><br>";
-                for (int i=0; i<this.getResponses().size(); i++) {
-                    String r = this.getResponses().get(i);
-                    String[][] fv = this.responseParams(i);
-                    buildHTML += "<pre><a href=\"tickets.html?id="+this.responseParamValue(i,"id")+"\">"+this.responseParamValue(i,"id")+"</a>\t\t\t";
-                    buildHTML += ""+this.responseParamValue(i,"title")+"\t\t\t";
-                    buildHTML += ""+this.responseParamValue(i,"customerName")+"\t\t\t";
-                    buildHTML += ""+this.responseParamValue(i,"status")+"\t\t\t";
-                    buildHTML += ""+this.responseParamValue(i,"due")+"</pre><br>";
-                  //  buildHTML+="Data for Ticket #"+this.responseParamValue(i,"ticket_id")+"<br>- - - - - - - - - - - - - - -<br>";
-                 /*   for (int j=0; j<fv[0].length; j++) {
-                        String field = fv[0][j];
-                        String value = fv[1][j];
-
-                        buildHTML+= field+": "+value+"<br>";
-
-                    }*/
-                //    buildHTML+="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>";
-                }
-
-                reply(c,RESPONSE_SHOW_TICKETS+";;;"+buildHTML);
-            }
-        };
-    }
 
     //find an unused ticket id
     private void generateNewTicketID(int[] buf, int max) {
@@ -488,7 +533,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     //might need some work so people don't hack us
     //TODO: separate input cleansing for URLs... like use %20 instead of + for spacebar
     private String cleanseInput(String input) {
-        return input.replace("+"," ").replace("%40","@").replace("%3B",";").replace("%2F","/").replace("%25252C",",").replace("%2C",",");
+        return input.replace("+"," ").replace("%40","@").replace("%3B",";").replace("%2F","/").replace("%25252C",",").replace("%2C",",").replace("%20"," ");
     }
 
     //send a reply with HTTP 200 OK

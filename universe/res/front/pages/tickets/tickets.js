@@ -180,7 +180,7 @@ $.ajax({
                 tryemployeequery();
             }
             else if (result.startsWith('success')) { // TODO
-                document.getElementById("employeeStatusCode").innerHTML = "<a href=/tickets?id="+result.split(":")[1]+">Ticket #"+result.split(":")[1]+"</a> successfully created!";
+                document.getElementById("employeeStatusCode").innerHTML = "<a href=/tickets/view?id="+result.split(":")[1]+">Ticket #"+result.split(":")[1]+"</a> successfully created!";
 //                document.getElementById("output").innerHTML = "ticket.id<br>ticket.title<br>ticket.customer<br>ticket.status<br>ticket.info";
                 clearEmployeeInputForms();
             }
@@ -241,7 +241,7 @@ const URL='fuzz'
                     tryEditQuery();
                 }
                 else if (result.startsWith('modifysuccess')) { // TODO
-                    document.getElementById("employeeStatusCode").innerHTML = "<a href=/tickets?id="+ticketID+">Ticket #"+ticketID+"</a> successfully modified!";
+                    document.getElementById("employeeStatusCode").innerHTML = "<a href=/tickets/view?id="+ticketID+">Ticket #"+ticketID+"</a> successfully modified!";
     //                document.getElementById("output").innerHTML = "ticket.id<br>ticket.title<br>ticket.customer<br>ticket.status<br>ticket.info";
                     document.getElementById("output").innerHTML = result.split(";;;")[1];
                   //  clearEmployeeInputForms();
