@@ -33,9 +33,9 @@
     <tr>
         <td><small><em>
             <details>
-                <summary onclick="toggleDevWidth()">[!] minor functionality changes</summary>
+                <summary onclick="toggleDevWidth()"><span class="complete">[✓] done</span></summary>
                 <ul>
-                    <li>change input box behavior to accept ticket id or customer name, rather than require both</li>
+                    <li><span class="complete">change input box behavior to accept ticket id or customer name, rather than require both</span></li>
                 </ul>
             </details>
         </em></small></td>
@@ -60,9 +60,10 @@
 
         <td><small><em>
             <details>
-                <summary onclick="toggleDevWidth()">[!!] incomplete functionality; bug fixes</summary>
+                <summary onclick="toggleDevWidth()">[!] bug fixes</summary>
                 <ul>
-                    <li>query any ticket parameters in URL, check permissions</li>
+                    <li><span class="complete">query any ticket parameters in URL</span><li>
+                    <li>check permissions</li>
                     <li>handle malformed inputs</li>
                     <li>handle empty queries without crashing</li>
                     <li>tidy up output</li>
@@ -81,7 +82,7 @@
         </td>
         <td>
             <ul>
-                <li>https://rztech.app/tickets?<span class="variable">id=10732</span></li>
+                <li>https://rztech.app/tickets?<span class="variable">customerName=Test+Customer</span></li>
                 <li>https://rztech.app/tickets?<span class="variable">id=10732&customerName=Test+Customer</span></li>
             </ul>
         </td>

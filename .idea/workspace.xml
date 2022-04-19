@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="176ce6e1-0fc6-4078-9b03-7f89ccd1f02c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/res/front/pages/tickets/tickets.js" beforeDir="false" afterPath="$PROJECT_DIR$/universe/res/front/pages/tickets/tickets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/universe/src/com/tickets/TicketProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/universe/src/com/tickets/TicketProcessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/universe/res/front/api/tickets/tickets_api.html" beforeDir="false" afterPath="$PROJECT_DIR$/universe/res/front/api/tickets/tickets_api.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/universe/res/front/style/rzstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/universe/res/front/style/rzstyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

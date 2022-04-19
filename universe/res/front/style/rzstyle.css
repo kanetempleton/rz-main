@@ -28,6 +28,7 @@ display: block;
   margin-right: auto;
 }
 .variable { color: lime; font-weight: bold; }
+.complete { color: lime; font-weight: bold; }
 
 .error-head{
   font-size: 75px;
