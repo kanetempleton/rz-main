@@ -267,8 +267,8 @@ const URL='/tickets'
                 console.log("received reply: "+result)
 
                 if (result == 'retry') {
-                    tryEditQuery();
-                 //document.getElementById("statusCode").innerHTML = "check server."
+                 //   tryEditQuery();
+                 document.getElementById("statusCode").innerHTML = "check server."
                 }
                 else if (result.startsWith('modifysuccess')) { // TODO
                     document.getElementById("employeeStatusCode").innerHTML = "<a href=/tickets/view?id="+ticketID+">Ticket #"+ticketID+"</a> successfully modified!";
