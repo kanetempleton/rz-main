@@ -254,6 +254,7 @@ const URL='/tickets'
     		status: ticketStatus,
     		end:0
     	}*/
+    	console.log("sent "+jsonString)
     	document.getElementById("statusCode").innerHTML = "Retrieving information...";
     $.ajax({
             url: URL,
