@@ -21,7 +21,7 @@ public class Main {
        // new Thread(webserver).start();
 
         launcher = new Launcher();
-        launcher.DEBUG_SERVER_LEVEL = 1;
+        launcher.DEBUG_SERVER_LEVEL = 0;
         launcher.addDatabaseManager();
         launcher.addLoginHandler();
         launcher.addCareTaker(1800000);
