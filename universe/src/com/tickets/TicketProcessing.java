@@ -125,7 +125,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                 break;
             default:
                 function = "query";
-                queryTicketsByParams(http,c,uri,res,fields,values);
+                queryTicketsByParams(http,c,uri,res,fields,values,ticketid);
                 break;
         }
 
@@ -150,15 +150,25 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     //GET tickets?ticketparams
     //currently has no permission checks or restrictions on what fields can be queried
     //needs handling for bs inputs or empty queries
-    private void queryTicketsByParams(HTTP http, ServerConnection c, String uri, String res, String[] fields, String[] values) {
+    private void queryTicketsByParams(HTTP http, ServerConnection c, String uri, String res, String[] fields, String[] values, String ticketid) {
         //return this.select_html_table(fields,fields,values);
+        boolean all = false;
+        if (ticketid.equals("all")) {
+            if (!c.getCookie("usr").equals("rzadmin")) {
+                reply(c,RESPONSE_PERMISSION_DENIED);
+                return;
+            }
+            all=true;
+        }
         String queryString = "SELECT id,title,customerName,status,dueDate FROM "+this.getTable()+"";
-        if (fields.length>0 && values.length>0 && fields.length==values.length) {
-            queryString+= " WHERE ";
-            for (int i=0; i<fields.length; i++) {
-                queryString+=fields[i]+"='"+cleanseInput(values[i])+"'";
-                if (i!=fields.length-1)
-                    queryString+=",";
+        if (!all) {
+            if (fields.length > 0 && values.length > 0 && fields.length == values.length) {
+                queryString += " WHERE ";
+                for (int i = 0; i < fields.length; i++) {
+                    queryString += fields[i] + "='" + cleanseInput(values[i]) + "'";
+                    if (i != fields.length - 1)
+                        queryString += ",";
+                }
             }
         }
         queryString+=";";
@@ -347,6 +357,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                                 //  T.appendColumnToEnd("modify", "edit ticket");
                                 T.appendColumnToEnd("modify", "<button id=\"submitChangesButton\" onclick=\"tryEditQuery()\">Submit Changes</button>");
                                 // T.addHrefToColumn("delete","tickets","id");
+
                             }
 
 

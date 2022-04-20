@@ -221,6 +221,12 @@ console.log("tryeditquery()");
 const URL='fuzz'
 
 
+    var obj = new Object();
+       obj.customerName = document.getElementById("form_customerName").value;
+       obj.id  = document.getElementById("form_id").value;
+       obj.status = document.getElementById("form_status").value;;
+       var jsonString= JSON.stringify(obj);
+
 	const custName = document.getElementById("form_customerName").value;
 	const custPhone = document.getElementById("form_customerPhone").value;
 	const custEmail = document.getElementById("form_customerEmail").value;
@@ -255,6 +261,7 @@ const URL='fuzz'
 
                 if (result == 'retry') {
                     tryEditQuery();
+                 //document.getElementById("statusCode").innerHTML = "check server."
                 }
                 else if (result.startsWith('modifysuccess')) { // TODO
                     document.getElementById("employeeStatusCode").innerHTML = "<a href=/tickets/view?id="+ticketID+">Ticket #"+ticketID+"</a> successfully modified!";
@@ -287,7 +294,8 @@ employeeAddButton.addEventListener ("click", function() {
 });
 var showAllTicketsButton = document.getElementById("showAllTicketsButton");
 showAllTicketsButton.addEventListener ("click", function() {
-    tryshowquery();
+    //tryshowquery();
+    window.location.href = '/tickets?id=all'
 });
 /*
 var submitChangesButton = document.getElementById("submitChangesButton");
