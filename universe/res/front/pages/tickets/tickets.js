@@ -218,15 +218,21 @@ $.ajax({
 function tryEditQuery() {
 console.log("tryeditquery()");
 
-const URL='fuzz'
+const URL='/tickets'
 
 
     var obj = new Object();
+       obj.packet=505;
        obj.customerName = document.getElementById("form_customerName").value;
        obj.id  = document.getElementById("form_id").value;
-       obj.status = document.getElementById("form_status").value;;
-       var jsonString= JSON.stringify(obj);
-
+       obj.status = document.getElementById("form_status").value;
+       obj.customerEmail=document.getElementById("form_customerEmail").value;
+       obj.customerPhone = document.getElementById("form_customerPhone").value;
+       obj.title = document.getElementById("form_title").value;
+       	obj.info = document.getElementById("form_info").value;
+       	obj.dueDate = document.getElementById("form_dueDate").value;
+       	var jsonString= JSON.stringify(obj);
+/*
 	const custName = document.getElementById("form_customerName").value;
 	const custPhone = document.getElementById("form_customerPhone").value;
 	const custEmail = document.getElementById("form_customerEmail").value;
@@ -247,13 +253,13 @@ const URL='fuzz'
     		dueDate: ticketDueDate,
     		status: ticketStatus,
     		end:0
-    	}
+    	}*/
     	document.getElementById("statusCode").innerHTML = "Retrieving information...";
     $.ajax({
             url: URL,
             type: 'POST',
             contentType: 'application/json',
-            data: sendme,
+            data: jsonString,
             success: function(result) {
                 console.log("sent data "+sendme)
                 // Do something with the result
