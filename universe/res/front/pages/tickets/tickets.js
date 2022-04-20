@@ -178,8 +178,7 @@ const URL='fuzz'
 		customerEmail: custEmail,
 		title: ticketTitle,
 		info: ticketInfo,
-		due: ticketDueDate,
-		end:0
+		due: ticketDueDate
 	}
 	document.getElementById("employeeStatusCode").innerHTML = "Retrieving information...";
 $.ajax({
