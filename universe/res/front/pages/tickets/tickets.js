@@ -262,9 +262,9 @@ const URL='/tickets'
             contentType: 'application/json',
             data: jsonString,
             success: function(result) {
-                console.log("sent data "+sendme)
+                //console.log("sent data "+sendme)
                 // Do something with the result
-                console.log(result)
+                console.log("received reply: "+result)
 
                 if (result == 'retry') {
                     tryEditQuery();
