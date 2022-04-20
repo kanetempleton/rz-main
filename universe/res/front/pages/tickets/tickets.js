@@ -220,7 +220,7 @@ console.log("tryeditquery()");
 
 const URL='/tickets'
 
-
+/*
     var obj = new Object();
        obj.packet=505;
        obj.customerName = document.getElementById("form_customerName").value;
@@ -232,7 +232,7 @@ const URL='/tickets'
        	obj.info = document.getElementById("form_info").value;
        	obj.dueDate = document.getElementById("form_dueDate").value;
        	var jsonString= JSON.stringify(obj);
-/*
+*/
 	const custName = document.getElementById("form_customerName").value;
 	const custPhone = document.getElementById("form_customerPhone").value;
 	const custEmail = document.getElementById("form_customerEmail").value;
@@ -253,14 +253,14 @@ const URL='/tickets'
     		dueDate: ticketDueDate,
     		status: ticketStatus,
     		end:0
-    	}*/
+    	}
     	console.log("sent "+jsonString)
     	document.getElementById("statusCode").innerHTML = "Retrieving information...";
     $.ajax({
             url: URL,
             type: 'POST',
             contentType: 'application/json',
-            data: jsonString,
+            data: sendme,
             success: function(result) {
                 //console.log("sent data "+sendme)
                 // Do something with the result
