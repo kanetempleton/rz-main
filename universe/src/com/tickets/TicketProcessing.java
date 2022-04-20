@@ -462,30 +462,12 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     private void enterNewTicket(ServerConnection c, String[] fields, String[] values) {
         System.out.println("[TicketProcessing] Create new ticket");
         int[] ticketid = {0};
-        generateNewTicketID(ticketid,100000);
-        while (ticketid[0] == 0) {
+        generateNewTicketID(ticketid,100000,fields,values,c);
+       /* while (ticketid[0] == 0) {
 
-        }
+        }*/
         System.out.println("passed the ticket id while loop");
-        String title, name, email, phone, info, due, status;
-        title = name = email = phone = info = due = status = "";
-        for (int i = 0; i < fields.length; i++) {
-            System.out.println("fields[i]=" + fields[i] + ", values[i]=" + values[i]);
-            if (fields[i].equals("customerName"))
-                name = cleanseInput(values[i]);
-            if (fields[i].equals("customerPhone"))
-                phone = values[i];
-            if (fields[i].equals("customerEmail"))
-                email = cleanseInput(values[i]);
-            if (fields[i].equals("title"))
-                title = cleanseInput(values[i]);
-            if (fields[i].equals("info"))
-                info = cleanseInput(values[i]);
-            if (fields[i].equals("due"))
-                due = cleanseInput(values[i]);
-        }
-        Ticket T = new Ticket(ticketid[0], title, name, email, phone, info, due);
-        storeTicket(T,c,QUERYTYPE_NEWTICKET);
+
     }
 
 
@@ -493,18 +475,37 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
 
 
     //find an unused ticket id
-    private void generateNewTicketID(int[] buf, int max) {
+    private void generateNewTicketID(int[] buf, int max,String[] fields, String[] values,ServerConnection c) {
         int x = 1+(int)(Math.random()*max);
         boolean found = false;
         boolean found2 = false;
         new ServerQuery(this,"select id from tickets where id='"+x+"'") {
             public void done() {
                 if (this.getResponses().size() > 0) {
-                    generateNewTicketID(buf,max);
+                    generateNewTicketID(buf,max,fields,values,c);
                     System.out.println("retrying new ticket id...");
                 } else {
                     buf[0] = x;
                     System.out.println("ticket id found: "+x+" buffer[0]="+buf[0]);
+                    String title, name, email, phone, info, due, status;
+                    title = name = email = phone = info = due = status = "";
+                    for (int i = 0; i < fields.length; i++) {
+                        System.out.println("fields[i]=" + fields[i] + ", values[i]=" + values[i]);
+                        if (fields[i].equals("customerName"))
+                            name = cleanseInput(values[i]);
+                        if (fields[i].equals("customerPhone"))
+                            phone = values[i];
+                        if (fields[i].equals("customerEmail"))
+                            email = cleanseInput(values[i]);
+                        if (fields[i].equals("title"))
+                            title = cleanseInput(values[i]);
+                        if (fields[i].equals("info"))
+                            info = cleanseInput(values[i]);
+                        if (fields[i].equals("due"))
+                            due = cleanseInput(values[i]);
+                    }
+                    Ticket T = new Ticket(buf[0], title, name, email, phone, info, due);
+                    storeTicket(T,c,QUERYTYPE_NEWTICKET);
                 }
             }
         };
