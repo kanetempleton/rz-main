@@ -462,7 +462,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     private void enterNewTicket(ServerConnection c, String[] fields, String[] values) {
         System.out.println("[TicketProcessing] Create new ticket");
         int[] ticketid = {0};
-        generateNewTicketID(ticketid,10,fields,values,c);
+        generateNewTicketID(ticketid,100000000,fields,values,c);
        /* while (ticketid[0] == 0) {
 
         }*/
