@@ -254,12 +254,12 @@ const URL='/tickets'
     		status: ticketStatus,
     		end:0
     	}
-    	console.log("sent "+jsonString)
+    	//console.log("sent "+jsonString)
     	document.getElementById("statusCode").innerHTML = "Retrieving information...";
     $.ajax({
             url: URL,
             type: 'POST',
-            contentType: 'application/json',
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8', //'application/json'
             data: sendme,
             success: function(result) {
                 //console.log("sent data "+sendme)
