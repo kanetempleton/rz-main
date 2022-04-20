@@ -544,7 +544,15 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     //might need some work so people don't hack us
     //TODO: separate input cleansing for URLs... like use %20 instead of + for spacebar
     private String cleanseInput(String input) {
-        return input.replace("+"," ").replace("%40","@").replace("%3B",";").replace("%2F","/").replace("%25252C",",").replace("%2C",",").replace("%20"," ");
+        return input.replace("+"," ") //space using +
+                .replace("%40","@")
+                .replace("%3B",";")
+                .replace("%2F","/")
+                .replace("%25252C",",") //comma...?
+                .replace("%2C",",") //commas
+                .replace("%20"," ") //space using %20
+                .replace("'","") //remove apostrophes lol tempfix
+                ;
     }
 
     //send a reply with HTTP 200 OK
