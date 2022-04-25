@@ -146,7 +146,8 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
 
     //NEW METHODS
 
-    //queryTicketsByParams
+
+    //Search Tickets
     //GET tickets?ticketparams
     //currently has no permission checks or restrictions on what fields can be queried
     //needs handling for bs inputs or empty queries
@@ -205,6 +206,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
 
 
 
+    //View Ticket
     //get info for a single ticket
     //GET tickets/view?id=ticketid
     private void queryTicketByID(HTTP http, ServerConnection c, String uri, String res, String ticketid) {
@@ -226,13 +228,14 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                 //reply();
                 String r = http.multiHTMLResponse_noTags(http.HTTP_OK,new String[]{http.fileHTML_noTags(res),T.toString()});
                 // reply(c,r);
-                c.sendMessage(r);
+                c.sendMessage(translateOutput(r));
                 c.disconnect();
             }
         };
     }
 
 
+    //Edit Ticket
     //show modify fields for a single ticket
     //GET tickets/modify?id=ticketid
     private void queryTicketByIDWithEdit(HTTP http, ServerConnection c, String uri, String res, String ticketid) {
@@ -244,7 +247,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                 }
                 HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
                 T.addBasicBorders();
-                T.addFormToRow("id",ticketid);
+                T.addFormToRow("id",ticketid,"id","info");
                 if (c.getCookie("usr").equals("rzadmin")) {
                     //T.appendColumnToEnd("modify", "edit ticket");
                     T.appendColumnToEnd("modify", "<button id=\"submitChangesButton\" onclick=\"tryEditQuery()\">Submit Changes</button>");
@@ -265,6 +268,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     }
 
 
+    //Delete Ticket
     //delete a ticket from the database
     //TODO: change this from GET to DELETE request, but i want to go home so fuck it
     private void deleteTicket(HTTP http, ServerConnection c, String uri, String res, String ticketid) {
@@ -298,6 +302,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         };
     }
 
+    //View All Tickets
     // "show all tickets" button
     // show summary for all tickets and put them in an HTML table
     private void queryAllTicketsToTable(ServerConnection c) {
@@ -305,6 +310,10 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         new ServerQuery(this,c,QUERYTYPE_SEARCH_TICKETS,"select id,title,customerName,status,dueDate from tickets;") {
             String buildHTML = "";
             public void done() {
+                if (this.responseSize() == 0) {
+                    reply(c,RESPONSE_NO_TICKET);
+                    return;
+                }
                 HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
                 //T.printColumnData();
                 T.addBasicBorders();
@@ -348,6 +357,10 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                     System.out.println("ticket modified successfully!");
                     new ServerQuery(this.getUtil(), c, QUERYTYPE_VIEW_TICKET, "select * from tickets where id='"+ticketid+"'") {
                         public void done() {
+                            if (this.responseSize() == 0) {
+                                reply(c,RESPONSE_NONSENSE);
+                                return;
+                            }
                             HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
                             T.addBasicBorders();
                            // T.addFormToRow("id",ticketid);
@@ -355,7 +368,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
 
                             if (c.getCookie("usr").equals("rzadmin")) {
                                 //  T.appendColumnToEnd("modify", "edit ticket");
-                                T.appendColumnToEnd("modify", "<button id=\"submitChangesButton\" onclick=\"tryEditQuery()\">Submit Changes</button>");
+                              //  T.appendColumnToEnd("modify", "<button id=\"submitChangesButton\" onclick=\"tryEditQuery()\">Submit Changes</button>");
                                 // T.addHrefToColumn("delete","tickets","id");
 
                             }
@@ -494,7 +507,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                         if (fields[i].equals("customerName"))
                             name = cleanseInput(values[i]);
                         if (fields[i].equals("customerPhone"))
-                            phone = values[i];
+                            phone = cleanseInput(values[i]);
                         if (fields[i].equals("customerEmail"))
                             email = cleanseInput(values[i]);
                         if (fields[i].equals("title"))
@@ -541,6 +554,11 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
         };
     }
 
+
+    private String translateOutput(String output) {
+        return output.replace("newline","<br>");
+    }
+
     //convert POST input data to text
     //might need some work so people don't hack us
     //TODO: separate input cleansing for URLs... like use %20 instead of + for spacebar
@@ -553,6 +571,10 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                 .replace("%2C",",") //commas
                 .replace("%20"," ") //space using %20
                 .replace("'","") //remove apostrophes lol tempfix
+                .replace("%3C","<")
+                .replace("%3E",">")
+                .replace("newline","<br>")
+                .replace("%0A","<br>")
                 ;
     }
 

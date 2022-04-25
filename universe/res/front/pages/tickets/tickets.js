@@ -178,7 +178,8 @@ const URL='fuzz'
 		customerEmail: custEmail,
 		title: ticketTitle,
 		info: ticketInfo,
-		due: ticketDueDate
+		due: ticketDueDate,
+		end:0
 	}
 	document.getElementById("employeeStatusCode").innerHTML = "Retrieving information...";
 $.ajax({
@@ -239,7 +240,7 @@ const URL='/tickets'
 	const ticketInfo = document.getElementById("form_info").value;
 	const ticketDueDate = document.getElementById("form_dueDate").value;
 	const ticketStatus = document.getElementById("form_status").value;
-	const ticketID = document.getElementById("form_id").value;
+	const ticketID = document.getElementById("data_id").innerHTML;
 
 	const sendme={
     	    packet:505,
