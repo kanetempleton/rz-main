@@ -140,7 +140,7 @@ $.ajax({
 function tryemployeequery() {
 console.log("tryemployeequery()");
 
-const URL='fuzz'
+const URL='/tickets'
 
 
 	const custName = document.getElementById("customerName").value;
@@ -178,7 +178,7 @@ const URL='fuzz'
 		customerEmail: custEmail,
 		title: ticketTitle,
 		info: ticketInfo,
-		due: ticketDueDate,
+		//due: ticketDueDate,
 		end:0
 	}
 	document.getElementById("employeeStatusCode").innerHTML = "Retrieving information...";
