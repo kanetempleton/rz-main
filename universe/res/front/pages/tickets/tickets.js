@@ -178,7 +178,7 @@ const URL='/tickets'
 		customerEmail: custEmail,
 		title: ticketTitle,
 		info: ticketInfo,
-		//due: ticketDueDate,
+		due: ticketDueDate,
 		end:0
 	}
 	document.getElementById("employeeStatusCode").innerHTML = "Retrieving information...";
