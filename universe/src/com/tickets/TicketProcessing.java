@@ -549,6 +549,8 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                             System.out.println("Successfully initialized database table: tickets");
                         }
                     };
+                } else {
+                    System.out.println("Table for tickets already did exist fam.");
                 }
             }
         };
