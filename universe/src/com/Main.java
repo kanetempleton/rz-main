@@ -67,8 +67,8 @@ public class Main {
         //I TOTALLY FORGOT ABOUT THIS LITTLE GUY
         //EXTREMELYYYY IMPORTANT!!!!!
         // Main.launcher.nextStage();
-        launcher.loadThread(H,"TaskManager"); //FUCK YEAH!!!!!!!!!!!!!
-       // launcher.loadThread(ticketManager,"Ticketing System");
+       // launcher.loadThread(H,"TaskManager"); //FUCK YEAH!!!!!!!!!!!!!
+        launcher.loadThread(ticketManager,"Ticketing System");
 
        // H.create(T);
 
