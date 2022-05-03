@@ -29,6 +29,11 @@ public class Task extends CRUDObject {
         nonsense3 = "333";
     }
 
+    @Override
+    public void load() {
+        System.out.println("task loading finished!");
+    }
+
     public String getName(){return taskName;}
     public String getStatus(){return taskStatus;}
     public void setName(String n) {taskName=n;}

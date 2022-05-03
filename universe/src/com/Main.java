@@ -54,6 +54,9 @@ public class Main {
         TaskHandler<Task> H = new TaskHandler();
         H.assignClass(Task.class);
 
+       // Task T = new Task(H,"jizz");
+        //H.create(T);
+
         launcher.loadThread(http,"Web Server");
         launcher.loadThread(tcp,"TCP Server");
 
@@ -65,15 +68,16 @@ public class Main {
         //EXTREMELYYYY IMPORTANT!!!!!
         // Main.launcher.nextStage();
         launcher.loadThread(H,"TaskManager"); //FUCK YEAH!!!!!!!!!!!!!
-        launcher.loadThread(ticketManager,"Ticketing System");
+       // launcher.loadThread(ticketManager,"Ticketing System");
 
        // H.create(T);
 
         //ok fuck it... done for today.
-        // CREATE: [x]tables, []objects
-        // READ: [x]tables, []objects
+        // CREATE: [x]tables, [x]objects
+        // READ: [x]tables, [*]objects
         // UPDATE: [*]tables, []objects
         // DELETE: [x]tables, []objects
+
         /* what i got done:
          - created query for check table existence
          - created query for create table
@@ -87,14 +91,16 @@ public class Main {
          - query: update table (add/drop columns)
          - query: get table info (column names and data types)
          - fixed some bugs
-         todo:
+         ~~ day 3 ~~
          - query: insert into table
          - query: select from table
+
+         todo:
          - query: update object in table
          - query: delete object in table
-         - CRUD: [obj] store, load, save, delete
          - then the bs with type checks yeah yeah... we doing fine.
-         - CRUD: [t] handle name/type mismatches in schema
+         - CRUD: [table] handle name/type mismatches in schema
+         - table.read(): need a way to make sure data is prepared before used
          */
 
         //start the handler for tasks
