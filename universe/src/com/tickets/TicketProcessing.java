@@ -168,7 +168,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                 for (int i = 0; i < fields.length; i++) {
                     queryString += fields[i] + "='" + cleanseInput(values[i]) + "'";
                     if (i != fields.length - 1)
-                        queryString += ",";
+                        queryString += " AND ";
                 }
             }
         }

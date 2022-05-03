@@ -51,8 +51,8 @@ public class Main {
         Server tcp = new Server(new TCP(43594),1024);
         tcp.setWebPacketHandler(wp);
 
-        TaskHandler<Task> H = new TaskHandler();
-        H.assignClass(Task.class);
+       // TaskHandler<Task> H = new TaskHandler();
+       // H.assignClass(Task.class);
 
        // Task T = new Task(H,"jizz");
         //H.create(T);
