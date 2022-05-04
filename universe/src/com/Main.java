@@ -51,11 +51,11 @@ public class Main {
         Server tcp = new Server(new TCP(43594),1024);
         tcp.setWebPacketHandler(wp);
 
-       // TaskHandler<Task> H = new TaskHandler();
-       // H.assignClass(Task.class);
+        TaskHandler<Task> H = new TaskHandler();
+        H.assignClass(Task.class);
 
        // Task T = new Task(H,"jizz");
-        //H.create(T);
+       // H.create(T);
 
         launcher.loadThread(http,"Web Server");
         launcher.loadThread(tcp,"TCP Server");
@@ -67,7 +67,7 @@ public class Main {
         //I TOTALLY FORGOT ABOUT THIS LITTLE GUY
         //EXTREMELYYYY IMPORTANT!!!!!
         // Main.launcher.nextStage();
-       // launcher.loadThread(H,"TaskManager"); //FUCK YEAH!!!!!!!!!!!!!
+        launcher.loadThread(H,"TaskManager"); //FUCK YEAH!!!!!!!!!!!!!
         launcher.loadThread(ticketManager,"Ticketing System");
 
        // H.create(T);

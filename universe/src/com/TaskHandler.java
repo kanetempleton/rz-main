@@ -23,10 +23,13 @@ public class TaskHandler<T> extends CRUDHandler implements Runnable {
 
     public static void testTaskObjects(TaskHandler H) {
         System.out.println("testing task objects:");
+       // H.drop();
 
         //create_tasks(H);
 
-      /*  Task T1 = new Task(H,"apples");
+
+
+        Task T1 = new Task(H,"apples");
         Task T2 = new Task(H,"bananas");
         Task T3 = new Task(H,"cherries");
         T1.setID("10");
@@ -34,32 +37,25 @@ public class TaskHandler<T> extends CRUDHandler implements Runnable {
         T3.setID("30");
         T1.store();
         T2.store();
-        T3.store(); */
+        T3.store();
 
-      H.delete("10");
-      H.delete("30");
+        Task T4 = new Task(H) {
+            public void load() {
+                System.out.println("LOADED TASK "+this.getName());
+            }
+        };
+        H.load("30",T4);
+
+
+
+     // H.delete("10");
+     // H.delete("30");
 
 
 
        // load_task(H);
 
        // Task loadT = H.load_task("20");
-        Task loadT = new Task(H,"20") {
-            public void load() {
-                this.setID(""+(Integer.parseInt(this.getID())*2));
-                System.out.println("task id is now "+this.getID());
-            }
-        };
-
-
-        // Task loadT = H.load_task("20");
-        Task delT = new Task(H,"20") {
-            public void load() {
-                this.delete();
-            }
-        };
-        delT.setID("20");
-        H.delete(delT);
       //  H.update(loadT);
 
       //  H.update(loadT);

@@ -9,6 +9,8 @@ import com.server.web.Cookie;
 
 public class TicketProcessing extends DatabaseUtility implements Runnable {
 
+    private static final int MAX_TICKET_ID=100000; //TODO: format ticket id as xxxx-xxxx
+
     public TicketProcessing() {
         super("tickets");
     }
@@ -475,7 +477,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
     private void enterNewTicket(ServerConnection c, String[] fields, String[] values) {
         System.out.println("[TicketProcessing] Create new ticket");
         int[] ticketid = {0};
-        generateNewTicketID(ticketid,100000000,fields,values,c);
+        generateNewTicketID(ticketid,MAX_TICKET_ID,fields,values,c);
        /* while (ticketid[0] == 0) {
 
         }*/
