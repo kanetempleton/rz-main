@@ -2,6 +2,7 @@
 ./universe/env.cfg
 */env.cfg
 ./universe/out/*
+/universe/out/*
 */*.class
 */*.DS_Store
 *.DS_Store
