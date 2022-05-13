@@ -25,7 +25,7 @@ public class Main {
         launcher.DEBUG_SERVER_LEVEL = 0;
         launcher.addDatabaseManager();
         launcher.addLoginHandler();
-        launcher.addCareTaker(180ls 00);
+        launcher.addCareTaker(18000);
 
         CRUDHandler.DEBUG_CRUD = true;
 
