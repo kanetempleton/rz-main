@@ -7,4 +7,6 @@
 */*.DS_Store
 *.DS_Store
 */.DS-Store
+/universe/env.cfg
+*/*env.cfg
 
