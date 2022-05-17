@@ -579,6 +579,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                 .replace("%3E",">")
                 .replace("newline","<br>")
                 .replace("%0A","<br>")
+                .replace("%24","$")
                 ;
     }
 
