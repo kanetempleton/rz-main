@@ -9,4 +9,8 @@
 */.DS-Store
 /universe/env.cfg
 */*env.cfg
-
+*/*Console_Log*
+*/universe/logs/*
+*/*universe/logs/*
+./universe/logs/*
+/universe/logs/*
