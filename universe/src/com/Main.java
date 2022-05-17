@@ -25,10 +25,9 @@ public class Main {
         launcher.DEBUG_SERVER_LEVEL = 0;
         launcher.addDatabaseManager();
         launcher.addLoginHandler();
-        launcher.addCareTaker(18000);
+        launcher.addCareTaker(1800000);
 
         CRUDHandler.DEBUG_CRUD = true;
-
         TicketProcessing ticketManager = new TicketProcessing();
 
         http_protocol = new HTTP("res/front/",80) {
