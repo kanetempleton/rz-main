@@ -2,43 +2,41 @@ package com.tickets;
 
 import com.server.entity.*;
 import com.db.*;
+import com.db.crud.*;
 
+public class Ticket extends CRUDObject {
 
-public class Ticket {
-
-    private int id;
-    private String title,custName,custEmail,custPhone,info,due,status;
+    private String title,customerName,customerEmail,customerPhone,info,dueDate,status;
+    private String lastModifiedDate,lastModifiedBy;
     private TicketProcessing manager;
-    public Ticket(int id, String title, String customerName, String customerEmail, String customerPhone, String info, String due) {
-        this.id=id;
+    public Ticket(CRUDHandler H, int id, String title, String customerName, String customerEmail, String customerPhone, String info, String due) {
+        super(H,""+id);
         this.title = title;
-        this.custName=customerName;
-        this.custPhone=customerPhone;
-        this.custEmail=customerEmail;
+        this.customerName=customerName;
+        this.customerPhone=customerPhone;
+        this.customerEmail=customerEmail;
         this.info=info;
-        this.due=due;
+        this.dueDate=due;
         this.status = "Awaiting diagnosis";
+        this.lastModifiedBy = "rzadmin";
+        this.lastModifiedDate = "not assigned";
     }
 
-
-    public int getId() {
-        return id;
-    }
 
     public String getCustEmail() {
-        return custEmail;
+        return customerEmail;
     }
 
     public String getCustName() {
-        return custName;
+        return customerName;
     }
 
     public String getCustPhone() {
-        return custPhone;
+        return customerPhone;
     }
 
     public String getDue() {
-        return due;
+        return dueDate;
     }
 
     public String getInfo() {
@@ -54,23 +52,19 @@ public class Ticket {
     }
 
     public void setCustEmail(String custEmail) {
-        this.custEmail = custEmail;
+        this.customerEmail = custEmail;
     }
 
     public void setCustName(String custName) {
-        this.custName = custName;
+        this.customerName = custName;
     }
 
     public void setCustPhone(String custPhone) {
-        this.custPhone = custPhone;
+        this.customerPhone = custPhone;
     }
 
     public void setDue(String due) {
-        this.due = due;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.dueDate = due;
     }
 
     public void setInfo(String info) {
@@ -84,4 +78,10 @@ public class Ticket {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public void setLastModifiedDate(String date) {
+        this.lastModifiedDate = date;
+    }
+    public void setLastModifiedBy(String name) {this.lastModifiedBy=name;}
+
 }

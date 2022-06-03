@@ -28,7 +28,10 @@ public class Main {
         launcher.addCareTaker(1800000);
 
         CRUDHandler.DEBUG_CRUD = true;
+
+
         TicketProcessing ticketManager = new TicketProcessing();
+        ticketManager.assignClass(Ticket.class);
 
         http_protocol = new HTTP("res/front/",80) {
             public byte[] processGET(ServerConnection c, String uri, String resource, String[] fields, String[] values) {
@@ -67,6 +70,8 @@ public class Main {
         //EXTREMELYYYY IMPORTANT!!!!!
         // Main.launcher.nextStage();
        // launcher.loadThread(H,"TaskManager"); //FUCK YEAH!!!!!!!!!!!!!
+
+
         launcher.loadThread(ticketManager,"Ticketing System");
 
        // H.create(T);

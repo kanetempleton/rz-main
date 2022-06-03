@@ -5,18 +5,24 @@ import com.server.protocol.*;
 import com.db.*;
 import com.util.html.*;
 import com.server.web.Cookie;
+import com.db.crud.*;
 
 
-public class TicketProcessing extends DatabaseUtility implements Runnable {
+public class TicketProcessing extends CRUDHandler {
 
     private static final int MAX_TICKET_ID=100000; //TODO: format ticket id as xxxx-xxxx
 
+    //title,customerName,customerEmail,customerPhone,info,dueDate,status;
     public TicketProcessing() {
-        super("tickets");
+        super("tickets","id");
+        String[] save = {"title","customerName","customerPhone","customerEmail",
+                            "info","status","dueDate","lastModifiedDate","lastModifiedBy"};
+        setTypeForField("info","VARCHAR(4096)");
+        setSaveFields(save);
     }
 
-    public void run() {
-        initTable();
+    public void start() {
+        System.out.println("started the ticket system!");
     }
 
     public void serverAction(ServerQuery q) {
@@ -519,7 +525,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                         if (fields[i].equals("due"))
                             due = cleanseInput(values[i]);
                     }
-                    Ticket T = new Ticket(buf[0], title, name, email, phone, info, due);
+                    Ticket T = new Ticket((CRUDHandler)this.getUtil(),buf[0], title, name, email, phone, info, due);
                     storeTicket(T,c,QUERYTYPE_NEWTICKET);
                 }
             }
@@ -530,10 +536,10 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
 
     // store a ticket into the database
     public void storeTicket(Ticket T, ServerConnection c, int type) {
-        new ServerQuery(this,c,type,"INSERT INTO tickets(id,title,customerName,customerPhone,customerEmail,info,status,dueDate) VALUES('"+T.getId()+"','"+T.getTitle()+"','"+T.getCustName()+"','"+T.getCustPhone()+"','"+T.getCustEmail()+"','"+T.getInfo()+"','"+T.getStatus()+"','"+T.getDue()+"')") {
+        new ServerQuery(this,c,type,"INSERT INTO tickets(id,title,customerName,customerPhone,customerEmail,info,status,dueDate) VALUES('"+T.getID()+"','"+T.getTitle()+"','"+T.getCustName()+"','"+T.getCustPhone()+"','"+T.getCustEmail()+"','"+T.getInfo()+"','"+T.getStatus()+"','"+T.getDue()+"')") {
             public void done() {
-                System.out.println("inserted ticket "+T.getId()+"!");
-                reply(c,RESPONSE_SUCCESS+":"+T.getId());
+                System.out.println("inserted ticket "+T.getID()+"!");
+                reply(c,RESPONSE_SUCCESS+":"+T.getID());
                // c.sendMessage(HTTP.HTTP_OK+"\r\n"+RESPONSE_SUCCESS);
                // c.disconnect();
             }
@@ -542,7 +548,7 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
 
     // initialize the "tickets" database table
     // @TODO: auto-modify table structure
-    public void initTable() {
+   /* public void initTable() {
         new ServerQuery(this,"SHOW TABLES LIKE \""+getTable()+"\"") {
             public void done() {
                 if (this.responseSize()==0) {
@@ -552,11 +558,11 @@ public class TicketProcessing extends DatabaseUtility implements Runnable {
                         }
                     };
                 } else {
-                    System.out.println("Table for tickets already did exist fam.");
+                    System.out.println("bro wtf you shouldn't even be able to see this message");
                 }
             }
         };
-    }
+    }*/
 
 
     private String translateOutput(String output) {

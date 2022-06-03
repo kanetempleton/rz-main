@@ -11,6 +11,7 @@ public class TaskHandler<T> extends CRUDHandler implements Runnable {
         setIgnoreMode(false);
        // setIgnoreFields(new String[]{"nonsense","nonsense2"});
         setSaveFields(new String[]{"taskName","taskStatus"});
+        //setTypeForField("info","VARCHAR(2048)");
     }
 
     public void start() {
