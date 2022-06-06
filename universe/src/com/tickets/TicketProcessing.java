@@ -180,19 +180,19 @@ public class TicketProcessing extends CRUDHandler {
 
         String queryString = "SELECT id,title,customerName,status,dueDate FROM "+this.getTable()+"";
 
-        if (!Tools.fieldValuePair(fields,values,"showComplete","1") && !Tools.fieldValuePair(fields,values,"showHidden","1")) {
-            queryString += " WHERE status<>'Completed' AND status<>'COMPLETED' AND status<>'COMPLETE' AND status<>'Complete'" +
-                            " AND status<>'Done' AND hidden<>'1'";
-        }
-        else if (!Tools.fieldValuePair(fields,values,"showComplete","1")) {
-            queryString += " WHERE status<>'Completed' AND status<>'COMPLETED' AND status<>'COMPLETE' AND status<>'Complete'" +
-                    " AND status<>'Done'";
-        }
-        else if (!Tools.fieldValuePair(fields,values,"showHidden","1")) {
-            queryString += " WHERE hidden<>'1'";
-        }
-        if (Tools.fieldValuePair(fields,values,"orderDate","1")) {
-            queryString += " ORDER BY dueDate DESC";
+        if (ticketid.equals("all")) {
+            if (!Tools.fieldValuePair(fields, values, "showComplete", "1") && !Tools.fieldValuePair(fields, values, "showHidden", "1")) {
+                queryString += " WHERE status<>'Completed' AND status<>'COMPLETED' AND status<>'COMPLETE' AND status<>'Complete'" +
+                        " AND status<>'Done' AND hidden<>'1'";
+            } else if (!Tools.fieldValuePair(fields, values, "showComplete", "1")) {
+                queryString += " WHERE status<>'Completed' AND status<>'COMPLETED' AND status<>'COMPLETE' AND status<>'Complete'" +
+                        " AND status<>'Done'";
+            } else if (!Tools.fieldValuePair(fields, values, "showHidden", "1")) {
+                queryString += " WHERE hidden<>'1'";
+            }
+            if (Tools.fieldValuePair(fields, values, "orderDate", "1")) {
+                queryString += " ORDER BY dueDate DESC";
+            }
         }
         //queryString+=";";
 
