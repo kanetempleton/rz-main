@@ -217,9 +217,10 @@ public class TicketProcessing extends CRUDHandler {
                 if (c.getCookie("usr").equals("rzadmin")) {
                     T.appendColumnToEnd("modify", "edit ticket");
                     T.appendColumnToEnd("delete", "delete ticket");
+                    T.appendColumnToEnd("hide", "hide ticket");
                     T.addHrefToColumn("delete","tickets/delete","id","id");
                     T.addHrefToColumn("modify","tickets/modify","id","id");
-                    T.addHrefToColumn("modify","tickets/hide","id","id");
+                    T.addHrefToColumn("hide","tickets/hide","id","id");
                 }
                 //T.appendStyle(" class='center'");
                 //reply();
