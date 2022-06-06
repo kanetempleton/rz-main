@@ -87,6 +87,6 @@ public class Ticket extends CRUDObject {
     public void setHidden(boolean b) {
         this.hidden=""+b;
     }
-    public boolean hidden(){return ""+this.hidden;}
+    public boolean hidden(){return Boolean.parseBoolean(this.hidden);}
 
 }
