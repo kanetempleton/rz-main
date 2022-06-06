@@ -180,9 +180,16 @@ public class TicketProcessing extends CRUDHandler {
 
         String queryString = "SELECT id,title,customerName,status,dueDate FROM "+this.getTable()+"";
 
-        if (!Tools.fieldValuePair(fields,values,"showComplete","1")) {
+        if (!Tools.fieldValuePair(fields,values,"showComplete","1") && !Tools.fieldValuePair(fields,values,"showHidden","1")) {
             queryString += " WHERE status<>'Completed' AND status<>'COMPLETED' AND status<>'COMPLETE' AND status<>'Complete'" +
-                            " AND status<>'Done'";
+                            " AND status<>'Done' AND hidden<>'1'";
+        }
+        else if (!Tools.fieldValuePair(fields,values,"showComplete","1")) {
+            queryString += " WHERE status<>'Completed' AND status<>'COMPLETED' AND status<>'COMPLETE' AND status<>'Complete'" +
+                    " AND status<>'Done' AND hidden<>'1'";
+        }
+        else if (!Tools.fieldValuePair(fields,values,"showHidden","1")) {
+            queryString += " WHERE hidden<>'1'";
         }
         if (Tools.fieldValuePair(fields,values,"orderDate","1")) {
             queryString += " ORDER BY dueDate DESC";
@@ -420,7 +427,9 @@ public class TicketProcessing extends CRUDHandler {
                             //reply(c,RESPONSE_MODIFY_SUCCESS+";;;"+T.toString());
                             if (Tools.fieldValuePair(fields,values,"hidden","1")) {
                                 String r = http.multiHTMLResponse_noTags(http.HTTP_OK, new String[]{http.fileHTML_noTags(uri), T.toString()});
-                                reply(c,r);
+                               // reply(c,r);
+                                c.sendMessage(r);
+                                c.disconnect();
                             } else {
                                 reply(c,RESPONSE_MODIFY_SUCCESS+";;;"+T.toString());
                             }

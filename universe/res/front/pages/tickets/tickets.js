@@ -316,6 +316,8 @@ showAllTicketsButton.addEventListener ("click", function() {
             x = x+'&showComplete=1'
         if (document.getElementById("orderbydate").checked)
             x = x+'&orderDate=1'
+        if (document.getElementById("showhidden").checked)
+            x = x+'&showHidden=1'
     window.location.href = x
 });
 /*
