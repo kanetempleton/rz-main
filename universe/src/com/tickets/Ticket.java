@@ -7,7 +7,7 @@ import com.db.crud.*;
 public class Ticket extends CRUDObject {
 
     private String title,customerName,customerEmail,customerPhone,info,dueDate,status;
-    private String lastModifiedDate,lastModifiedBy;
+    private String lastModifiedDate,lastModifiedBy,hidden;
     private TicketProcessing manager;
     public Ticket(CRUDHandler H, int id, String title, String customerName, String customerEmail, String customerPhone, String info, String due) {
         super(H,""+id);
@@ -20,6 +20,7 @@ public class Ticket extends CRUDObject {
         this.status = "Awaiting diagnosis";
         this.lastModifiedBy = "rzadmin";
         this.lastModifiedDate = "not assigned";
+        this.hidden = "0";
     }
 
 
@@ -83,5 +84,9 @@ public class Ticket extends CRUDObject {
         this.lastModifiedDate = date;
     }
     public void setLastModifiedBy(String name) {this.lastModifiedBy=name;}
+    public void setHidden(boolean b) {
+        this.hidden=""+b;
+    }
+    public boolean hidden(){return this.hidden;}
 
 }

@@ -17,7 +17,7 @@ public class TicketProcessing extends CRUDHandler {
     public TicketProcessing() {
         super("tickets","id");
         String[] save = {"title","customerName","customerPhone","customerEmail",
-                            "info","status","dueDate","lastModifiedDate","lastModifiedBy"};
+                            "info","status","dueDate","lastModifiedDate","lastModifiedBy","hidden"};
         setTypeForField("info","VARCHAR(4096)");
         setSaveFields(save);
     }
@@ -107,6 +107,9 @@ public class TicketProcessing extends CRUDHandler {
             else if (uri.contains("/tickets/delete")) {
                 function = "delete";
             }
+            else if (uri.contains("/tickets/hide")) {
+                function = "hide";
+            }
             if (fields[i].equals("id")) {
                 properFormat=true;
                 ticketid = values[i];
@@ -131,6 +134,10 @@ public class TicketProcessing extends CRUDHandler {
                 break;
             case "delete":
                 deleteTicket(http,c,uri,res,ticketid);
+                break;
+            case "hide":
+                //hideTicket(http,c,uri,res,ticketid);
+                editTicket(http,c,uri,new String[]{"hidden"}, new String[]{"1"});
                 break;
             default:
                 function = "query";
@@ -212,6 +219,7 @@ public class TicketProcessing extends CRUDHandler {
                     T.appendColumnToEnd("delete", "delete ticket");
                     T.addHrefToColumn("delete","tickets/delete","id","id");
                     T.addHrefToColumn("modify","tickets/modify","id","id");
+                    T.addHrefToColumn("modify","tickets/hide","id","id");
                 }
                 //T.appendStyle(" class='center'");
                 //reply();
@@ -362,8 +370,6 @@ public class TicketProcessing extends CRUDHandler {
         };
     }
 
-
-    // OLD METHODS
 
     private void editTicket(HTTP http, ServerConnection c, String uri, String[] fields, String[] values) {
         if (c.getCookie("usr").equalsIgnoreCase("rzadmin")) {
