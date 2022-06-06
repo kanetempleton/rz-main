@@ -6,6 +6,7 @@ import com.db.*;
 import com.util.html.*;
 import com.server.web.Cookie;
 import com.db.crud.*;
+import com.util.Tools;
 
 
 public class TicketProcessing extends CRUDHandler {
@@ -78,7 +79,7 @@ public class TicketProcessing extends CRUDHandler {
                 enterNewTicket(c,fields,values);
                 break;
             case PACKETTYPE_EMPLOYEE_VIEW_ALL_TICKETS: //view all tickets
-                queryAllTicketsToTable(c);
+                queryAllTicketsToTable(c,fields,values);
                 break;
             case PACKETTYPE_MODIFY_TICKET:
                 editTicket(http,c,uri,fields,values);
@@ -169,7 +170,18 @@ public class TicketProcessing extends CRUDHandler {
             }
             all=true;
         }
+
         String queryString = "SELECT id,title,customerName,status,dueDate FROM "+this.getTable()+"";
+
+        if (Tools.fieldValuePair(fields,values,"showComp","0")) {
+            queryString += " WHERE status<>'Completed' AND status<>'COMPLETED' AND status<>'COMPLETE' AND status<>'Complete'";
+        }
+        if (Tools.fieldValuePair(fields,values,"orderDate","1")) {
+            queryString += " ORDER BY dueDate";
+        }
+        queryString+=";";
+
+        //String queryString = "SELECT id,title,customerName,status,dueDate FROM "+this.getTable()+"";
         if (!all) {
             if (fields.length > 0 && values.length > 0 && fields.length == values.length) {
                 queryString += " WHERE ";
@@ -313,9 +325,19 @@ public class TicketProcessing extends CRUDHandler {
     //View All Tickets
     // "show all tickets" button
     // show summary for all tickets and put them in an HTML table
-    private void queryAllTicketsToTable(ServerConnection c) {
+    private void queryAllTicketsToTable(ServerConnection c, String[] fields, String[] values) {
 
-        new ServerQuery(this,c,QUERYTYPE_SEARCH_TICKETS,"select id,title,customerName,status,dueDate from tickets;") {
+        String qry = "SELECT id,title,customerName,status,dueDate FROM tickets";
+
+        if (Tools.fieldValuePair(fields,values,"showComp","0")) {
+            qry += " WHERE status<>'Completed' AND status<>'COMPLETED' AND status<>'COMPLETE' AND status<>'Complete'";
+        }
+        if (Tools.fieldValuePair(fields,values,"orderDate","1")) {
+            qry += " ORDER BY dueDate'";
+        }
+        qry+=";";
+
+        new ServerQuery(this,c,QUERYTYPE_SEARCH_TICKETS,qry) {
             String buildHTML = "";
             public void done() {
                 if (this.responseSize() == 0) {

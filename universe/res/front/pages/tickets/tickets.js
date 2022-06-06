@@ -108,8 +108,16 @@ console.log("tryshowquery()");
 
 const URL='fuzz'
 
+    const showCompleted = 0;
+    if (document.getElementById("showcomplete").checked)
+        showCompleted = 1;
+    const orderByDate = 0;
+    if (document.getElementById("orderbydate").checked)
+        orderByDate = 1;
 	const sendme={
 	    packet:502,
+	    showComp: showCompleted,
+	    orderDate: orderByDate,
 		end:0
 	}
 	document.getElementById("employeeStatusCode").innerHTML = "Retrieving information...";
@@ -303,7 +311,12 @@ employeeAddButton.addEventListener ("click", function() {
 var showAllTicketsButton = document.getElementById("showAllTicketsButton");
 showAllTicketsButton.addEventListener ("click", function() {
     //tryshowquery();
-    window.location.href = '/tickets?id=all'
+    var x = '/tickets?id=all'
+        if (document.getElementById("showcomplete").checked)
+            x = x+'&showComplete=1'
+        if (document.getElementById("orderbydate").checked)
+            x = x+'&orderDate=1'
+    window.location.href = x
 });
 /*
 var submitChangesButton = document.getElementById("submitChangesButton");
