@@ -186,7 +186,7 @@ public class TicketProcessing extends CRUDHandler {
         }
         else if (!Tools.fieldValuePair(fields,values,"showComplete","1")) {
             queryString += " WHERE status<>'Completed' AND status<>'COMPLETED' AND status<>'COMPLETE' AND status<>'Complete'" +
-                    " AND status<>'Done' AND hidden<>'1'";
+                    " AND status<>'Done'";
         }
         else if (!Tools.fieldValuePair(fields,values,"showHidden","1")) {
             queryString += " WHERE hidden<>'1'";
