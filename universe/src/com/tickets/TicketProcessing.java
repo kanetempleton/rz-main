@@ -418,7 +418,7 @@ public class TicketProcessing extends CRUDHandler {
                             //reply(c,r);
                             System.out.println("responding with modify success");
                             //reply(c,RESPONSE_MODIFY_SUCCESS+";;;"+T.toString());
-                            if (Tools.fieldValuePair("hidden","1")) {
+                            if (Tools.fieldValuePair(fields,values,"hidden","1")) {
                                 String r = http.multiHTMLResponse_noTags(http.HTTP_OK, new String[]{http.fileHTML_noTags(uri), T.toString()});
                                 reply(c,r);
                             } else {
