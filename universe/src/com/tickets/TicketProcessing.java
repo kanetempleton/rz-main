@@ -137,7 +137,7 @@ public class TicketProcessing extends CRUDHandler {
                 break;
             case "hide":
                 //hideTicket(http,c,uri,res,ticketid);
-                editTicket(http,c,uri,new String[]{"hidden"}, new String[]{"1"});
+                editTicket(http,c,uri,new String[]{"id","hidden"}, new String[]{""+ticketid,"1"});
                 break;
             default:
                 function = "query";
