@@ -177,9 +177,9 @@ public class TicketProcessing extends CRUDHandler {
             queryString += " WHERE status<>'Completed' AND status<>'COMPLETED' AND status<>'COMPLETE' AND status<>'Complete'";
         }
         if (Tools.fieldValuePair(fields,values,"orderDate","1")) {
-            queryString += " ORDER BY dueDate";
+            queryString += " ORDER BY dueDate DESC";
         }
-        queryString+=";";
+        //queryString+=";";
 
         //String queryString = "SELECT id,title,customerName,status,dueDate FROM "+this.getTable()+"";
         if (!all) {
