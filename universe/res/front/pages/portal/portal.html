@@ -13,18 +13,53 @@
     <p><a href="/login">
         >> Log in</a>
     </p>
-    <h1>RZ Employee Home</h1>
-    <p>This page is for employee-only functions.</p>
-    <p>Quick Links:</p>
+    <h1>RZ Web Development Portal</h1>
+    <p>This page is for employee access to our web hosting features.</p>
     <div id='appLinks'>
-        <p id='appLink'><a href="/tickets">Customer Ticket System</a></p>
-        <p><a href="/api">RZ Software - User Manual (API page)</a></p>
+        <p>Admin Pages for Local Wordpress Websites:</p>
+        <table>
+            <tr>
+                <th>Website</th>
+                <th>Local URL + Port</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <th>rztechandweb.com</th>
+                <th><a href="http://10.0.0.2:10081/wp-admin">10.0.0.2:10081</a></th>
+                <th>Wordpress setup needed</th>
+            </tr>
+            <tr>
+                <th>cityhighalumni.org</th>
+                <th><a href="http://10.0.0.2:10082/wp-admin">10.0.0.2:10082</a></th>
+                <th>Wordpress setup needed</th>
+            </tr>
+            <tr>
+                <th>suttonministries.org</th>
+                <th><a href="http://10.0.0.2:10083/wp-admin">10.0.0.2:10083</a></th>
+                <th>Docker setup needed</th>
+            </tr>
+            <tr>
+                <th>eliteairsystems.net</th>
+                <th><a href="http://10.0.0.2:10084/wp-admin">10.0.0.2:10084</a></th>
+                <th>Docker setup needed</th>
+            </tr>
+            <tr>
+                <th>grit2grace.com</th>
+                <th><a href="http://10.0.0.2:10085/wp-admin">10.0.0.2:10085</a></th>
+                <th>Docker setup needed</th>
+            </tr>
+            <tr>
+                <th>lamourbluitt.com</th>
+                <th><a href="http://10.0.0.2:10086/wp-admin">10.0.0.2:10086</a></th>
+                <th>Docker setup needed</th>
+            </tr>
+        </table>
     </div>
     <div id='Main'>
         <p id="statusCode"></p>
         <input type="text" name="Command" placeholder="enter a command" id="enterCommand"></input><br />
         <br>
-        <button id="submitButton">Submit</button><br />
+        <button id="submitButton">Submit</button><br/>
         <p id="output"></p>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
