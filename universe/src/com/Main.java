@@ -33,7 +33,7 @@ public class Main {
         TicketProcessing ticketManager = new TicketProcessing();
         ticketManager.assignClass(Ticket.class);
 
-        http_protocol = new HTTP("res/front/",8080) {
+        http_protocol = new HTTP("res/front/",8888) {
             public byte[] processGET(ServerConnection c, String uri, String resource, String[] fields, String[] values) {
                 if (uri.contains("/tickets") && fields.length>0) {
                     return ticketManager.processGET(this,c,uri,resource,fields,values);
