@@ -13,6 +13,11 @@ public class TicketProcessing extends CRUDHandler {
 
     private static final int MAX_TICKET_ID=100000; //TODO: format ticket id as xxxx-xxxx
 
+    private boolean hasAdminAccess(ServerConnection c) {
+        return true;
+        //return c.getCookie("usr").equals("rzadmin");
+    }
+
     //title,customerName,customerEmail,customerPhone,info,dueDate,status;
     public TicketProcessing() {
         super("tickets","id");
@@ -171,7 +176,7 @@ public class TicketProcessing extends CRUDHandler {
         //return this.select_html_table(fields,fields,values);
         boolean all = false;
         if (ticketid.equals("all")) {
-            if (!c.getCookie("usr").equals("rzadmin")) {
+            if (!hasAdminAccess(c)) {
                 reply(c,RESPONSE_PERMISSION_DENIED);
                 return;
             }
@@ -221,7 +226,7 @@ public class TicketProcessing extends CRUDHandler {
                 T.addBasicBorders();
                 System.out.println("responding with modify success");
                 T.addHrefToColumn("id","tickets/view");
-                if (c.getCookie("usr").equals("rzadmin")) {
+                if (hasAdminAccess(c)) {
                     T.appendColumnToEnd("modify", "edit ticket");
                     T.appendColumnToEnd("delete", "delete ticket");
                     T.appendColumnToEnd("hide", "hide ticket");
@@ -255,7 +260,7 @@ public class TicketProcessing extends CRUDHandler {
                 }
                 HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
                 T.addBasicBorders();
-                if (c.getCookie("usr").equals("rzadmin")) {
+                if (hasAdminAccess(c)) {
                     T.appendColumnToEnd("modify", "edit ticket");
                     T.appendColumnToEnd("delete", "delete ticket");
                     T.addHrefToColumn("delete","delete","id","id");
@@ -285,7 +290,7 @@ public class TicketProcessing extends CRUDHandler {
                 HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
                 T.addBasicBorders();
                 T.addFormToRow("id",ticketid,"id","info");
-                if (c.getCookie("usr").equals("rzadmin")) {
+                if (hasAdminAccess(c)) {
                     //T.appendColumnToEnd("modify", "edit ticket");
                     T.appendColumnToEnd("modify", "<button id=\"submitChangesButton\" onclick=\"tryEditQuery()\">Submit Changes</button>");
 
@@ -315,7 +320,7 @@ public class TicketProcessing extends CRUDHandler {
         }
         System.out.println("checking rights for "+username);
         boolean canDoThis=false;
-        if (username.equalsIgnoreCase("rzadmin")) {
+        if (hasAdminAccess(c)) {
             System.out.println("rights check success!");
             canDoThis=true;
         } else {
@@ -380,7 +385,7 @@ public class TicketProcessing extends CRUDHandler {
 
 
     private void editTicket(HTTP http, ServerConnection c, String uri, String[] fields, String[] values) {
-        if (c.getCookie("usr").equalsIgnoreCase("rzadmin")) {
+        if (hasAdminAccess(c)) {
             String updateQuery = "UPDATE tickets SET ";
             for (int i=0; i<fields.length; i++) {
                 if (fields[i].equals("end"))
@@ -411,7 +416,7 @@ public class TicketProcessing extends CRUDHandler {
                            // T.addFormToRow("id",ticketid);
                             // T.addHrefToColumn("id","tickets");
 
-                            if (c.getCookie("usr").equals("rzadmin")) {
+                            if (hasAdminAccess(c)) {
                                 //  T.appendColumnToEnd("modify", "edit ticket");
                               //  T.appendColumnToEnd("modify", "<button id=\"submitChangesButton\" onclick=\"tryEditQuery()\">Submit Changes</button>");
                                 // T.addHrefToColumn("delete","tickets","id");
@@ -457,7 +462,7 @@ public class TicketProcessing extends CRUDHandler {
                 T.addFormToRow("id",ticketid);
                // T.addHrefToColumn("id","tickets");
 
-                if (c.getCookie("usr").equals("rzadmin")) {
+                if (hasAdminAccess(c)) {
                     //  T.appendColumnToEnd("modify", "edit ticket");
                     T.appendColumnToEnd("modify", "<button id=\"submitChangesButton\" onclick=\"tryEditQuery()\">Submit Changes</button>");
                    // T.addHrefToColumn("delete","tickets","id");
@@ -505,7 +510,7 @@ public class TicketProcessing extends CRUDHandler {
                 HTMLTable T = new HTMLTable(this.response_getFields(),this.response_getValues());
                 T.addBasicBorders();
                 T.addHrefToColumn("id","tickets");
-                if (c.getCookie("usr").equals("rzadmin")) {
+                if (hasAdminAccess(c)) {
                   //  T.appendColumnToEnd("modify", "edit ticket");
                     T.appendColumnToEnd("delete", "REMOVE TICKET");
                     T.addHrefToColumn("delete","tickets","id");

@@ -347,7 +347,7 @@ function render() {
     if (usr!=null && usr!="none") {
         drawTicketPageAsEmployee();
     } else {
-
+     drawTicketPageAsEmployee();
     }
 }
 
